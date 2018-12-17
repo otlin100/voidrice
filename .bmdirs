@@ -9,3 +9,5 @@ cf	~/.config
 sc	~/.scripts
 mn	/mnt
 e	/etc
+w	~/Pictures/wallpapers
+t	~/.trash
