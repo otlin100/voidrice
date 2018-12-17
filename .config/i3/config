@@ -136,8 +136,8 @@ bindsym $mod+Pause		exec --no-startup-id xcqr
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdowncalc|tmuxdd).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdowncalc|tmuxdd).*$"] kill
 
-bindsym $mod+w			exec $term -e nmtui
-bindsym $mod+Shift+w		exec --no-startup-id $BROWSER
+bindsym $mod+w			exec --no-startup-id $BROWSER
+bindsym $mod+Shift+w		exec $term -e nmtui
 
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
@@ -148,9 +148,10 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 
-bindsym $mod+y			exec $term -e calcurse
-bindsym $mod+Shift+y		exec --no-startup-id i3resize left
-
+#otto_start
+bindsym $mod+z			exec $term -e calcurse
+bindsym $mod+Shift+z		exec --no-startup-id i3resize left
+#otto_end
 bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
 bindsym $mod+Shift+u		exec --no-startup-id i3resize down
 
@@ -166,10 +167,12 @@ bindsym $mod+Shift+p		exec --no-startup-id lmc pause
 bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 bindsym $mod+Shift+a		exec $term -e pulsemixer
 
-bindsym $mod+s			gaps inner current plus 5
-bindsym $mod+Shift+s		gaps inner current minus 5
+#otto_start
+bindsym $mod+s			gaps inner current minus 5
+bindsym $mod+Shift+s		gaps outer current minus 5
+#otto_end
 
-bindsym $mod+d			exec --no-startup-id dmenu_run
+bindsym $mod+d			exec --no-startup-id ~/.scripts/mytools/dmen.sh
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
@@ -194,9 +197,10 @@ bindsym $mod+Shift+k		move up 30
 bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
 
-bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z		gaps outer current minus 5
-
+#otto_start
+bindsym $mod+y			gaps inner current plus 5
+bindsym $mod+Shift+y		gaps outer current plus 5
+#otto_end
 bindsym $mod+x			exec --no-startup-id lockscreen
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
@@ -229,7 +233,10 @@ bindsym $mod+XF86Back		workspace prev
 bindsym $mod+Shift+XF86Back	move container to workspace prev
 bindsym $mod+XF86Forward	workspace next
 bindsym $mod+Shift+XF86Forward	move container to workspace next
-bindsym $mod+semicolon		workspace next
+#otto_start
+bindsym $mod+adiaeresis exec --no-startup-id ~/.scripts/remaps
+bindsym $mod+odiaeresis		workspace next
+#otto_end
 bindsym $mod+apostrophe		split horizontal ;; exec $term
 bindsym $mod+slash		split vertical ;; exec $term
 bindsym $mod+Shift+slash	kill
@@ -312,9 +319,16 @@ bindsym $mod+Shift+Right 	move right
 # #---Media Keys---# #
 
 # Volume keys
-bindsym $mod+plus		exec --no-startup-id lmc up 5
+#otto_start
+#bindsym $mod+plus		exec --no-startup-id lmc up 5
+bindsym $mod+plus		exec --no-startup-id sudo bl 5
+#otto_end
+
 bindsym $mod+Shift+plus		exec --no-startup-id lmc up 15
-bindsym $mod+minus 		exec --no-startup-id lmc down 5
+#otto_start
+#bindsym $mod+minus 		exec --no-startup-id lmc down 5
+bindsym $mod+minus 		exec --no-startup-id sudo bl -5
+#otto_end
 bindsym $mod+Shift+minus	exec --no-startup-id lmc down 15
 bindsym $mod+less 		exec --no-startup-id lmc prev
 bindsym $mod+Shift+less		exec --no-startup-id lmc replay
@@ -418,3 +432,4 @@ bindsym XF86Documents		exec $term -e ranger ~/Documents
 ##bindsym XF86Battery		exec
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
+exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png '<b>Welcome to LARBS:</b> Press Super+F1 for the manual.' -t 10000

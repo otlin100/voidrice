@@ -18,4 +18,4 @@
 !! Transparency (0-255):
 *.alpha: 230
 !! Set a default font and font size as below:
-!! *.font: Monospace-14;
+*.font: Monospace-14;

@@ -4,9 +4,27 @@
 "  \ V /| | | | | | | | | (__
 "   \_/ |_|_| |_| |_|_|  \___|
 
+
 let mapleader =" "
 
 call plug#begin('~/.vim/plugged')
+" otto_start
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'Raimondi/delimitMate'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'tpope/vim-commentary'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-airline/vim-airline'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
+Plug 'reedes/vim-textobj-sentence'
+Plug 'saaguero/vim-textobj-pastedtext'
+Plug 'dylanaraps/wal.vim'
+" otto_end
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
@@ -14,9 +32,45 @@ Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 
+" Otto's Additions
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+inoremap <S-Tab> <C-V><Tab>
+set background=dark
+set showcmd
+set list
+set smartcase
+set incsearch
+set tabstop=4
+set shiftwidth=4
+set expandtab
+colorscheme wal
+nmap yp :let @"=@%<CR>
+nmap yd :let @" = expand("%:p:h")<cr>
+nnoremap <leader>y :let @*=@"<cr>
+nnoremap <leader>Y :let @"=@*<cr>
+nmap <leader>e yiW:e <c-r>"<cr>
+nmap <leader>q :q!<cr>
+nnoremap Y y$
+set path+=**
+set wildmenu
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
 " Some basics:
-	set nocompatible
-	filetype plugin on
+set nocompatible
+	filetype plugin indent on
 	syntax on
 	set encoding=utf-8
 	set number relativenumber

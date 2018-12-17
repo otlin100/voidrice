@@ -1,0 +1,15 @@
+ioctl failed for wlan0, errno = 19 (No such device)
+ioctl failed for wlp2s0, errno = 19 (No such device)
+ioctl failed for wlp3s0, errno = 19 (No such device)
+** Message: 22:20:52.699: Remote error from secret service: org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.Secret.Collection” on object at path /org/freedesktop/secrets/collection/login
+** Message: 22:20:52.699: Remote error from secret service: org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.Secret.Collection” on object at path /org/freedesktop/secrets/collection/login
+ioctl failed for wlan0, errno = 19 (No such device)
+ioctl failed for wlp2s0, errno = 19 (No such device)
+ioctl failed for wlp3s0, errno = 19 (No such device)
+** Message: 22:20:55.690: Remote error from secret service: org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.Secret.Collection” on object at path /org/freedesktop/secrets/collection/login
+** Message: 22:20:55.690: Remote error from secret service: org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.Secret.Collection” on object at path /org/freedesktop/secrets/collection/login
+ioctl failed for wlan0, errno = 19 (No such device)
+ioctl failed for wlp2s0, errno = 19 (No such device)
+ioctl failed for wlp3s0, errno = 19 (No such device)
+** Message: 23:10:56.770: Remote error from secret service: org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.Secret.Collection” on object at path /org/freedesktop/secrets/collection/login
+** Message: 23:10:56.770: Remote error from secret service: org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.Secret.Collection” on object at path /org/freedesktop/secrets/collection/login

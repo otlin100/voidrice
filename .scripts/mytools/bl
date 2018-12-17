@@ -1,0 +1,11 @@
+#!/bin/bash
+
+s=$(</sys/class/backlight/intel_backlight/brightness)
+out_bl=$(($s + $1))
+if [ $out_bl -lt 0 ]; then
+    out_bl=0
+fi
+if [ $out_bl -gt 187 ]; then
+    out_bl=187
+fi
+echo "$out_bl" > /sys/class/backlight/intel_backlight/brightness
