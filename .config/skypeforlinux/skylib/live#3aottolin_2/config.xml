@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<config version="1.0" serial="5" timestamp="1544995260.1">
+<config version="1.0" serial="8" timestamp="1545174027.2">
   <Lib>
     <Call>
       <ECSCCache>
@@ -7,55 +7,55 @@
       </ECSCCache>
       <NG>
         <UdpKdLifetime>PBb7yVd+d9cvM4IL+J0bDQ==</UdpKdLifetime>
-        <UdpKdResponseExpiry>XhcpZeEiqjB5XuRmpqoJtQ==</UdpKdResponseExpiry>
-        <UdpKdResponseJson>HBIBPwfQn9z+EioITZPs7GRgdghr9wnoo6gjcmqoJlo0z+aIUSAkdI7a/X7Jtcys7jjFa0lo617ZVK+ZtEEJgBQRZ0dhBjp8v7qlfelbKomJaGj+ljldqW+r1vse9w3wap8yRvf2Lc2SOvZ7Qe/gUw==</UdpKdResponseJson>
+        <UdpKdResponseExpiry>PZBR18qOTwIKQtIqRMdGEA==</UdpKdResponseExpiry>
+        <UdpKdResponseJson>HBIBPwfQn9z+EioITZPs7GRgdghr9wnoo6gjcmqoJlqz/YA10SGDxcJnyQ11bpYEnZVG5mu6G/dp/JD/o9rJykBxuBJRDgmbXiyrrQgbSPUWAOERGe9o5v6i742IL6+/HFM4NVW8SnAp1t/Nct5IxQ==</UdpKdResponseJson>
         <UdpKdUrl>pMUsquhBBxsjQYWMg3RsKJH2x+hv2fMMYHzSCb8jD4g=</UdpKdUrl>
         <VaultType>secure</VaultType>
       </NG>
     </Call>
     <MDN>
       <RelayTokens>
-        <AcquiredTime>1544995259</AcquiredTime>
-        <ExpirationTime>1545600059</ExpirationTime>
+        <AcquiredTime>1545166740</AcquiredTime>
+        <ExpirationTime>1545771540</ExpirationTime>
         <Realms>
           <_.22realm08.22>
-            <token1>AgAAJGcCTaMB1JsF81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAAAR0JpeMittElWbu1k2f5pRxf9U=</token1>
-            <token2>pr+fJWaj2DF/cC3Tj6GSIsmpV3A=</token2>
+            <token1>AgAAJKqBFsgB1JyU81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAA/gFrKIH+kEfJEOsr9uJfN2JKw1Q=</token1>
+            <token2>OiUezF7KCzx5mm4QbEI7iCSM3UI=</token2>
           </_.22realm08.22>
           <_.22realm09.22>
-            <token1>AgAAJGcCTaMB1JsF81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAy8UKKagGYhPlqf/4DC2f/P7k2dE=</token1>
-            <token2>1szBQiospAJbxswlDJqi6twge88=</token2>
+            <token1>AgAAJKqBFsgB1JyU81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAAdF5u0MmfeVuk2Scdd/YrO01jus=</token1>
+            <token2>WioaQELNZul/OC/yv4eOjVFCCE8=</token2>
           </_.22realm09.22>
           <_.22realm10.22>
-            <token1>AgAAJGcCTaMB1JsF81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAgglM7IHvo7d577C0ZKRKFktnEeg=</token1>
-            <token2>uFvc7C+1jfbPC0JaV2eQM80KOVA=</token2>
+            <token1>AgAAJKqBFsgB1JyU81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAHbH2SQFzeW4nUMOfGEZisj19Ynk=</token1>
+            <token2>kgk6ohe0F1VnrsBBan8/KkzUXI8=</token2>
           </_.22realm10.22>
           <_.22realm11.22>
-            <token1>AgAAJGcCTaMB1JsF81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAIJAhOjyHRHtFrzDPOQhoMyuu3AE=</token1>
-            <token2>eFsnGWnj+pIbAlqz989SfH25nw4=</token2>
+            <token1>AgAAJKqBFsgB1JyU81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAasbqvG45kJk8rWiatz9ZyxVsNyU=</token1>
+            <token2>EOA75jx+T3zOhKitsvi7ze2hKDA=</token2>
           </_.22realm11.22>
           <_.22realm12.22>
-            <token1>AgAAJGcCTaMB1JsF81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAALZayaBKxNszTVTNhEZNgA3JY19A=</token1>
-            <token2>2rT2iwgV5eKM4RoD6Mgrt+RKAw4=</token2>
+            <token1>AgAAJKqBFsgB1JyU81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAA6azFwMsArpA4/vUtT+UrUfRXv8g=</token1>
+            <token2>aOpcXbpEpL5o4yo1DSJvT/02Qrs=</token2>
           </_.22realm12.22>
           <_.22realm13.22>
-            <token1>AgAAJGcCTaMB1JsF81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAA73R4un2jjgSaGfrtIecjTPXUhIo=</token1>
-            <token2>HpfGt94HrdKAXmNg89ez1DKXiSE=</token2>
+            <token1>AgAAJKqBFsgB1JyU81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAe0gUox1Kxj+kM/1roRjdk7wf5AI=</token1>
+            <token2>yjiY1lz9XSYqOySy0VncQlv1K1o=</token2>
           </_.22realm13.22>
           <_.22realm14.22>
-            <token1>AgAAJGcCTaMB1JsF81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAy0GxhqzcjYZ2bu4r7c1MccB/kC0=</token1>
-            <token2>MrALXxzXIug/cZwogjR2p3mL/Zs=</token2>
+            <token1>AgAAJKqBFsgB1JyU81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAADr15i91gViAIveXEf3uOzZJ4a5c=</token1>
+            <token2>50pD7ou+X/PuAM8B+Qf0WswNwGM=</token2>
           </_.22realm14.22>
           <_.22rtcmedia.22>
-            <token1>AgAAJGcCTaMB1JsF81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAVWzRdc/yDj7YMemCvLEiS/qIEcs=</token1>
-            <token2>WUUDv47XvR/QktFTXaPY9L+N4oY=</token2>
+            <token1>AgAAJKqBFsgB1JyU81qG68+Ud2qQqrsLViUyo5Oj7s8AAAAAC49sfUXoHY2ke9wgj9G1JjYc9tY=</token1>
+            <token2>+RAwqapdTzfHk0KCVPMcZVkigA8=</token2>
           </_.22rtcmedia.22>
         </Realms>
       </RelayTokens>
       <hmacKey></hmacKey>
     </MDN>
     <Trouter>
-      <ConnectionCache>{&#34;AuthTokenHash&#34;:&#34;ddf7f2010aa89f44089df4d5cfe8205a33c68949a38ff03be3fcd18d22f43fb7&#34;,&#34;ConnectedEvent&#34;:&#34;{\&#34;name\&#34;:\&#34;trouter.connected\&#34;,\&#34;args\&#34;:[{\&#34;ccid\&#34;:\&#34;74dxnOzxUjAv\&#34;,\&#34;healthUrl\&#34;:\&#34;https:\/\/go.trouter.skype.com:443\/v3\/h\&#34;,\&#34;id\&#34;:\&#34;xggrANErLDmg74dxnOzxUjAv\&#34;,\&#34;reconnectUrl\&#34;:\&#34;wss:\/\/168-trouter-neu-b.drip.trouter.skype.com:443\/v3\/c?issuer=prod-2&#38;st=1544994960642&#38;se=1545074179642&#38;sr=A8YIKwDRKyw5oO-HcZzs8VIwL4A0aS-FqaCXwdF_oYb2cYRR_sf0LQaRh_kxOD7OsQPq&#38;sig=a-bkx99DbECeKZ-tJVoi2XClsSZ3LQi0xE0W6sKkFjY\&#34;,\&#34;surl\&#34;:\&#34;https:\/\/trouter-neu-b.trouter.skype.com:3443\/v3\/f\/168-trouter-neu-b.drip.trouter.skype.com\/xggrANErLDmg74dxnOzxUjAv\/\&#34;,\&#34;url\&#34;:\&#34;https:\/\/168-trouter-neu-b.drip.trouter.skype.com:443\/v3\/f\/168-trouter-neu-b.drip.trouter.skype.com\/xggrANErLDmg74dxnOzxUjAv\/\&#34;,\&#34;se\&#34;:\&#34;1545074179642\&#34;,\&#34;ttl\&#34;:78919,\&#34;dur\&#34;:\&#34;3\&#34;}]}&#34;}</ConnectionCache>
+      <ConnectionCache>{&#34;AuthTokenHash&#34;:&#34;5772bdc2d96c13924a44ddf922aeb590f6de7bb9c95c6b9f3ea0282069f9c47a&#34;,&#34;ConnectedEvent&#34;:&#34;{\&#34;name\&#34;:\&#34;trouter.connected\&#34;,\&#34;args\&#34;:[{\&#34;ccid\&#34;:\&#34;mEmD7AYYxKHU\&#34;,\&#34;healthUrl\&#34;:\&#34;https:\/\/go.trouter.skype.com:443\/v3\/h\&#34;,\&#34;id\&#34;:\&#34;DCkAAIS7M7NWvJOllm58hvjI\&#34;,\&#34;reconnectUrl\&#34;:\&#34;wss:\/\/254-trouter-neu-b.drip.trouter.skype.com:443\/v3\/c?issuer=prod-2&#38;st=1545173729438&#38;se=1545254828438&#38;sr=AAwpAACEuzOzVryTpZZufIb4yKoNHo_rqMcQZaoII_HQBFqO7X1wu_FEpmvxJ0KfqLL0&#38;sig=g-V11xdLNyFRytlujHO9llfxjCDElpjQlCPvURsLNDE\&#34;,\&#34;surl\&#34;:\&#34;https:\/\/trouter-neu-b.trouter.skype.com:3443\/v3\/f\/254-trouter-neu-b.drip.trouter.skype.com\/DCkAAIS7M7NWvJOllm58hvjI\/\&#34;,\&#34;url\&#34;:\&#34;https:\/\/254-trouter-neu-b.drip.trouter.skype.com:443\/v3\/f\/254-trouter-neu-b.drip.trouter.skype.com\/DCkAAIS7M7NWvJOllm58hvjI\/\&#34;,\&#34;se\&#34;:\&#34;1545254828438\&#34;,\&#34;ttl\&#34;:80799,\&#34;dur\&#34;:\&#34;3\&#34;}]}&#34;}</ConnectionCache>
     </Trouter>
     <Tx>
       <Ndi>

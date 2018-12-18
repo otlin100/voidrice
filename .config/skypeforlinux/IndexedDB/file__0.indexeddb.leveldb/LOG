@@ -1,3 +1,6 @@
-2018/12/16-22:20:52.522 6050 Reusing MANIFEST /home/otlin/.config/skypeforlinux/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
-2018/12/16-22:20:52.522 6050 Recovering log #3
-2018/12/16-22:20:52.534 6050 Reusing old log /home/otlin/.config/skypeforlinux/IndexedDB/file__0.indexeddb.leveldb/000003.log 
+2018/12/18-21:58:53.706 13587 Reusing MANIFEST /home/otlin/.config/skypeforlinux/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2018/12/18-21:58:53.706 13587 Recovering log #3
+2018/12/18-21:58:53.716 13587 Reusing old log /home/otlin/.config/skypeforlinux/IndexedDB/file__0.indexeddb.leveldb/000003.log 
+2018/12/19-00:46:55.082 5448 Level-0 table #5: started
+2018/12/19-00:46:55.143 5448 Level-0 table #5: 1501600 bytes OK
+2018/12/19-00:46:55.148 5448 Delete type=0 #3

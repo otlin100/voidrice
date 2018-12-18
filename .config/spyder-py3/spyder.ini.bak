@@ -1,5 +1,6 @@
 [main]
 icon_theme = spyder 3
+opengl = software
 single_instance = True
 open_files_port = 21128
 tear_off_menus = False
@@ -15,7 +16,7 @@ panes_locked = True
 window/size = (1260, 740)
 window/position = (10, 10)
 window/is_maximized = True
-window/is_fullscreen = False
+window/is_fullscreen = True
 window/prefs_dialog_size = (745, 411)
 show_status_bar = True
 memory_usage/enable = True
@@ -40,17 +41,56 @@ cursor/width = 2
 completion/size = (300, 180)
 report_error/remember_me = False
 report_error/remember_token = False
-version = 44.0.0
 crash = False
-current_version = 3.3.1
+current_version = 3.3.2
 windows_style = fusion
 historylog_filename = /home/otlin/.config/spyder-py3/history.log
+window/state = '000000ff00000000fd000000010000000000000780000003e8fc0200000001fc0000003a000003e80000013000fffffffc0100000004fb0000001600500072006f006a0065006300740073005f006400770000000000ffffffff0000004600fffffffb000000120045006400690074006f0072005f00640077010000000000000315000000af00fffffffb00000024004f00750074006c0069006e0065004500780070006c006f007200650072005f006400770000000000ffffffff000000bd00fffffffc0000031b000004650000010c00fffffffc0200000002fc0000003a0000015d0000009300080019fa000000040200000008fb00000026005600610072006900610062006c0065004500780070006c006f007200650072005f006400770100000000ffffffff0000007900fffffffb0000001a004f006e006c0069006e006500480065006c0070005f006400770000000000ffffffff0000003300fffffffb00000016004500780070006c006f007200650072005f006400770100000000ffffffff0000007900fffffffb0000001c00460069006e00640049006e00460069006c00650073005f006400770000000000ffffffff0000009200fffffffb0000000e00480065006c0070005f006400770100000000ffffffff000000350007fffffb0000001600500072006f00660069006c00650072005f006400770000000000ffffffff0000009300fffffffb0000001c0042007200650061006b0070006f0069006e00740073005f006400770000000000ffffffff0000005900fffffffb0000001200500079006c0069006e0074005f006400770000000000ffffffff0000009300fffffffc0000019d000002850000009701000019fa000000010200000003fb000000140043006f006e0073006f006c0065005f006400770000000000ffffffff0000005900fffffffb0000002200490050007900740068006f006e0043006f006e0073006f006c0065005f006400770100000000ffffffff0000007d00fffffffb0000001a0048006900730074006f00720079004c006f0067005f006400770100000000ffffffff0000007700ffffff00000000000003e800000004000000040000000800000008fc0000000100000002000000080000001800660069006c0065005f0074006f006f006c0062006100720100000000ffffffff0000000000000000000000180065006400690074005f0074006f006f006c00620061007200000000c2ffffffff00000000000000000000001c007300650061007200630068005f0074006f006f006c0062006100720000000100ffffffff00000000000000000000001c0073006f0075007200630065005f0074006f006f006c006200610072000000013effffffff00000000000000000000001600720075006e005f0074006f006f006c00620061007201000000d6ffffffff00000000000000000000001a00640065006200750067005f0074006f006f006c006200610072010000018bffffffff000000000000000000000018006d00610069006e005f0074006f006f006c0062006100720100000261ffffffff00000000000000000000003200430075007200720065006e007400200077006f0072006b0069006e00670020006400690072006500630074006f0072007901000002fcffffffff0000000000000000'
+spyder_pythonpath = []
+last_visible_toolbars = ['file_toolbar', 'run_toolbar', 'debug_toolbar', 'main_toolbar', 'Current working directory']
+window/statusbar = True
+version = 46.2.0
 
 [quick_layouts]
 place_holder = 
 names = ['Matlab layout', 'Rstudio layout', 'Vertical split', 'Horizontal split']
 order = ['Matlab layout', 'Rstudio layout', 'Vertical split', 'Horizontal split']
 active = ['Matlab layout', 'Rstudio layout', 'Vertical split', 'Horizontal split']
+layout_0/size = (1260, 740)
+layout_0/prefs_dialog_size = (745, 411)
+layout_0/is_maximized = True
+layout_0/is_fullscreen = False
+layout_0/position = (10, 10)
+layout_0/state = None
+layout_0/statusbar = True
+layout_1/size = (1260, 740)
+layout_1/prefs_dialog_size = (745, 411)
+layout_1/is_maximized = True
+layout_1/is_fullscreen = False
+layout_1/position = (10, 10)
+layout_1/state = None
+layout_1/statusbar = True
+layout_2/size = (1260, 740)
+layout_2/prefs_dialog_size = (745, 411)
+layout_2/is_maximized = True
+layout_2/is_fullscreen = False
+layout_2/position = (10, 10)
+layout_2/state = None
+layout_2/statusbar = True
+layout_3/size = (1260, 740)
+layout_3/prefs_dialog_size = (745, 411)
+layout_3/is_maximized = True
+layout_3/is_fullscreen = False
+layout_3/position = (10, 10)
+layout_3/state = None
+layout_3/statusbar = True
+layout_default/size = (1260, 740)
+layout_default/prefs_dialog_size = (745, 411)
+layout_default/is_maximized = True
+layout_default/is_fullscreen = False
+layout_default/position = (10, 10)
+layout_default/state = None
+layout_default/statusbar = True
 
 [internal_console]
 max_line_count = 300
@@ -64,6 +104,7 @@ codecompletion/case_sensitive = True
 external_editor/path = SciTE
 external_editor/gotoline = -goto:
 light_background = True
+first_time = True
 
 [main_interpreter]
 default = True
@@ -71,8 +112,8 @@ custom = False
 umr/enabled = True
 umr/verbose = True
 umr/namelist = []
-custom_list = []
-custom_executable = 
+custom_interpreters_list = []
+custom_interpreter = 
 
 [ipython_console]
 show_banner = True
@@ -100,6 +141,8 @@ symbolic_math = False
 in_prompt = 
 out_prompt = 
 show_elapsed_time = False
+ask_before_restart = True
+first_time = True
 
 [variable_explorer]
 check_all = False
@@ -111,6 +154,7 @@ exclude_capitalized = False
 exclude_unsupported = True
 truncate = True
 minmax = False
+first_time = True
 
 [editor]
 printer_header/font/family = ['Sans Serif', 'DejaVu Sans', 'Bitstream Vera Sans', 'Bitstream Charter', 'Lucida Grande', 'MS Shell Dlg 2', 'Calibri', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', 'Times', 'sans-serif']
@@ -154,14 +198,19 @@ max_recent_files = 20
 save_all_before_run = True
 focus_to_editor = True
 onsave_analysis = False
-splitter_state = None
-recent_files = []
+splitter_state = '000000ff00000001000000010000036b01ffffffff010000000100'
+recent_files = ['/home/otlin/.config/spyder-py3/temp.py']
+first_time = True
+filenames = ['/home/otlin/.config/spyder-py3/temp.py']
+layout_settings = {'hexstate': '000000ff0000000100000001000000af00ffffffff010000000100', 'sizes': [789], 'splitsettings': [(False, '/home/otlin/.config/spyder-py3/temp.py', [1])]}
+windows_layout_settings = []
 
 [historylog]
 enable = True
 max_entries = 100
 wrap = True
 go_to_eof = True
+first_time = False
 
 [help]
 enable = True
@@ -172,18 +221,23 @@ connect/ipython_console = False
 math = True
 automatic_import = True
 rich_mode = True
+first_time = False
 
 [onlinehelp]
 enable = True
 zoom_factor = 0.8
 max_history_entries = 20
+first_time = True
 
 [outline_explorer]
 enable = True
 show_fullpath = False
 show_all_files = False
 show_comments = True
-expanded_state = None
+expanded_state = {-59510444008052179: True}
+first_time = True
+scrollbar_position = (0, 0)
+visibility = False
 
 [project_explorer]
 name_filters = ['README', 'INSTALL', 'LICENSE', 'CHANGELOG', '*.spydata', '*.npy', '*.npz', '*.mat', '*.csv', '*.txt', '*.jpg', '*.png', '*.gif', '*.tif', '*.pkl', '*.pickle', '*.json', '*.py', '*.ipynb', '*.txt', '*.dat', '*.pdf', '*.png', '*.svg']
@@ -192,6 +246,9 @@ show_hscrollbar = True
 visible_if_project_open = True
 recent_projects = []
 current_project_path = None
+first_time = True
+scrollbar_position = (0, 0)
+expanded_state = None
 
 [explorer]
 enable = True
@@ -200,21 +257,22 @@ name_filters = ['README', 'INSTALL', 'LICENSE', 'CHANGELOG', '*.spydata', '*.npy
 show_hidden = True
 show_all = True
 show_icontext = False
+first_time = True
 
 [find_in_files]
 enable = True
 supported_encodings = ['utf-8', 'iso-8859-1', 'cp1252']
-exclude = ['\\.pyc$|\\.pyo$|\\.git']
-exclude_regexp = True
-search_text_regexp = True
+exclude = ['*.csv, *.dat, *.log, *.tmp, *.bak, *.orig']
+exclude_regexp = False
+search_text_regexp = False
 search_text = ['']
 search_text_samples = ['(^|#)[ ]*(TODO|FIXME|XXX|HINT|TIP|@todo|HACK|BUG|OPTIMIZE|!!!|\\?\\?\\?)([^#]*)']
-in_python_path = False
-more_options = False
-case_sensitive = True
+more_options = True
+case_sensitive = False
 search_path = None
 exclude_idx = None
 path_history = []
+first_time = True
 
 [workingdir]
 working_dir_adjusttocontents = False
@@ -521,4 +579,15 @@ solarized/dark/instance = ('#b58900', False, True)
 
 [run]
 breakpoints = {}
+
+[profiler]
+max_entries = 50
+first_time = False
+
+[pylint]
+max_entries = 50
+first_time = False
+
+[breakpoints]
+first_time = False
 
