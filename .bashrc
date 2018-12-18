@@ -29,9 +29,6 @@ ranger() {
 
 alias car="source /opt/anaconda/bin/activate root && unset BROWSER"
 alias jn="nohup jupyter notebook &"
-dmenuwal() {
-    vim -c "argdo source ~/.scripts/mytools/dmenucolor.vim | w" -c "qa" "$@"
-}
 
 # System Maintainence
 alias mw="~/.config/mutt/mutt-wizard.sh"

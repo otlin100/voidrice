@@ -43,12 +43,82 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///tmp/mozilla_otlin0/blatt10.pdf" added="2018-12-16T20:30:55Z" modified="2018-12-16T20:30:55Z" visited="2018-12-16T20:30:55.674427Z">
+  <bookmark href="file:///tmp/mozilla_otlin0/blatt10.pdf" added="2018-12-16T20:30:55Z" modified="2018-12-16T20:30:55Z" visited="2018-12-16T20:30:55Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="application/pdf"/>
         <bookmark:applications>
           <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-16T20:30:55Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/IMSLP175297-PMLP09904-Tchaikovski_Debussy_LacDesCygnes_Pf4h.pdf" added="2018-12-17T17:27:49Z" modified="2018-12-17T17:27:49Z" visited="2018-12-17T17:27:49Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-17T17:27:49Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Tabelle%20Standardnormalverteilung" added="2018-12-18T13:28:08Z" modified="2018-12-18T13:28:08Z" visited="2018-12-18T13:28:08Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-18T13:28:08Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Tabelle%20Binomialverteilung%20n=60" added="2018-12-18T13:28:16Z" modified="2018-12-18T13:28:16Z" visited="2018-12-18T13:28:16Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-18T13:28:16Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Blatt%2010.pdf" added="2018-12-18T13:28:28Z" modified="2018-12-18T13:28:28Z" visited="2018-12-18T13:28:28Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-18T13:28:28Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Kapitel%209%20Grenzwerts%C3%A4tze.pdf" added="2018-12-18T21:16:57Z" modified="2018-12-18T21:16:57Z" visited="2018-12-18T21:16:57Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-18T21:16:57Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Kapitel%209%20Grenzwerts%C3%A4tze-1.pdf" added="2018-12-18T21:17:16Z" modified="2018-12-18T21:17:16Z" visited="2018-12-18T21:17:16Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-18T21:17:16Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Kurzskript%20gesamt.pdf" added="2018-12-18T21:17:44Z" modified="2018-12-18T21:17:44Z" visited="2018-12-18T21:17:44.429320Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-18T21:17:44Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>
