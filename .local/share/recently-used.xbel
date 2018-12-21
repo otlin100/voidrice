@@ -113,12 +113,12 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///tmp/mozilla_otlin0/Kurzskript%20gesamt.pdf" added="2018-12-18T21:17:44Z" modified="2018-12-18T21:17:44Z" visited="2018-12-18T21:17:44Z">
+  <bookmark href="file:///tmp/mozilla_otlin0/Kurzskript%20gesamt.pdf" added="2018-12-18T21:17:44Z" modified="2018-12-21T19:35:36Z" visited="2018-12-18T21:17:44Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="application/pdf"/>
         <bookmark:applications>
-          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-18T21:17:44Z" count="1"/>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T19:35:36Z" count="2"/>
         </bookmark:applications>
       </metadata>
     </info>
@@ -273,12 +273,102 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///tmp/mozilla_otlin0/ueb10-1.pdf" added="2018-12-21T14:15:35Z" modified="2018-12-21T14:15:35Z" visited="2018-12-21T14:15:35.629641Z">
+  <bookmark href="file:///tmp/mozilla_otlin0/ueb10-1.pdf" added="2018-12-21T14:15:35Z" modified="2018-12-21T14:15:35Z" visited="2018-12-21T14:15:35Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="application/pdf"/>
         <bookmark:applications>
           <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T14:15:35Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Neues%20Dokument%202018-12-21%2014.30.51.pdf" added="2018-12-21T17:44:33Z" modified="2018-12-21T17:44:33Z" visited="2018-12-21T17:44:33Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T17:44:33Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Blatt%209.pdf" added="2018-12-21T18:37:33Z" modified="2018-12-21T18:37:33Z" visited="2018-12-21T18:37:33Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T18:37:33Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/Kapitel%2010%20Sch%C3%A4tzung%20von%20Parametern.pdf" added="2018-12-21T19:35:05Z" modified="2018-12-21T19:35:05Z" visited="2018-12-21T19:35:05Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T19:35:05Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/otlin/Downloads/HHU%20Mediathek(1).mp4" added="2018-12-21T20:37:50Z" modified="2018-12-21T21:35:37Z" visited="2018-12-21T20:37:50Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="video/mp4"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T21:35:37Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/otlin/Downloads/HHU%20Mediathek.mp4" added="2018-12-21T20:37:55Z" modified="2018-12-21T21:34:58Z" visited="2018-12-21T20:37:56Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="video/mp4"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T21:34:58Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/otlin/Downloads/cv_7.zip" added="2018-12-21T21:17:01Z" modified="2018-12-21T21:17:01Z" visited="2018-12-21T21:17:01Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T21:17:01Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///tmp/mozilla_otlin0/cv-us.pdf" added="2018-12-21T21:22:01Z" modified="2018-12-21T21:22:01Z" visited="2018-12-21T21:22:01Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T21:22:01Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/otlin/Downloads/HHU%20Mediathek(2).mp4" added="2018-12-21T21:36:07Z" modified="2018-12-21T21:36:07Z" visited="2018-12-21T21:36:07Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="video/mp4"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T21:36:07Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/otlin/Downloads/HHU%20Mediathek(3).mp4" added="2018-12-21T21:36:08Z" modified="2018-12-21T21:36:08Z" visited="2018-12-21T21:36:08.708095Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="video/mp4"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2018-12-21T21:36:08Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>
