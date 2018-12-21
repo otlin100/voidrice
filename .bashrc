@@ -33,7 +33,12 @@ ranger() {
 
 alias car="source /opt/anaconda/bin/activate root && unset BROWSER"
 alias jn="nohup jupyter notebook &"
+
+# Git aliases
 alias gpt="git_prompt_toggle"
+alias gpom="git push origin master"
+alias gpo="git pull origin"
+alias ga="git add -u"
 
 # System Maintainence
 alias mw="~/.config/mutt/mutt-wizard.sh"
