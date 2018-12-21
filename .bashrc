@@ -19,6 +19,10 @@ export GPG_TTY=$(tty)
 
 #Otto's Additions
 
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
+git_prompt_toggle
+
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
         /usr/bin/ranger "$@"
@@ -29,6 +33,7 @@ ranger() {
 
 alias car="source /opt/anaconda/bin/activate root && unset BROWSER"
 alias jn="nohup jupyter notebook &"
+alias gpt="git_prompt_toggle"
 
 # System Maintainence
 alias mw="~/.config/mutt/mutt-wizard.sh"
