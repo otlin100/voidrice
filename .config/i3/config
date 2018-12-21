@@ -234,7 +234,7 @@ bindsym $mod+Shift+XF86Back	move container to workspace prev
 bindsym $mod+XF86Forward	workspace next
 bindsym $mod+Shift+XF86Forward	move container to workspace next
 #otto_start
-bindsym $mod+adiaeresis exec --no-startup-id ~/.scripts/remaps
+bindsym $mod+adiaeresis exec --no-startup-id remaps
 bindsym $mod+odiaeresis		workspace next
 #otto_end
 bindsym $mod+apostrophe		split horizontal ;; exec $term
