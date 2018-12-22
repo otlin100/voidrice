@@ -28,6 +28,7 @@ Plug 'saaguero/vim-textobj-pastedtext'
 Plug 'dylanaraps/wal.vim'
 Plug 'vim-scripts/mru.vim'
 Plug 'terryma/vim-expand-region'
+Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 " otto_end
 Plug 'junegunn/goyo.vim'
