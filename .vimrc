@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
@@ -25,6 +26,9 @@ Plug 'kana/vim-textobj-line'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'saaguero/vim-textobj-pastedtext'
 Plug 'dylanaraps/wal.vim'
+Plug 'vim-scripts/mru.vim'
+Plug 'terryma/vim-expand-region'
+Plug 'ryanoasis/vim-devicons'
 " otto_end
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -34,7 +38,7 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " Otto's Additions
-
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -45,6 +49,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 inoremap <S-Tab> <C-V><Tab>
+
 set background=dark
 set showcmd
 set list
@@ -56,13 +61,23 @@ set expandtab
 colorscheme wal
 nmap yp :let @"=@%<CR>
 nmap yd :let @" = expand("%:p:h")<cr>
-nnoremap <leader>y :let @*=@"<cr>
-nnoremap <leader>Y :let @"=@*<cr>
+nnoremap <leader>y :let @+=@"<cr>
+nnoremap <leader>Y :let @"=@+<cr>
+
+map + <Plug>(expand_region_expand)
+map - <Plug>(expand_region_shrink)
+
 nmap <leader>e yiW:e <c-r>"<cr>
-nmap <leader>q :q!<cr>
+
+"wipe current buffer and quit if it is the last buffer
+nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bw!<cr>'
+
+nmap <leader>v :vsp $MYVIMRC<cr>
+
 nnoremap Y y$
 set path+=**
 set wildmenu
+
 :augroup numbertoggle
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
@@ -83,6 +98,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Goyo plugin makes text more readable when writing prose:
 map <leader>f :Goyo \| set linebreak<CR>
 
+" MRU Plugin
+map <leader>l :MRU<cr>
+
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 
@@ -96,7 +114,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Check file in shellcheck:
-map <leader>s :!clear && shellcheck %<CR>
+" map <leader>s :!clear && shellcheck %<CR>
+nnoremap <leader>s :so %<cr>
 
 " Open my bibliography file in split
 map <leader>b :vsp<space>$BIB<CR>
@@ -128,8 +147,8 @@ autocmd BufRead,BufNewFile *.md set tw=79
 :noremap ,, !urlscan -r 'linkhandler {}'<CR>
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
-" vnoremap <C-c> "+y
-" map <C-p> "+P
+vnoremap <C-c> "+y
+map <C-p> "+P
 
 " Enable Goyo by default for mutt writting
 " Goyo's width will be the line limit in mutt.
@@ -142,8 +161,9 @@ autocmd BufWritePre * %s/\s\+$//e
 " When shortcut files are updated, renew bash and ranger configs with new material:
 autocmd BufWritePost ~/.bm* !shortcuts
 
-" Run xrdb whenever Xdefaults or Xresources are updated.
+" Run xrdb and wal whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
+autocmd BufWritePost ~/.Xresources,~/.Xdefaults !wal -i ~/.config/wall.png
 
 " Navigating with guides
 inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l

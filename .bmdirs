@@ -11,3 +11,4 @@ mn	/mnt
 e	/etc
 w	~/Pictures/wallpapers
 t	~/.trash
+f  ~/.local/share/fonts

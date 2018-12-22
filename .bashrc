@@ -39,6 +39,7 @@ alias gpt="git_prompt_toggle"
 alias gpom="git push origin master"
 alias gpo="git pull origin"
 alias ga="git add -u"
+alias gc="git commit -m"
 
 # System Maintainence
 alias mw="~/.config/mutt/mutt-wizard.sh"
