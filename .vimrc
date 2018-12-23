@@ -26,8 +26,10 @@ Plug 'kana/vim-textobj-line'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'saaguero/vim-textobj-pastedtext'
 Plug 'dylanaraps/wal.vim'
+Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'vim-scripts/mru.vim'
 Plug 'terryma/vim-expand-region'
+Plug 'ervandew/supertab'
 Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 " otto_end
@@ -51,14 +53,37 @@ let g:syntastic_check_on_wq = 0
 
 inoremap <S-Tab> <C-V><Tab>
 
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 set background=dark
 set showcmd
 set list
 set smartcase
+set showmatch
+set mat=2
 set incsearch
+set hlsearch
+set lazyredraw
+set magic
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set history=500
+set autoread
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines"
+set so=7
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command! W w !sudo tee % > /dev/null
+
+set nobackup
+set nowb
+set noswapfile
+
 colorscheme wal
 nmap yp :let @"=@%<CR>
 nmap yd :let @" = expand("%:p:h")<cr>
@@ -68,6 +93,9 @@ nnoremap <leader>Y :let @"=@+<cr>
 map + <Plug>(expand_region_expand)
 map - <Plug>(expand_region_shrink)
 
+nmap <leader>j <Plug>yankstack_substitute_older_paste
+nmap <leader>k <Plug>yankstack_substitute_newer_paste
+
 nmap <leader>e yiW:e <c-r>"<cr>
 
 "wipe current buffer and quit if it is the last buffer
@@ -76,8 +104,25 @@ nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bw
 nmap <leader>v :vsp $MYVIMRC<cr>
 
 nnoremap Y y$
+
+set ignorecase
 set path+=**
+
 set wildmenu
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=.git\*,.hg\*,.svn\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+
+set ruler
+set hid
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
 :augroup numbertoggle
 :  autocmd!
@@ -85,14 +130,24 @@ set wildmenu
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
+
 " Some basics:
 set nocompatible
 filetype plugin indent on
 syntax on
 set encoding=utf-8
 set number relativenumber
+
 " Enable autocompletion:
 set wildmode=longest,list,full
+
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -100,7 +155,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 map <leader>f :Goyo \| set linebreak<CR>
 
 " MRU Plugin
-map <leader>l :MRU<cr>
+map <leader>m :MRU<cr>
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
