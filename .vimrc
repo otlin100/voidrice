@@ -16,7 +16,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
@@ -45,7 +45,7 @@ autocmd VimLeave * call system("xsel -ib", getreg('+'))
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
+set diffopt+=vertical
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
