@@ -170,6 +170,9 @@ bindsym $mod+Shift+a		exec $term -e pulsemixer
 #otto_start
 bindsym $mod+s			gaps inner current minus 5
 bindsym $mod+Shift+s		gaps outer current minus 5
+
+# toggle ambient noise
+bindsym $mod+period exec --no-startup-id anoise_toggle
 #otto_end
 
 bindsym $mod+d			exec --no-startup-id ~/.scripts/mytools/dmen.sh
