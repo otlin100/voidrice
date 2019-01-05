@@ -1,4 +1,5 @@
 #!/bin/sh
+. "${HOME}/.cache/wal/colors.sh"
 
 # If transmission-daemon is running, will ask to kill, else will ask to start.
 
@@ -6,10 +7,10 @@
 
 if  pgrep -x transmission-da >/dev/null ;
 then
-	yn=$(printf "No\\nYes" | dmenu -i -p "Kill transmission-daemon?")
+	yn=$(printf "No\\nYes" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -i -p "Kill transmission-daemon?")
 	[ "$yn" = "Yes" ] && killall transmission-da
 else
-	yn=$(printf "No\\nYes" | dmenu -i -p "Start transmission daemon?")
+	yn=$(printf "No\\nYes" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -i -p "Start transmission daemon?")
 	[ "$yn" = "Yes" ] && transmission-daemon
 fi
 sleep 3 && pkill -RTMIN+7 i3blocks

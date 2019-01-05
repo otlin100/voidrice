@@ -1,9 +1,8 @@
 #!/bin/sh
-# A dmenu binary prompt script.
-# Gives a dmenu prompt labeled with $1 to perform command $2.
+. "${HOME}/.cache/wal/colors.sh"
+# A dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" binary prompt script.
+# Gives a dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" prompt labeled with $1 to perform command $2.
 # For example:
 # `./prompt "Do you want to shutdown?" "shutdown -h now"`
 
-. "${HOME}/.cache/wal/colors.sh"
-
-[ "$(printf "No\\nYes" | dmenu -i -p "$1" -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15")" = "Yes" ] && $2
+[ "$(printf "No\\nYes" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -i -p "$1"     = "Yes" ] && $2

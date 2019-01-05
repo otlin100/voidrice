@@ -218,8 +218,9 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost ~/.bm* !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
-autocmd BufWritePost ~/.Xresources,~/.Xdefaults !wal -i ~/.config/wall.png
+autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png
+" autocmd BufWritePost ~/.Xresources,~/.Xdefaults
+" autocmd BufWritePost ~/.Xresources,~/.Xdefaults
 
 " Navigating with guides
 inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l

@@ -1,12 +1,13 @@
 #!/bin/sh
-# Give dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" list of all unicode characters to copy.
+. "${HOME}/.cache/wal/colors.sh"
+# Give dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"     list of all unicode characters to copy.
 # Shows the selected character in dunst if running.
 
 # Must have xclip installed to even show menu.
-. "${HOME}/.cache/wal/colors.sh"
+
 xclip -h >/dev/null || exit
 
-chosen=$(grep -v "#" ~/.emoji | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -i -l 20 -fn Monospace-18)
+chosen=$(grep -v "#" ~/.emoji | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"     -i -l 20 -fn Monospace-18)
 
 [ "$chosen" != "" ] || exit
 
