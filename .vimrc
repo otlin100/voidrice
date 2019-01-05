@@ -27,6 +27,7 @@ Plug 'reedes/vim-textobj-sentence'
 Plug 'saaguero/vim-textobj-pastedtext'
 Plug 'dylanaraps/wal.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'SirVer/ultisnips'
 Plug 'vim-scripts/mru.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'ervandew/supertab'
@@ -100,6 +101,8 @@ nmap <leader>e yiW:e <c-r>"<cr>
 
 "wipe current buffer and quit if it is the last buffer
 nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bw!<cr>'
+
+nnoremap gl `[i<Space><Esc>``l
 
 " " Select mode
 " nnoremap § *``gn<C-g>
