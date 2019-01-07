@@ -23,7 +23,7 @@ ranger() {
 }
 
 alias car="source /opt/anaconda/bin/activate root && unset BROWSER"
-alias jn="nohup jupyter notebook &"
+alias jn="nohup jupyter notebook 2>dev/null 1>dev/null &"
 
 # Git aliases
 alias gpt="git_prompt_toggle"
@@ -76,3 +76,4 @@ source /home/otlin/.shortcuts
 se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
+. /opt/anaconda/etc/profile.d/conda.sh

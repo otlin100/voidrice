@@ -1,0 +1,9 @@
+snippet sn "The Snippet Snippet"
+snippet ${1:Trigger} "${2:Description}" ${3:Options}
+${0}
+`echo endsnippet`
+endsnippet
+
+snippet "\d" "Tabstops" r
+\$\{`!p snip.rv = match.group()`:${1:default}}
+endsnippet

@@ -27,9 +27,10 @@ Plug 'reedes/vim-textobj-sentence'
 Plug 'saaguero/vim-textobj-pastedtext'
 Plug 'dylanaraps/wal.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'SirVer/ultisnips'
 Plug 'vim-scripts/mru.vim'
 Plug 'terryma/vim-expand-region'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 " otto_end
@@ -71,9 +72,9 @@ set shiftwidth=4
 set expandtab
 set history=500
 set autoread
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines"
+set ai
+set si
+set wrap
 set so=7
 
 " :W sudo saves the file
@@ -101,12 +102,27 @@ nmap <leader>e yiW:e <c-r>"<cr>
 "wipe current buffer and quit if it is the last buffer
 nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bw!<cr>'
 
+nnoremap gl `[i<Space><Esc>``l
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsSnippetsDir = "~/.vim/mysnippets"
+let g:UltiSnipsSnippetDirectories=["mysnippets"]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" vertically split ultisnips edit window
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsUsePythonVersion = 3
+
+nmap <leader>ue :UltiSnipsEdit<cr>
+
 " " Select mode
 " nnoremap § *``gn<C-g>
 " inoremap § <C-o>gn<C-g>
 " snoremap <expr> . @.
 
-nmap <leader>v :vsp $MYVIMRC<cr>
+nmap <leader>v :e $MYVIMRC<cr>
 
 nnoremap Y y$
 
@@ -169,18 +185,19 @@ map <leader>o :setlocal spell! spelllang=en_us<CR>
 set splitbelow splitright
 
 " Shortcutting split navigation, saving a keypress:
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+set wmh=0
 
 " Check file in shellcheck:
 " map <leader>s :!clear && shellcheck %<CR>
 nnoremap <leader>s :so %<cr>
 
 " Open my bibliography file in split
-map <leader>b :vsp<space>$BIB<CR>
-map <leader>r :vsp<space>$REFER<CR>
+map <leader>b :e<space>$BIB<CR>
+map <leader>r :e<space>$REFER<CR>
 
 " Replace all is aliased to S.
 nnoremap <leader>S :%s//g<Left><Left>
@@ -204,7 +221,7 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd BufRead,BufNewFile *.md set tw=79
 
 " Use urlscan to choose and open a url:
-:noremap <leader>u :w<Home> !urlscan -r 'linkhandler {}'<CR>
+" :noremap <leader>u :w<Home> !urlscan -r 'linkhandler {}'<CR>
 :noremap ,, !urlscan -r 'linkhandler {}'<CR>
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
@@ -225,10 +242,10 @@ autocmd BufWritePost ~/.bm* !shortcuts
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png
 
-" Navigating with guides
-inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-map <Space><Tab> <Esc>/<++><Enter>"_c4l
+" " Navigating with guides
+" inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+" vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+" map <Space><Tab> <Esc>/<++><Enter>"_c4l
 
 "____        _                  _
 "/ ___| _ __ (_)_ __  _ __   ___| |_ ___
