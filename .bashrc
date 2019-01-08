@@ -23,7 +23,7 @@ ranger() {
 }
 
 alias car="source /opt/anaconda/bin/activate root && unset BROWSER"
-alias jn="nohup jupyter notebook 2>dev/null 1>dev/null &"
+alias jn="nohup jupyter notebook 2>/dev/null 1>/dev/null &"
 
 # Git aliases
 alias gpt="git_prompt_toggle"
