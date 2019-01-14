@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if xwininfo -tree -root | grep "(\"$1\" ";
+then
+    echo "Window detected."
+    i3 "[instance=\"$1\"] scratchpad show; [instance=\"$1\"] move position center"
+else
+    echo "Window not detected... spawning."
+    i3 "exec --no-startup-id $1"
+fi

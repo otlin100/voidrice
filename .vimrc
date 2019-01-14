@@ -9,6 +9,7 @@ let mapleader =" "
 
 call plug#begin('~/.vim/plugged')
 " otto_start
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -128,6 +129,8 @@ nnoremap Y y$
 
 set ignorecase
 set path+=**
+set path+=~/.config/**
+set path+=~/.scripts/**
 
 set wildmenu
 " Ignore compiled files
