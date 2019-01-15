@@ -1,5 +1,5 @@
-alias \
-h="cd ~/ && ls -a" \
+# vim: filetype=sh
+alias h="cd ~/ && ls -a" \
 d="cd ~/Documents && ls -a" \
 D="cd ~/Downloads && ls -a" \
 m="cd ~/Music && ls -a" \
