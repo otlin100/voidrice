@@ -7,6 +7,7 @@
 let mapleader =" "
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -37,22 +38,19 @@ Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 
-" Otto's Additions
+let g:deoplete#enable_at_startup = 1
+
+" dont't clear clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set diffopt+=vertical
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+
+"no timeoutlen in insert mode
 :autocmd InsertEnter * set timeoutlen=0
 :autocmd InsertLeave * set timeoutlen=1000
 
+" if you actually need tabs
 inoremap <S-Tab> <C-V><Tab>
 
-" Return to last edit position when opening files (You want this!)
+" Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 set background=dark
@@ -76,7 +74,6 @@ set wrap
 set so=7
 
 " :W sudo saves the file
-" (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
 
 set nobackup
@@ -84,8 +81,12 @@ set nowb
 set noswapfile
 
 colorscheme wal
+
+" yank path/dir
 nmap yp :let @"=@%<CR>
 nmap yd :let @" = expand("%:p:h")<cr>
+
+" clipboard to reg and vice versa
 nnoremap <leader>y :let @+=@"<cr>
 nnoremap <leader>Y :let @"=@+<cr>
 
@@ -95,11 +96,13 @@ map - <Plug>(expand_region_shrink)
 nmap <leader>j <Plug>yankstack_substitute_older_paste
 nmap <leader>k <Plug>yankstack_substitute_newer_paste
 
+" search whole words
 nmap <leader>/ /\<\><left><left>
 
 "wipe current buffer and quit if it is the last buffer
 nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bw!<cr>'
 
+" add spaces after pasting in normal mode
 nnoremap gl `[i<Space><Esc>``l
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -110,14 +113,13 @@ let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " vertically split ultisnips edit window
-let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsUsePythonVersion = 3
 
 nmap <leader>ue :UltiSnipsEdit<cr>
 
 nmap <leader>v :e $MYVIMRC<cr>
 
-nnoremap Y y$
+nnoremap Y y
 
 set ignorecase
 set path+=**
@@ -159,7 +161,7 @@ set nocompatible
 filetype plugin on
 syntax on
 set encoding=utf-8
-set number relativenumber
+
 " Enable autocompletion:
 set wildmode=longest,list,full
 
