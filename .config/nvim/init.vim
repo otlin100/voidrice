@@ -95,7 +95,7 @@ map - <Plug>(expand_region_shrink)
 nmap <leader>j <Plug>yankstack_substitute_older_paste
 nmap <leader>k <Plug>yankstack_substitute_newer_paste
 
-nmap <leader>e yiW:e <c-r>"<cr>
+nmap <leader>/ /\<\><left><left>
 
 "wipe current buffer and quit if it is the last buffer
 nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bw!<cr>'
