@@ -26,7 +26,7 @@ alias car="source /opt/anaconda/bin/activate root && unset BROWSER"
 alias jn="nohup jupyter notebook 2>/dev/null 1>/dev/null &"
 
 # Git aliases
-alias gpt="git_prompt_toggle"
+alias gpt="git_prompt_toggle; git status"
 alias gpom="git push origin master"
 alias gpo="git pull origin"
 alias ga="git add -u"
