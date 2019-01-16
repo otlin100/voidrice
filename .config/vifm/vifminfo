@@ -1,10 +1,14 @@
 # You can edit this file by hand, but it's recommended not to do that.
 
 # Marks:
+'a
+	/home/otlin/Reading
+	2017_Book_LehrbuchDerAlgebra.pdf
+1547604534
 'k
 	/home/otlin
-	sounds
-1547603441
+	Reading
+1547604555
 't
 	/home/otlin
 	sounds
@@ -14,7 +18,7 @@
 
 # TUI:
 al
-q0
+q1
 v2
 ov
 m-1
@@ -22,53 +26,59 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/otlin/Documents
-	..
-0
 d/home/otlin
-	Reading
-4
+	Downloads
+2
+d/home/otlin/Downloads
+	QRZerlegung.pdf
+12
+d/home/otlin
+	Downloads
+2
 d/home
 	otlin
 1
-d/
-	home
-4
-d/home
-	otlin
-1
+d/home/otlin
+	Downloads
+2
+d/home/otlin/Downloads
+	A7D_AlphaFold.pdf
+3
 d/home/otlin
 	Documents
 1
 d/home/otlin/Documents
-	Info
+	LaTeX
+3
+d/home/otlin
+	Downloads
 2
-d/home/otlin/Documents/Info
-	S1
-1
-d/home/otlin/Documents
-	Bewerbungen
-1
-d/home/otlin/Documents/Bewerbungen
-	..
-0
-d/home/otlin/Documents
-	Bewerbungen
-1
+d/home/otlin/Downloads
+	A7D_AlphaFold.pdf
+3
 d/home/otlin
-	Reading
-4
-d/home/otlin/Reading
+	Downloads
+2
+d/home/otlin/Downloads
 	..
 0
 d/home/otlin
-	testing
-6
-d/home/otlin/testing
-	test.html
-6
+	Pictures
+3
+d/home/otlin/Pictures
+	wallpapers
+1
+d/home/otlin/Pictures/wallpapers
+	flowers.jpg
+19
 
 # Right window history (oldest to newest):
+D/home/otlin
+	..
+0
+D/home/otlin/Pictures/wallpapers
+	..
+0
 D/home/otlin
 	..
 0
@@ -88,16 +98,25 @@ D/home/otlin/.trash
 	..
 0
 D/home/otlin
-	Reading
-4
+	..
+0
 
 # Command line history (oldest to newest):
-:sh
+:filter=Rea
+:filter Rea
+:filter test
+:help
 :mkdir LaTeX
 :vs
-:h
 :!$EDITOR
 :!$EDITOR 
+:d *.jpg
+:select *.jpg
+:h
+:lstrash
+:trashes
+:sh
+:view
 
 # Search history (oldest to newest):
 
@@ -109,7 +128,7 @@ p.st
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/otlin/.local/share/vifm/Trash/000_PyTorch Basics.ipynb
+""/home/otlin/.local/share/vifm/Trash/000_LICENSE
 
 # Directory stack (oldest to newest):
 
@@ -118,9 +137,9 @@ t/home/otlin/.local/share/vifm/Trash/000_teste.pdf
 	/home/otlin/testing/teste.pdf
 t/home/otlin/.local/share/vifm/Trash/000_eduroam-linux-Heinrich-Heine-Universitat_Dusseldorf.sh
 	/home/otlin/Downloads/eduroam-linux-Heinrich-Heine-Universitat_Dusseldorf.sh
-t/home/otlin/.local/share/vifm/Trash/000_Android
-	/home/otlin/Android
 t/home/otlin/.local/share/vifm/Trash/000_LaTeX
 	/home/otlin/Documents/LaTeX
 t/home/otlin/.local/share/vifm/Trash/000_PyTorch Basics.ipynb
 	/home/otlin/PyTorch Basics.ipynb
+t/home/otlin/.local/share/vifm/Trash/000_Android
+	/home/otlin/Android

@@ -15,6 +15,7 @@ nnoremap o :file &<cr>l
 map V :!$EDITOR<space>
 map mkd :mkdir<space>
 map bg :!setbg %f &<CR>
+nmap S :select<space>
 
 nmap <space> tj
 nmap q ZQ
@@ -27,6 +28,8 @@ set nofollowlinks
 " Natural sort of (version) numbers within text.
 
 set sortnumbers
+
+set cf=permdelete
 
 " Maximum number of changes that can be undone.
 
