@@ -2,13 +2,10 @@
 h	~/
 d	~/Documents
 D	~/Downloads
-m	~/Music
 pp	~/Pictures
-vv	~/Videos
 cf	~/.config
 sc	~/.scripts
-mn	/mnt
 e	/etc
 w	~/Pictures/wallpapers
 t	~/.trash
-f  ~/.local/share/fonts
+fo  ~/.local/share/fonts

@@ -5,13 +5,14 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map <C-o> <C-w>o
+map <C-q> <C-w>o
 map <C-s> <C-w>s
 map <C-v> <C-w>v
 
 map x :!sxiv -ft * 2>/dev/null &<CR>
 nnoremap o :file &<cr>l
-map E :!$EDITOR %f<CR>
+" map E :!$EDITOR %f<CR>
+map V :!$EDITOR<space>
 map mkd :mkdir<space>
 map bg :!setbg %f &<CR>
 
@@ -34,6 +35,7 @@ set undolevels=100
 colorscheme Default
 
 set wildmenu
+set tm=700
 
 " Display completions in a form of popup with descriptions of the matches
 
@@ -133,14 +135,14 @@ vnoremap w :view<cr>gv
 nnoremap yd :!echo %d | xclip %i<cr>
 
 " Yank current file path into the clipboard
-nnoremap yf :!echo %c:p | xclip %i<cr>
+nnoremap yp :!echo %c:p | xclip %i<cr>
 
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
-nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
+nnoremap ,v :write | edit $MYVIFMRC | restart<cr>
 
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
