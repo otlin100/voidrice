@@ -1,6 +1,9 @@
 " vim: filetype=vim
 source ~/.vifmshortcuts
 
+set vicmd="nvim"
+set vixcmd="nvim"
+
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k

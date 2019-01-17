@@ -36,9 +36,25 @@ Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
 Plug 'LukeSmithxyz/vimling'
+Plug 'mileszs/ack.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" CtrlP settings
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:airline_extensions = ['branch', 'fugitiveline', 'keymap', 'netrw', 'po', 'quickfix', 'term', 'vimagit', 'whitespace']
+
+nnoremap <leader>a :Ack!<space>-t<space><space>$HOME<left><left><left><left><left><left>
 
 " dont't clear clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
@@ -53,6 +69,8 @@ inoremap <S-Tab> <C-V><Tab>
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+set foldenable
+set nocursorline
 set background=dark
 set showcmd
 set list
@@ -63,15 +81,16 @@ set incsearch
 set hlsearch
 set lazyredraw
 set magic
-set tabstop=4
 set shiftwidth=4
+set tabstop=4
 set expandtab
 set history=500
 set autoread
-set ai
-set si
+set autoindent
+set smartindent
 set wrap
 set so=7
+set viminfo=!,'100,<50,s10,h,f1
 
 " :W sudo saves the file
 command! W w !sudo tee % > /dev/null
@@ -100,7 +119,7 @@ nmap <leader>k <Plug>yankstack_substitute_newer_paste
 nmap <leader>/ /\<\><left><left>
 
 "wipe current buffer and quit if it is the last buffer
-nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bw!<cr>'
+nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bp<bar>bd!#<cr>'
 
 " add spaces after pasting in normal mode
 nnoremap gl `[i<Space><Esc>``l
@@ -119,7 +138,7 @@ nmap <leader>ue :UltiSnipsEdit<cr>
 
 nmap <leader>v :e $MYVIMRC<cr>
 
-nnoremap Y y
+map Y y$
 
 set ignorecase
 set path+=**
@@ -191,7 +210,7 @@ set wmh=0
 
 " Check file in shellcheck:
 " map <leader>s :!clear && shellcheck %<CR>
-nnoremap <leader>s :so %<cr>
+nnoremap <leader>s :w<cr>:so %<cr>
 
 " Open my bibliography file in split
 map <leader>b :e<space>$BIB<CR>
@@ -221,9 +240,6 @@ autocmd BufRead,BufNewFile *.md set tw=79
 " Use urlscan to choose and open a url:
 " :noremap <leader>u :w<Home> !urlscan -r 'linkhandler {}'<CR>
 :noremap ,, !urlscan -r 'linkhandler {}'<CR>
-
-" Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
-map <C-p> "+P
 
 " Enable Goyo by default for mutt writting
 " Goyo's width will be the line limit in mutt.
