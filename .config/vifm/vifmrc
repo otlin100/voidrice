@@ -97,7 +97,7 @@ filetype *.o nm %f | less
 filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm  rotdir %f 2>/dev/null | sxiv -ia 2>/dev/null &
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm sxiv -ifa 2>/dev/null &
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm file %f
 filextype *.svg inkscape %f 2>/dev/null &
 filextype *.xcf gimp %f 2>/dev/null &

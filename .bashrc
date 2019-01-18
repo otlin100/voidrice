@@ -71,9 +71,16 @@ alias yt="youtube-dl --add-metadata -i" # Download video link
 alias yta="yt -x -f bestaudio/best" # Download only audio
 alias YT="youtube-viewer"
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+bind -x '"\C-p": $EDITOR $(fzf);'
+
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 source /home/otlin/.shortcuts
 se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 . /opt/anaconda/etc/profile.d/conda.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -29,7 +29,6 @@ Plug 'dylanaraps/wal.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'SirVer/ultisnips'
 Plug 'vim-scripts/mru.vim'
-Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
@@ -37,8 +36,9 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
 Plug 'LukeSmithxyz/vimling'
 Plug 'mileszs/ack.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -47,17 +47,31 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" CtrlP settings
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-let g:airline_extensions = ['branch', 'fugitiveline', 'keymap', 'netrw', 'po', 'quickfix', 'term', 'vimagit', 'whitespace']
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
 
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+" using ag
 nnoremap <leader>a :Ack!<space>-t<space><space>$HOME<left><left><left><left><left><left>
+nnoremap <leader><leader>a :F<cr>
 
 " dont't clear clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+map <silent> <leader><cr> :noh<cr>
+
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 "no timeoutlen in insert mode
 :autocmd InsertEnter * set timeoutlen=0
@@ -68,6 +82,12 @@ inoremap <S-Tab> <C-V><Tab>
 
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Some basics:
+set nocompatible
+filetype plugin on
+syntax on
+set encoding=utf-8
 
 set foldenable
 set nocursorline
@@ -109,17 +129,58 @@ nmap yd :let @" = expand("%:p:h")<cr>
 nnoremap <leader>y :let @+=@"<cr>
 nnoremap <leader>Y :let @"=@+<cr>
 
-map + <Plug>(expand_region_expand)
-map - <Plug>(expand_region_shrink)
-
 nmap <leader>j <Plug>yankstack_substitute_older_paste
 nmap <leader>k <Plug>yankstack_substitute_newer_paste
 
-" search whole words
-nmap <leader>/ /\<\><left><left>
+" fzf lines
+nmap <leader>/ :Lines<cr>
+nmap <leader>e :Files<cr>
 
-"wipe current buffer and quit if it is the last buffer
-nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bp<bar>bd!#<cr>'
+"delete! current buffer and quit if it is the last buffer
+" nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bp<bar>bd!#<cr>'
+nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bd!<cr>'
+
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
+
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
+
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
+
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
+endfunction
+
+function! CmdLine(str)
+    call feedkeys(":" . a:str)
+endfunction
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ack '" . l:pattern . "' " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
 
 " add spaces after pasting in normal mode
 nnoremap gl `[i<Space><Esc>``l
@@ -131,9 +192,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" vertically split ultisnips edit window
 let g:UltiSnipsUsePythonVersion = 3
-
+nmap <leader><tab> <plug>(fzf-maps-n)
 nmap <leader>ue :UltiSnipsEdit<cr>
 
 nmap <leader>v :e $MYVIMRC<cr>
@@ -176,12 +236,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
-
-" Some basics:
-set nocompatible
-filetype plugin on
-syntax on
-set encoding=utf-8
 
 " Enable autocompletion:
 set wildmode=longest,list,full
@@ -239,7 +293,7 @@ autocmd BufRead,BufNewFile *.md set tw=79
 
 " Use urlscan to choose and open a url:
 " :noremap <leader>u :w<Home> !urlscan -r 'linkhandler {}'<CR>
-:noremap ,, !urlscan -r 'linkhandler {}'<CR>
+noremap <leader>us !urlscan -r 'linkhandler {}'<CR>
 
 " Enable Goyo by default for mutt writting
 " Goyo's width will be the line limit in mutt.
