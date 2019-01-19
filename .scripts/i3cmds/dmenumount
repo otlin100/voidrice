@@ -18,7 +18,7 @@ getmount() { \
 
 mountusb() { \
     chosen="$(echo "$usbdrives" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"         -i -p "Mount which drive?" | awk '{print $1}')"
-    sudo -A mount "$chosen" && notify-send "$chosen mounted." && exit 0
+	sudo -A mount "$chosen" && notify-send -i "$PIX/usb.svg" "$chosen mounted." && exit 0
     getmount "/mnt /media /mount /home -maxdepth 5 -type d"
     partitiontype="$(lsblk -no "fstype" "$chosen")"
     case "$partitiontype" in
@@ -32,7 +32,7 @@ mountandroid() { \
     chosen=$(echo "$anddrives" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"         -i -p "Which Android device?" | cut -d : -f 1)
     getmount "$HOME -maxdepth 3 -type d"
     simple-mtpfs --device "$chosen" "$mp"
-    notify-send "Android device mounted to $mp."
+	notify-send -i "$PIX/android.svg" "Android device mounted to $mp."
 }
 
 asktype() { \

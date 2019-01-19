@@ -140,6 +140,8 @@ nmap <leader>e :Files<cr>
 " nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bp<bar>bd!#<cr>'
 nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bd!<cr>'
 
+set diffopt=vertical
+
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
