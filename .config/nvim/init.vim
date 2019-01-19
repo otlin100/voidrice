@@ -274,7 +274,7 @@ map <leader>r :e<space>$REFER<CR>
 nnoremap <leader>S :%s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+map <leader>c :w! \| !compiler <c-r>%<CR>
 
 " Open corresponding .pdf/.html or preview
 map <leader>p :!opout <c-r>%<CR><CR>
@@ -304,7 +304,7 @@ autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
 autocmd BufWritePre * %s/\s\+$//e
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
-autocmd BufWritePost ~/.bm* !shortcuts
+autocmd BufWritePost ~/.bmdirs, ~/.bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png
