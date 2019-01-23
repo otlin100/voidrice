@@ -1,5 +1,5 @@
 [general]
-accounts = hhu, outlook, gmail
+accounts = hhu, outlook
 starttls = yes
 ssl = yes
 pythonfile = ~/.config/mutt/credentials/imappwd.py
@@ -24,6 +24,8 @@ type = Maildir
 localfolders = ~/.mail/hhu
 
 
+
+
 [Account outlook]
 localrepository = outlook-local
 remoterepository = outlook-remote
@@ -40,21 +42,3 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 [Repository outlook-local]
 type = Maildir
 localfolders = ~/.mail/outlook
-
-
-[Account gmail]
-localrepository = gmail-local
-remoterepository = gmail-remote
-
-[Repository gmail-remote]
-auth_mechanisms = LOGIN
-type = Gmail
-remoteuser = 0ttolin42.ol@gmail.com
-remotepasseval = mailpasswd("gmail")
-remoteport = 993
-folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-[Repository gmail-local]
-type = Maildir
-localfolders = ~/.mail/gmail
