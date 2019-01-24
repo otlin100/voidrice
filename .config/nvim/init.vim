@@ -41,7 +41,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
+
+nnoremap <leader>d :call deoplete#toggle()<cr>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -55,8 +57,8 @@ let g:rg_command = '
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 " using ag
-nnoremap <leader>a :Ack!<space>-t<space><space>$HOME<left><left><left><left><left><left>
-nnoremap <leader><leader>a :F<cr>
+nnoremap <leader>a :F<cr>
+nnoremap <leader><leader>a :Ack!<space>-t<space><space>$HOME<left><left><left><left><left><left>
 
 " dont't clear clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))

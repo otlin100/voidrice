@@ -146,6 +146,7 @@ nnoremap yp :!echo %c:p | xclip %i<cr>
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
+nnoremap X :!extract %f<cr>
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap ,v :write | edit $MYVIFMRC | restart<cr>
