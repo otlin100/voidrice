@@ -24,7 +24,8 @@ echo 🔃 > ~/.config/mutt/.dl
 pkill -RTMIN+12 i3blocks
 
 # Run offlineimap. You can feed this script different settings.
-offlineimap -o "$@"
+> ~/.config/mutt/etc/.offlineimap.log
+offlineimap -l ~/.config/mutt/etc/.offlineimap.log -o "$@"
 rm -f ~/.config/mutt/.dl
 pkill -RTMIN+12 i3blocks
 

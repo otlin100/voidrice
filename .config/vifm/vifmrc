@@ -138,10 +138,10 @@ nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
 " Yank current directory path into the clipboard
-nnoremap yd :!echo %d | xclip %i<cr>
+nnoremap yd :!echo %d | xclip -sel clip<cr>
 
 " Yank current file path into the clipboard
-nnoremap yp :!echo %c:p | xclip %i<cr>
+nnoremap yp :!echo %c:p | xclip -sel clip<cr>
 
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
