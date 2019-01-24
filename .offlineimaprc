@@ -31,6 +31,31 @@ localrepository = outlook-local
 remoterepository = outlook-remote
 
 [Repository outlook-remote]
+
+folderfilter = lambda folder: folder not in [
+    'Calendar',
+    'Calendar/Birthdays',
+    'Calendar/Sub Folder 1',
+    'Calendar/Sub Folder 2',
+    'Calendar/United States holidays',
+    'Contacts',
+    'Contacts/Sub Folder 1',
+    'Contacts/Sub Folder 2',
+    'Contacts/Skype for Business Contacts',
+    'Deleted Items',
+    'Drafts',
+    'Journal',
+    'Junk Email',
+    'Notes',
+    'Outbox',
+    'Sync Issues',
+    'Sync Issues/Conflicts',
+    'Sync Issues/Local Failures',
+    'Sync Issues/Server Failures',
+    'Tasks',
+    'Tasks/Sub Folder 1',
+    'Tasks/Sub Folder 2'
+    ]
 auth_mechanisms = LOGIN
 type = IMAP
 remoteuser = ottolin@outlook.de

@@ -128,9 +128,9 @@ colorscheme wal
 nmap yp :let @"=@%<CR>
 nmap yd :let @" = expand("%:p:h")<cr>
 
-" clipboard to reg and vice versa
-nnoremap <leader>y :let @+=@"<cr>
-nnoremap <leader>Y :let @"=@+<cr>
+" clipboard, reg, selection rotation
+nnoremap <leader>y :let @t=@+ <bar> let @+=@" <bar> let @"=@* <bar> let @*=@t<cr>
+nnoremap <leader>Y :let @t=@+ <bar> let @+=@* <bar> let @*=@" <bar> let @"=@t<cr>
 
 nmap <leader>j <Plug>yankstack_substitute_older_paste
 nmap <leader>k <Plug>yankstack_substitute_newer_paste
