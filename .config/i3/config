@@ -197,7 +197,7 @@ bindsym $mod+c			exec --no-startup-id freealf
 bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 
 # bindsym $mod+v			exec --no-startup-id $term -e vim -c "VimwikiIndex"
-bindsym $mod+v			exec --no-startup-id $term -e vifm
+bindsym $mod+v			exec --no-startup-id $term -e env VIFM_RUNNING=1 vifm
 #bindsym $mod+Shift+v
 
 bindsym $mod+b			bar mode toggle

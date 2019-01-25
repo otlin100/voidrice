@@ -5,18 +5,24 @@ HISTSIZE= HISTFILESIZE= # Infinite history.
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 [ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
-export GPG_TTY=$(tty)
-
-#Otto's Additions
 
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 git_prompt_toggle
 
 export GPG_TTY=$(tty)
+
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
         /usr/bin/ranger "$@"
+    else
+        exit
+    fi
+}
+
+vifm() {
+    if [ -z "$VIFM_RUNNING" ]; then
+        env VIFM_RUNNING=1 /usr/bin/vifm "$@"
     else
         exit
     fi
@@ -49,7 +55,6 @@ alias SS="sudo systemctl"
 alias v="$EDITOR"
 alias f="vifm"
 alias r="ranger"
-alias sr="sudo ranger"
 alias ka="killall"
 alias g="git"
 alias trem="transmission-remote"
