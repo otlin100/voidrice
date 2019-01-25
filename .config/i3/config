@@ -319,8 +319,8 @@ bindsym $mod+greater		exec --no-startup-id lmc next
 bindsym $mod+Shift+greater	exec --no-startup-id lmc next
 
 #set backlight
-bindsym $mod+plus		exec --no-startup-id sudo bl 5
-bindsym $mod+minus 		exec --no-startup-id sudo bl -5
+bindsym $mod+plus		exec --no-startup-id light -A 3
+bindsym $mod+minus 		exec --no-startup-id light -U 3
 
 # For advancing forward/backward in an mpd song
 bindsym $mod+bracketleft 	exec --no-startup-id lmc back 10
