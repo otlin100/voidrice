@@ -83,7 +83,7 @@ client.urgent		$darkred	$darkred	$black		$darkred		$darkred
 client.background $black
 
 bar {
-    font pango:mono 10
+    font pango: Hack Nerd Font 9
         colors {
             background $darkblack
                 statusline $darkwhite
@@ -198,7 +198,7 @@ bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 
 # bindsym $mod+v			exec --no-startup-id $term -e vim -c "VimwikiIndex"
 bindsym $mod+v			exec --no-startup-id $term -e env VIFM_RUNNING=1 vifm
-#bindsym $mod+Shift+v
+bindsym $mod+Shift+v    layout toggle
 
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
@@ -237,13 +237,16 @@ bindsym $mod+backslash		workspace back_and_forth
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
-set $ws4 "4"
+set $ws4 "4: "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9: "
 set $ws10 "10"
+
+assign [class="Firefox"] $ws9
+assign [class="Skype"] $ws4
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
