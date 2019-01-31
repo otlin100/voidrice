@@ -203,7 +203,7 @@ nmap <leader>ue :UltiSnipsEdit<cr>
 
 nmap <leader>v :e $MYVIMRC<cr>
 
-map Y y$
+nmap Y y$
 
 set ignorecase
 set path+=**
@@ -309,7 +309,7 @@ noremap <leader>us !urlscan -r 'linkhandler {}'<CR>
 autocmd BufWritePre * %s/\s\+$//e
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
-autocmd BufWritePost ~/.bmdirs, ~/.bmfiles !shortcuts
+autocmd BufWritePost ~/.bmdirs,~/.bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png

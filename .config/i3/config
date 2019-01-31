@@ -83,7 +83,7 @@ client.urgent		$darkred	$darkred	$black		$darkred		$darkred
 client.background $black
 
 bar {
-    font pango: Hack Nerd Font 9
+    font pango: FuraMono Nerd Font 9
         colors {
             background $darkblack
                 statusline $darkwhite
