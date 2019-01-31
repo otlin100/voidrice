@@ -8,6 +8,7 @@ cfi	~/.config/i3/config
 cfm	~/.config/mutt/muttrc
 cfa	~/.config/mutt/etc/aliases
 cfg	~/.config/gtk-3.0/settings.ini
+cfk	~/.config/sxiv/exec/key-handler
 eb	~/Documents/LaTeX/uni.bib
 cv	~/Documents/LaTeX/cv.tex
 cfp	~/.config/polybar/config

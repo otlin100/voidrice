@@ -19,6 +19,7 @@ cfi="$EDITOR ~/.config/i3/config" \
 cfm="$EDITOR ~/.config/mutt/muttrc" \
 cfa="$EDITOR ~/.config/mutt/etc/aliases" \
 cfg="$EDITOR ~/.config/gtk-3.0/settings.ini" \
+cfk="$EDITOR ~/.config/sxiv/exec/key-handler" \
 eb="$EDITOR ~/Documents/LaTeX/uni.bib" \
 cv="$EDITOR ~/Documents/LaTeX/cv.tex" \
 cfp="$EDITOR ~/.config/polybar/config" \

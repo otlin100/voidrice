@@ -202,7 +202,7 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 nmap <leader>ue :UltiSnipsEdit<cr>
 
 nmap <leader>v :e $MYVIMRC<cr>
-
+call yankstack#setup()
 nmap Y y$
 
 set ignorecase
