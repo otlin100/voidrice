@@ -24,8 +24,6 @@ do
         "Y")
             echo -n "$(readlink -f "$file")" | xclip -selection clipboard && notify-send "$(readlink -f "$file") copied to clipboard" & ;;
         "d")
-            [ "$(printf "No\\nYes" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send "$file deleted." ;;
-        "D")
             mv "$file" $HOME/.trash && notify-send "$file sent to trash." ;;
         "g")
             ifinstalled gimp && gimp "$file" & ;;
