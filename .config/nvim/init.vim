@@ -76,8 +76,8 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
 "no timeoutlen in insert mode
-:autocmd InsertEnter * set timeoutlen=0
-:autocmd InsertLeave * set timeoutlen=1000
+autocmd InsertEnter * set timeoutlen=0
+autocmd InsertLeave * set timeoutlen=1000
 
 " if you actually need tabs
 inoremap <S-Tab> <C-V><Tab>
@@ -200,6 +200,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsUsePythonVersion = 3
 nmap <leader><tab> <plug>(fzf-maps-n)
 nmap <leader>ue :UltiSnipsEdit<cr>
+nmap <leader>w :cd %:p:h<cr>
 
 nmap <leader>v :e $MYVIMRC<cr>
 call yankstack#setup()
