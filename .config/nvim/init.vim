@@ -250,7 +250,7 @@ set wildmode=longest,list,full
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Goyo plugin makes text more readable when writing prose:
-map <leader>f :Goyo \| set linebreak<CR>
+map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 
 " MRU Plugin
 map <leader>m :MRU<cr>
@@ -294,17 +294,12 @@ autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markd
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
-" Readmes autowrap text:
-autocmd BufRead,BufNewFile *.md set tw=79
-
-" Use urlscan to choose and open a url:
-" :noremap <leader>u :w<Home> !urlscan -r 'linkhandler {}'<CR>
-noremap <leader>us !urlscan -r 'linkhandler {}'<CR>
 
 " Enable Goyo by default for mutt writting
 " Goyo's width will be the line limit in mutt.
-" autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-" autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
+autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
+autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
+autocmd QuitPre /tmp/neomutt* :qa!
 
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e

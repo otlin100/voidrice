@@ -1,7 +1,7 @@
 bf	~/.bmfiles
 bd	~/.bmdirs
 cfb	~/.bashrc
-cfv	~/.vimrc
+cfv	~/.config/nvim/init.vim
 cfr	~/.config/ranger/rc.conf
 cfx	~/.Xresources
 cfi	~/.config/i3/config
@@ -15,3 +15,6 @@ cfp	~/.config/polybar/config
 cfA	~/.asoundrc
 cfM	~/.config/mpd/mpd.conf
 er	~/.referbib
+cfu	~/.config/newsboat/urls
+cfn	~/.config/newsboat/config
+cfM	~/.config/mpd/mpd.conf
