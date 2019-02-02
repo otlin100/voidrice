@@ -37,6 +37,7 @@ alias gpom="git push origin master"
 alias gpo="git pull origin"
 alias ga="git add -u"
 alias gc="git commit -m"
+alias luke="https://github.com/LukeSmithxyz/voidrice.git"
 
 gitdir() {
     svn checkout ${1%.git}'/trunk/'$2 $HOME'/Downloads/'$(echo ${2%/} | awk -F '/' '{print $NF}')
