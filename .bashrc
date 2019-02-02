@@ -93,3 +93,4 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 . /opt/anaconda/etc/profile.d/conda.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/nvm/init-nvm.sh
