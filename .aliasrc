@@ -1,0 +1,54 @@
+#!/bin/sh
+alias ka="killall" \
+    bw="wal -i ~/.config/wall.png" \
+    mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+    p="sudo pacman" \
+    SS="sudo systemctl" \
+    f="vifm" \
+    g="git" \
+    trem="transmission-remote" \
+    e="$EDITOR" \
+    v="$EDITOR" \
+    x="sxiv -ft *" \
+    sdn="sudo shutdown -h now" \
+    gua="git remote | xargs -L1 git push --all" \
+    ls="ls -hN --color=auto --group-directories-first" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    ccat="highlight --out-format=ansi" \
+    yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
+    yta="yt -x -f bestaudio/best" \
+    YT="youtube-viewer" \
+    ref="shortcuts >/dev/null; source ~/.shortcuts" \
+    upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
+    lsp="pacman -Qett --color=always | less" \
+    gpt="git_prompt_toggle; git status" \
+    gpom="git push origin master" \
+    gpo="git pull origin" \
+    ga="git add -u" \
+    gc="git commit -m" \
+    car="source /opt/anaconda/bin/activate root && unset BROWSER" \
+    jn="nohup jupyter notebook 2>/dev/null 1>/dev/null &"
+
+command -v nvim >/dev/null && alias vimdiff="nvim -d" # Use neovim for vimdiff if present.
+
+shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
+se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
+sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
+vf() { fzf | xargs -r -I % $EDITOR % ;}
+
+gitdir() {
+    svn checkout ${1%.git}'/trunk/'$2 $HOME'/Downloads/'$(echo ${2%/} | awk -F '/' '{print $NF}')
+}
+
+gitignore() {
+    git status|grep -P '\t'|awk '{print $1}' >> .gitignore;
+}
+
+vifm() {
+    if [ -z "$VIFM_RUNNING" ]; then
+        env VIFM_RUNNING=1 /usr/bin/vifm "$@"
+    else
+        exit
+    fi
+}
