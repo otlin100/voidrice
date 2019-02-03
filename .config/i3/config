@@ -191,7 +191,7 @@ bindsym $mod+Shift+l		move right 30
 bindsym $mod+y			gaps inner current plus 5
 bindsym $mod+Shift+y		gaps outer current plus 5
 
-bindsym $mod+x			exec --no-startup-id lockscreen
+bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 1d2021
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
 bindsym $mod+c			exec --no-startup-id freealf
