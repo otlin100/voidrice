@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sounds="$XDG_DATA_HOME/sounds"
+cp $sounds/$(ls $sounds | shuf -n1) $sounds/anoise && anoise_toggle && anoise_toggle

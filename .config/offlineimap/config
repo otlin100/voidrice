@@ -21,10 +21,7 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Repository hhu-local]
 type = Maildir
-localfolders = ~/.mail/hhu
-
-
-
+localfolders = $XDG_DATA_HOME/mail/hhu
 
 [Account outlook]
 localrepository = outlook-local
@@ -66,4 +63,4 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Repository outlook-local]
 type = Maildir
-localfolders = ~/.mail/outlook
+localfolders = $XDG_DATA_HOME/mail/outlook

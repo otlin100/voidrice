@@ -37,7 +37,7 @@ Plug 'jreybert/vimagit'
 Plug 'LukeSmithxyz/vimling'
 Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
@@ -136,7 +136,8 @@ nmap <leader>j <Plug>yankstack_substitute_older_paste
 nmap <leader>k <Plug>yankstack_substitute_newer_paste
 
 " fzf lines
-nmap <leader>/ :Lines<cr>
+nmap <leader>7 :Lines<cr>
+nmap <leader>/ /\<\><left><left>
 nmap <leader>e :Files<cr>
 
 "delete! current buffer and quit if it is the last buffer
@@ -253,6 +254,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 
 " MRU Plugin
+let MRU_File = $XDG_DATA_HOME . '/vim_mru_files'
 map <leader>m :MRU<cr>
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
@@ -274,7 +276,10 @@ nnoremap <leader>s :w<cr>:so %<cr>
 
 " Open my bibliography file in split
 map <leader>b :e<space>$BIB<CR>
-map <leader>r :e<space>$REFER<CR>
+map <leader>R :e<space>$REFER<CR>
+
+" repeat last executed command
+map <leader>r :<up><cr>
 
 " Replace all is aliased to S.
 nnoremap <leader>S :%s//g<Left><Left>
@@ -305,7 +310,7 @@ autocmd QuitPre /tmp/neomutt* :qa!
 autocmd BufWritePre * %s/\s\+$//e
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
-autocmd BufWritePost ~/.bmdirs,~/.bmfiles !shortcuts
+autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png

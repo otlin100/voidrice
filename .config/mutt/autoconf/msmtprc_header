@@ -2,5 +2,5 @@ defaults
 auth	on
 tls	on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
-logfile	~/.msmtp.log
+logfile	$XDG_CACHE_HOME/msmtp.log
 

@@ -4,18 +4,26 @@ shopt -s autocd #Allows you to cd into directory merely by typing the directory 
 HISTSIZE= HISTFILESIZE= # Infinite history.
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
-[ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
-[ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-. /opt/anaconda/etc/profile.d/conda.sh
-source /usr/share/nvm/init-nvm.sh
-source ~/.bash-git-prompt/gitprompt.sh
+bind -x '"\C-p": $EDITOR $(fzf);'
+# export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
-GIT_PROMPT_ONLY_IN_REPO=1
-git_prompt_toggle
-
-export GPG_TTY=$(tty)
-
+export HISTFILE="$XDG_DATA_HOME"/bash/history
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+export CONDARC="$XDG_CONFIG_HOME"/anaconda/.condarc
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-bind -x '"\C-p": $EDITOR $(fzf);'
+export NVM_DIR="$XDG_DATA_HOME"/nvm
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh --no-use" # This loads nvm
+[ -f "$XDG_CONFIG_HOME/bash_shortcuts" ] && source "$XDG_CONFIG_HOME/bash_shortcuts" # Load shortcut aliases
+[ -f "$XDG_CONFIG_HOME/bash_aliases" ] && source "$XDG_CONFIG_HOME/bash_aliases"
+
+export GPG_TTY=$(tty)

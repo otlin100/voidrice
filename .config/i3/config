@@ -138,7 +138,7 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 
-bindsym $mod+z			exec $term -e calcurse
+# bindsym $mod+z			exec $term -e calcurse
 bindsym $mod+Shift+z		exec --no-startup-id i3resize left
 
 bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
@@ -161,6 +161,7 @@ bindsym $mod+Shift+s		gaps outer current minus 5
 
 # toggle ambient noise
 bindsym $mod+period exec --no-startup-id anoise_toggle
+bindsym $mod+Shift+period exec --no-startup-id anoise_shuffle
 
 bindsym $mod+d			exec --no-startup-id dmen
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
@@ -287,7 +288,7 @@ for_window [title="mpvfloat"] floating enable, sticky enable, border pixel 0
 no_focus [title="mpvfloat"]
 
 # #---Function Buttons---# #
-bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom ~/.readme.mom -Tpdf | zathura -
+bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom $XDG_DATA_HOME/readme.mom -Tpdf | zathura -
 bindsym $mod+F2		restart
 bindsym $mod+F3		exec --no-startup-id displayselect
 bindsym $mod+F4		exec --no-startup-id prompt "Hibernate computer?" "$hibernate"

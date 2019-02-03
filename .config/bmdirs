@@ -3,9 +3,10 @@ h	~/
 d	~/Documents
 D	~/Downloads
 pp	~/Pictures
-cf	~/.config
+cf	$XDG_CONFIG_HOME
 sc	~/.scripts
+so	$XDG_DATA_HOME/sounds
 e	/etc
 w	~/Pictures/wallpapers
-t	~/.trash
-fo  ~/.local/share/fonts
+t	$XDG_DATA_HOME/mytrash
+fo  $XDG_DATA_HOME/fonts

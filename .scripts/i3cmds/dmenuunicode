@@ -7,7 +7,7 @@
 
 xclip -h >/dev/null || exit
 
-chosen=$(grep -v "#" ~/.emoji | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"     -i -l 20 -fn Monospace-18)
+chosen=$(grep -v "#" $XDG_DATA_HOME/emoji | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"     -i -l 20 -fn Monospace-18)
 
 [ "$chosen" != "" ] || exit
 

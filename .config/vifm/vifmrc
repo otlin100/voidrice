@@ -1,5 +1,5 @@
 " vim: filetype=vim
-source ~/.vifmshortcuts
+source $XDG_CONFIG_HOME/vifmshortcuts
 
 set vicmd="nvim"
 set vixcmd="nvim"
@@ -69,6 +69,9 @@ endif
 
 " Set custom status line look
 
+nnoremap <cr> :set runexec!<cr>
+set timefmt="%d.%m.%y %H:%M"
+set statusline="%z %= %{&runexec} %A %10u:%-10g %{&sort} %20d "
 " :com[mand][!] command_name action
 " The following macros can be used in a command
 " %a is replaced with the user arguments.
@@ -147,7 +150,7 @@ nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
 nnoremap X :!extract %f<cr>
-nnoremap bn :!cp %f ~/sounds/anoise && anoise_toggle && anoise_toggle<cr>
+nnoremap bn :!cp %f $XDG_DATA_HOME/sounds/anoise && anoise_toggle && anoise_toggle<cr>
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
 nnoremap cff :write | edit $MYVIFMRC | restart<cr>

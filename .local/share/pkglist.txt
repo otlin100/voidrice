@@ -1,7 +1,9 @@
+adapta-gtk-theme
 alsa-utils
 anaconda
 antiword
 arandr
+arc-gtk-theme
 atool
 autoconf
 automake
@@ -10,7 +12,6 @@ biber
 binutils
 bison
 bzip2
-calcurse
 check
 compton
 coreutils
@@ -103,6 +104,7 @@ networkmanager
 newsboat
 ntfs-3g
 nvidia-dkms
+nvm
 offlineimap
 os-prober
 pacman
@@ -134,15 +136,18 @@ ripgrep
 rxvt-unicode
 s-nail
 sane
+sassc
 sc-im
 screenfetch
 scrot
 sed
 shadow
+signal-desktop-bin
 simple-mtpfs
 skypeforlinux-preview-bin
 spotify
 stack
+subversion
 sudo
 sxiv
 syncthing
