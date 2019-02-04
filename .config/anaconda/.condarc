@@ -1,3 +1,11 @@
 channels:
   - conda-forge
   - defaults
+
+pkgs_dirs:
+  - /opt/anaconda/pkgs
+  - /home/otlin/.local/share/conda/pkgs
+
+envs_dirs:
+  - /opt/anaconda/envs
+  - /home/otlin/.local/share/conda/envs

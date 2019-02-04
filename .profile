@@ -16,6 +16,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+# export VIMINIT=":source $XDG_CONFIG_HOME"/nvim/init.vim
 
 # less/man colors
 export LESS=-R
@@ -27,7 +28,7 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-[ ! -f ~/.shortcuts ] && shortcuts >/dev/null 2>&1
+[ ! -f $XDG_CONFIG_HOME/bash_shortcuts ] && shortcuts >/dev/null 2>&1
 
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 

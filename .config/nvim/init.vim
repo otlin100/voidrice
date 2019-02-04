@@ -43,6 +43,8 @@ call plug#end()
 
 let g:deoplete#enable_at_startup = 0
 
+let g:python3_host_prog = '/usr/bin/python3'
+
 nnoremap <leader>d :call deoplete#toggle()<cr>
 
 if executable('ag')
@@ -313,4 +315,4 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png
+autocmd BufWritePost ~/.config/X11/Xresources,~/.config/X11/Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png

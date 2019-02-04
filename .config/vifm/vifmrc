@@ -72,6 +72,7 @@ endif
 nnoremap <cr> :set runexec!<cr>
 set timefmt="%d.%m.%y %H:%M"
 set statusline="%z %= %{&runexec} %A %10u:%-10g %{&sort} %20d "
+windo set sort=+iname
 " :com[mand][!] command_name action
 " The following macros can be used in a command
 " %a is replaced with the user arguments.

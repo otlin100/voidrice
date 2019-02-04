@@ -3,7 +3,7 @@ bd	$XDG_CONFIG_HOME/bmdirs
 cfb	~/.bashrc
 cfa	$XDG_CONFIG_HOME/bash_aliases
 cfv	$XDG_CONFIG_HOME/nvim/init.vim
-cfx	~/.Xresources
+cfx	$XDG_CONFIG_HOME/X11/Xresources
 cfi	$XDG_CONFIG_HOME/i3/config
 cfm	$XDG_CONFIG_HOME/mutt/muttrc
 cfA	$XDG_CONFIG_HOME/mutt/etc/aliases

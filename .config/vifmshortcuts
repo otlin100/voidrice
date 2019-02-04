@@ -48,7 +48,7 @@ map bd :e $XDG_CONFIG_HOME/bmdirs<CR>
 map cfb :e ~/.bashrc<CR>
 map cfa :e $XDG_CONFIG_HOME/bash_aliases<CR>
 map cfv :e $XDG_CONFIG_HOME/nvim/init.vim<CR>
-map cfx :e ~/.Xresources<CR>
+map cfx :e $XDG_CONFIG_HOME/X11/Xresources<CR>
 map cfi :e $XDG_CONFIG_HOME/i3/config<CR>
 map cfm :e $XDG_CONFIG_HOME/mutt/muttrc<CR>
 map cfA :e $XDG_CONFIG_HOME/mutt/etc/aliases<CR>
