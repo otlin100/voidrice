@@ -55,8 +55,13 @@ vifm() {
 }
 
 gpt() {
-    source $XDG_DATA_HOME/bash-git-prompt/gitprompt.sh
-    GIT_PROMPT_ONLY_IN_REPO=1
+    if [ -z "$GPT_RUNNING" ]; then
+        export GPT_RUNNING=1
+        source $XDG_DATA_HOME/bash-git-prompt/gitprompt.sh
+        GIT_PROMPT_ONLY_IN_REPO=1
+        git status
+        return
+    fi
     git_prompt_toggle
     git status
 }
