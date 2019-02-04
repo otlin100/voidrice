@@ -306,7 +306,7 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 " Goyo's width will be the line limit in mutt.
 autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
 autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
-autocmd QuitPre /tmp/neomutt* :qa!
+autocmd QuitPre /tmp/neomutt* :wqa!
 
 " Automatically deletes all trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
