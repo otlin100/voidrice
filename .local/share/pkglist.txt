@@ -132,7 +132,6 @@ python-pyqt5
 python-pywal
 qrencode
 r
-ranger
 redshift
 reiserfsprogs
 ripgrep
