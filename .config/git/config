@@ -9,3 +9,4 @@
     co = checkout
     m = merge
     st = status
+    cl = clone

@@ -18,9 +18,14 @@ Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-function'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'beloglazov/vim-textobj-quotes'
+Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'Julian/vim-textobj-brace'
 Plug 'kana/vim-textobj-line'
 Plug 'reedes/vim-textobj-sentence'
@@ -41,9 +46,14 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
+source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
+
 let g:deoplete#enable_at_startup = 0
 
 let g:python3_host_prog = '/usr/bin/python3'
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='alduin'
 
 nnoremap <leader>d :call deoplete#toggle()<cr>
 
@@ -65,7 +75,8 @@ nnoremap <leader><leader>a :Ack!<space>-t<space><space>$HOME<left><left><left><l
 " dont't clear clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
-map <silent> <leader><cr> :noh<cr>
+" disable highlighting
+nmap <silent> <leader><cr> :noh<cr>
 
 " Gif config
 map  / <Plug>(easymotion-sn)
@@ -115,9 +126,6 @@ set smartindent
 set wrap
 set so=7
 set viminfo=!,'100,<50,s10,h,f1
-
-" :W sudo saves the file
-command! W w !sudo tee % > /dev/null
 
 set nobackup
 set nowb
@@ -211,8 +219,8 @@ nmap Y y$
 
 set ignorecase
 set path+=**
-set path+=~/.config/**
-set path+=~/.scripts/**
+set path+=$XDG_CONFIG_HOME/**
+set path+=$HOME/.scripts/**
 
 set wildmenu
 " Ignore compiled files

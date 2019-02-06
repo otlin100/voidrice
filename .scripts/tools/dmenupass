@@ -1,2 +1,4 @@
 #!/bin/sh
-dmenu -fn Monospace-18 -sb "#d79921" -sf "#1d2021" -nf "#000000" -nb "#000000" -p "$1" <&- && echo
+. "${HOME}/.cache/wal/colors.sh"
+# dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -fn Monospace-18 -p "$1" <&- && echo
+dmenu -nb "#000000" -nf "#000000" -sb "$color1" -sf "$color15" -p "$1" <&-

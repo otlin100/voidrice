@@ -13,6 +13,8 @@ binutils
 bison
 bzip2
 check
+clipmenu
+clipnotify
 compton
 coreutils
 cronie
@@ -70,6 +72,7 @@ iputils
 jfsutils
 less
 lib32-gcc-libs
+libreoffice-fresh
 libselinux
 libtool
 licenses
@@ -246,4 +249,3 @@ zathura
 zathura-djvu
 zathura-pdf-mupdf
 zip
-zsh

@@ -132,12 +132,13 @@ bindsym $mod+Shift+w		move workspace to output right
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
 
-bindsym $mod+r 			exec $term -e $FILE
+bindsym $mod+r			exec --no-startup-id $term -e env VIFM_RUNNING=1 vifm
 bindsym $mod+Shift+r		exec --no-startup-id winresize
 
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 
+bindsym $mod+z		exec --no-startup-id camtoggle
 # bindsym $mod+z			exec $term -e calcurse
 bindsym $mod+Shift+z		exec --no-startup-id i3resize left
 
@@ -194,11 +195,16 @@ bindsym $mod+Shift+y		gaps outer current plus 5
 bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 1d2021
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
-bindsym $mod+c			exec --no-startup-id freealf
-bindsym $mod+Shift+c		exec --no-startup-id camtoggle
+# bindsym $mod+c			exec --no-startup-id freealf
+# bindsym $mod+Shift+c		exec --no-startup-id camtoggle
+set $clip_chooser clipmenu.sh
+# Show clipboard content
+bindsym $mod+c exec --no-startup-id $clip_chooser show
+# Clean Up clipboard
+bindsym $mod+Shift+c exec --no-startup-id $clip_chooser clean
 
 # bindsym $mod+v			exec --no-startup-id $term -e vim -c "VimwikiIndex"
-bindsym $mod+v			exec --no-startup-id $term -e env VIFM_RUNNING=1 vifm
+bindsym $mod+v			exec --no-startup-id $term -e $EDITOR
 bindsym $mod+Shift+v    layout toggle
 
 bindsym $mod+b			bar mode toggle
