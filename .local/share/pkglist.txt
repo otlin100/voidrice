@@ -26,7 +26,6 @@ dialog
 diffutils
 dmenu
 dmidecode
-docker
 docx2txt
 dosfstools
 dtrx

@@ -1,8 +1,10 @@
 #!/bin/sh
 alias ka="killall" \
+    cdp="cd $(cat $XDG_CACHE_HOME/vifm/last_session)" \
     bw="wal -i ~/.config/wall.png" \
     mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
     p="sudo pacman" \
+    q="exit" \
     SS="sudo systemctl" \
     f="vifm" \
     g="git" \
@@ -47,8 +49,8 @@ gitignore() {
 }
 
 vifm() {
-    if [ -z "$VIFM_RUNNING" ]; then
-        env VIFM_RUNNING=1 /usr/bin/vifm "$@"
+    if [ -z "$FROM_VIFM" ]; then
+        env FROM_VIFM=1 FROM_BASH=1 /usr/bin/vifm $(cat $XDG_CACHE_HOME/vifm/last_session) "$@"
     else
         exit
     fi

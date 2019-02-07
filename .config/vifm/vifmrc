@@ -135,7 +135,10 @@ set vifminfo=dhistory,chistory,tui,shistory,
     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " Start shell in current directory
-nnoremap s :shell<cr>
+nnoremap q :ResetLastSession | quit<cr>
+command ResetLastSession :execute '!echo "" > $XDG_CACHE_HOME/vifm/last_session'
+nnoremap s :ShellOrBash<cr>
+command ShellOrBash :if $FROM_BASH | execute '!echo %d > $XDG_CACHE_HOME/vifm/last_session' | quit | else | shell | endif
 
 " Toggle visibility of preview window
 nnoremap w :view<cr>
