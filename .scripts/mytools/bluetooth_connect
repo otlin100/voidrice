@@ -1,0 +1,7 @@
+#!/bin/bash
+
+devices="$XDG_CONFIG_HOME/bluetooth_devices"
+
+selected=$(awk -v pat=$(awk '{print $1}' $devices | dmenu -l 10 -p "connect to which device?") '$0~pat{print $2}' $devices)
+
+echo -e "power on\n connect $selected\n" | bluetoothctl

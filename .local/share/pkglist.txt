@@ -11,6 +11,9 @@ bash
 biber
 binutils
 bison
+bluez
+bluez-hid2hci
+bluez-utils
 bzip2
 check
 clipmenu
@@ -50,6 +53,7 @@ git
 glibc
 gnome-keyring
 gnome-themes-extra
+google-chrome
 grep
 groff
 grub
@@ -122,6 +126,7 @@ procps-ng
 psmisc
 pulseaudio
 pulseaudio-alsa
+pulseaudio-bluetooth
 pulsemixer
 python-gobject
 python-jedi

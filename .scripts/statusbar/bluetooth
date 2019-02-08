@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    1) setsid "$TERMINAL" -e toggle_bluetooth ;;
+esac
+
+bt_string=$(systemctl is-active bluetooth)
+
+if [[ $bt_string == 'inactive' ]]; then
+    stat="off"
+else
+    stat="on"
+fi
+
+printf "%s\\n" "$stat"

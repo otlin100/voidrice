@@ -1,0 +1,9 @@
+#!/bin/bash
+
+bt_string=$(systemctl is-active bluetooth)
+
+if [[ $bt_string == 'inactive' ]]; then
+    sudo -A systemctl start bluetooth
+else
+    sudo -A systemctl stop bluetooth
+fi
