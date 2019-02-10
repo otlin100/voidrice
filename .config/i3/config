@@ -341,7 +341,7 @@ bindsym $mod+bracketright 	exec --no-startup-id lmc forward 10
 bindsym $mod+Shift+bracketright exec --no-startup-id lmc forward 120
 
 # For screenshots and recording
-bindsym Print 			exec --no-startup-id maim pic-full-"$(date '+%y%m%d-%H%M-%S').png"
+bindsym Print 			exec --no-startup-id maim pic-full-"$(date '+%d%m%y-%H%M-%S').png"
 bindsym Shift+Print 		exec --no-startup-id maimpick
 bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
@@ -351,10 +351,10 @@ bindsym XF86Launch1		exec --no-startup-id xset dpms force off
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
 bindsym XF86AudioMute		exec --no-startup-id lmc mute
-bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5
+bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 3
 bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
 bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
-bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5
+bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 3
 bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc up 10
 bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
 bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
