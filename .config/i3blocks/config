@@ -3,9 +3,12 @@ separator_block_width=15
 markup=pango
 
 [bluetooth]
-label=
 interval=once
 signal=10
+
+[capslock]
+interval=once
+signal=30
 
 [record]
 command=cat /tmp/recordingicon
@@ -64,12 +67,12 @@ signal=10
 command=battery BAT0
 interval=5
 
+[internet]
+interval=10
+
 [clock]
 label=📅
 interval=30
 
-[internet]
-interval=10
-
-[help]
-interval=once
+#[help]
+#interval=once

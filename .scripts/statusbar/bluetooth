@@ -1,15 +1,13 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-    1) setsid "$TERMINAL" -e toggle_bluetooth ;;
-esac
+# case $BLOCK_BUTTON in
+#     1) setsid "$TERMINAL" -e toggle_bluetooth ;;
+# esac
 
 bt_string=$(systemctl is-active bluetooth)
 
-if [[ $bt_string == 'inactive' ]]; then
-    stat="off"
+if [[ $bt_string == 'active' ]]; then
+    printf "%s\\n" ""
 else
-    stat="on"
+    printf ""
 fi
-
-printf "%s\\n" "$stat"

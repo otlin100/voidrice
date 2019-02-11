@@ -1,0 +1,9 @@
+#!/bin/sh
+
+stat=$(xset q | grep -i Caps | awk '{print($4)}')
+
+if [ $stat == "on" ]; then
+    printf "%s\\n" ""
+else
+    printf ""
+fi

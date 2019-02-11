@@ -208,8 +208,8 @@ bindsym $mod+v			exec --no-startup-id $term -e $EDITOR
 bindsym $mod+Shift+v    layout toggle
 
 bindsym $mod+b			bar mode toggle
-# bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
-bindsym $mod+Shift+b     exec --no-startup-id toggle_bluetooth && pkill -RTMIN+10 i3blocks
+bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
+bindsym $mod+Mod1+b     exec --no-startup-id bluetooth_connect && pkill -RTMIN+10 i3blocks
 
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
@@ -293,6 +293,8 @@ for_window [title="Default - Wine desktop"] floating enable
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable, sticky enable, border pixel 0
 no_focus [title="mpvfloat"]
+
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+30 i3blocks
 
 # #---Function Buttons---# #
 bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom $XDG_DATA_HOME/readme.mom -Tpdf | zathura -

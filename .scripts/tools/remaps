@@ -8,3 +8,5 @@ setxkbmap -option caps:super
 killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 # Map the menu button to right super as well.
 xmodmap -e 'keycode 135 = Super_R'
+# Map Ctrl_R to Caps_Lock
+xmodmap -e 'keycode 105 = Caps_Lock'

@@ -1,7 +1,19 @@
 #!/bin/bash
+. "${HOME}/.cache/wal/colors.sh"
 
 devices="$XDG_CONFIG_HOME/bluetooth_devices"
 
-selected=$(awk -v pat=$(awk '{print $1}' $devices | dmenu -l 10 -p "connect to which device?") '$0~pat{print $2}' $devices)
+selected=$(awk -v pat=$(awk '{print $1}' $devices | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -l 10 -p "connect to which device?") '$0~pat{print $2}' $devices)
+bt_string=$(systemctl is-active bluetooth)
 
-echo -e "power on\n connect $selected\n" | bluetoothctl
+if [ $selected == "dc" ]; then
+    [ $bt_string == "active" ] && echo -e "power off\n" | bluetoothctl
+elif [ $selected == "sw" ]; then
+    toggle_bluetooth
+else
+    [ $bt_string == "inactive" ] && sudo -A systemctl start bluetooth &
+    wait
+    echo -e "power on\n" | bluetoothctl
+    sleep 0.15
+    echo -e "connect $selected\n" | bluetoothctl
+fi
