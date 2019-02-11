@@ -4,6 +4,8 @@ d	~/Documents
 D	~/Downloads
 pp	~/Pictures
 cf	$XDG_CONFIG_HOME
+xd  $XDG_DATA_HOME
+xc  $XDG_CACHE_HOME
 sc	~/.scripts
 so	$XDG_DATA_HOME/sounds
 e	/etc

@@ -4,6 +4,13 @@ shopt -s autocd #Allows you to cd into directory merely by typing the directory 
 HISTSIZE= HISTFILESIZE= # Infinite history.
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
+fasd_cache="$XDG_CACHE_HOME/fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
 bind -x '"\C-p": $EDITOR $(fzf);'
 # export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
@@ -21,6 +28,7 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export _FASD_DATA="$XDG_DATA_HOME"/fasd/data
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh --no-use" # This loads nvm
