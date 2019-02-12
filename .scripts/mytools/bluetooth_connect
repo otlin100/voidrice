@@ -16,4 +16,13 @@ else
     echo -e "power on\n" | bluetoothctl
     sleep 0.15
     echo -e "connect $selected\n" | bluetoothctl
+    sleep 2
+    IFS=$'\n'
+    info=($(echo -e "info $selected\n" | bluetoothctl | awk -F ':' '/(Connected:|Name:)/ {print $2}'))
+    unset IFS
+    if [ ${info[1]} == "yes" ]; then
+        pgrep -x dunst >/dev/null && notify-send "<b>${info[0]}</b> connected"
+    else
+        pgrep -x dunst >/dev/null && notify-send "failed to connect <b>${info[0]}</b>"
+    fi
 fi

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LC_TIME=de_DE.utf8 date '+%_d. %B (%a) %H:%M'
+LC_TIME=de_DE.utf8 date '+%_d. %B (%a) %H:%M '
 
 case $BLOCK_BUTTON in
     1) pgrep -x dunst >/dev/null && notify-send "$(cal --color=always | sed "s/..7m/<b><span color=\"red\">/;s/..27m/<\/span><\/b>/")" && notify-send "$(calcurse -d3)" ;;
