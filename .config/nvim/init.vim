@@ -202,7 +202,7 @@ endfunction
 nnoremap gl `[i<Space><Esc>``l
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsSnippetsDir = "~/.vim/mysnippets"
+let g:UltiSnipsSnippetsDir = $XDG_CONFIG_HOME."/nvim/mysnippets"
 let g:UltiSnipsSnippetDirectories=["mysnippets"]
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
