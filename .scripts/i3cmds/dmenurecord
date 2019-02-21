@@ -2,7 +2,7 @@
 . "${HOME}/.cache/wal/colors.sh"
 
 # Usage:
-# `record`: Ask for recording type via dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"    
+# `record`: Ask for recording type via dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"
 # `record screencast`: Record both audio and screen
 # `record video`: Record only screen
 # `record audio`: Record only audio
@@ -54,7 +54,9 @@ video() { ffmpeg \
 
 webcamhidef() { ffmpeg \
     -f v4l2 \
+    -itsoffset -1.72 \
     -i /dev/video0 \
+    -f alsa -i default \
     -video_size 1920x1080 \
     "$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
     echo $! > /tmp/recordingpid
@@ -63,7 +65,9 @@ webcamhidef() { ffmpeg \
 
 webcam() { ffmpeg \
     -f v4l2 \
+    -itsoffset -1.72 \
     -i /dev/video0 \
+    -f alsa -i default \
     -video_size 640x480 \
     "$HOME/webcam-$(date '+%y%m%d-%H%M-%S').mkv" &
     echo $! > /tmp/recordingpid
