@@ -6,7 +6,6 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 bind -x '"\C-p": $EDITOR $(fzf);'
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export CONDARC="$XDG_CONFIG_HOME"/anaconda/.condarc
