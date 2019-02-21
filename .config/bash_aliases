@@ -56,8 +56,7 @@ vifm() {
 }
 
 gpt() {
-    if [ -z "$GPT_RUNNING" ]; then
-        export GPT_RUNNING=1
+    if ! type "git_prompt_toggle" > /dev/null; then
         source $XDG_DATA_HOME/bash-git-prompt/gitprompt.sh
         GIT_PROMPT_ONLY_IN_REPO=1
         git status
