@@ -297,7 +297,7 @@ no_focus [title="mpvfloat"]
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+30 i3blocks
 
 # #---Function Buttons---# #
-bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom $XDG_DATA_HOME/readme.mom -Tpdf | zathura -
+bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom $XDG_DATA_HOME/larbs/readme.mom -Tpdf | zathura -
 bindsym $mod+F2		restart
 bindsym $mod+F3		exec --no-startup-id displayselect
 bindsym $mod+F4		exec --no-startup-id prompt "Hibernate computer?" "$hibernate"

@@ -264,7 +264,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 
 " MRU Plugin
-let MRU_File = $XDG_DATA_HOME . '/vim_mru_files'
+let MRU_File = $XDG_DATA_HOME . '/nvim/mru/vim_mru_files'
 map <leader>m :MRU<cr>
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
