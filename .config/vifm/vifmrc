@@ -1,5 +1,5 @@
 " vim: filetype=vim
-source $XDG_CONFIG_HOME/vifmshortcuts
+source $XDG_CONFIG_HOME/vifm/vifmshortcuts
 
 set vicmd="nvim"
 set vixcmd="nvim"
