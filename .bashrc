@@ -11,7 +11,8 @@ export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export CONDARC="$XDG_CONFIG_HOME"/anaconda/.condarc
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export NVM_DIR="$XDG_DATA_HOME"/nvm
+export NVM_DIR="$XDG_CONFIG_HOME"/nvm
+source /usr/share/nvm/nvm.sh --no-use
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
@@ -23,7 +24,6 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export _FASD_DATA="$XDG_DATA_HOME"/fasd/data
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh --no-use" # This loads nvm
 [ -f "$XDG_CONFIG_HOME/bash_shortcuts" ] && source "$XDG_CONFIG_HOME/bash_shortcuts" # Load shortcut aliases
 [ -f "$XDG_CONFIG_HOME/bash_aliases" ] && source "$XDG_CONFIG_HOME/bash_aliases"
 
