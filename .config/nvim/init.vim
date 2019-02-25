@@ -44,6 +44,8 @@ Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
