@@ -1,6 +1,7 @@
 #!/bin/sh
 
-wal -R
+wal -n -R
+feh --no-fehbg --bg-fill "$(< "${HOME}/.cache/wal/wal")"
 
 # [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -f "$XDG_CONFIG_HOME/X11/Xresources" ] && xrdb -merge "$XDG_CONFIG_HOME/X11/Xresources"
