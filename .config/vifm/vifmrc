@@ -102,7 +102,10 @@ filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm sxiv -ifa 2>/dev/null &
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm file %f
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+           \ vifmimg draw %px %py %pw %ph %c
+           \ %pc
+           \ vifmimg clear
 filextype *.svg inkscape %f 2>/dev/null &
 filextype *.xcf gimp %f 2>/dev/null &
 

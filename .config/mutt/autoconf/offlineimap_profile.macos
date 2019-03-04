@@ -16,4 +16,4 @@ sslcacertfile = /usr/local/etc/openssl/cert.pem
 
 [Repository $title-local]
 type = Maildir
-localfolders = ~/.mail/$title
+localfolders = $XDG_CACHE_HOME/mail/$title

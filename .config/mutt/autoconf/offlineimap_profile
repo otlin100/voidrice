@@ -16,4 +16,4 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Repository $title-local]
 type = Maildir
-localfolders = ~/.mail/$title
+localfolders = $XDG_CACHE_HOME/mail/$title

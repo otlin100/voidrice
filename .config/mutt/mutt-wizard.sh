@@ -3,6 +3,7 @@
 [ "$(uname)" == "Darwin" ] && os=".macos"
 
 muttdir="$HOME/.config/mutt"
+offlineimapdir="$XDG_CONFIG_HOME/offlineimap/config"
 namere="^[a-z_][a-z0-9_-]*$"
 emailre=".+@.+\..+"
 
@@ -11,7 +12,7 @@ createMailboxes() { \
 	offlineimap --info -a "$1" 2&> "$tmpdir"/log
 	sed -n '/^Folderlist/,/^Folderlist/p' "$tmpdir"/log |
 		grep "^ " | sed -e "s/\//./g;s/(.*//g;s/^ //g" > "$tmpdir"/lognew
-	while read box; do mkdir -p "$HOME/.mail/$1/$box"; done <"$tmpdir"/lognew ;}
+	while read box; do mkdir -p "$XDG_CACHE_HOME/mail/$1/$box"; done <"$tmpdir"/lognew ;}
 
 testSync() { (crontab -l | grep mailsync.sh && removeSync) || addSync ;}
 
@@ -37,7 +38,7 @@ changePassword() { \
 	detectMailboxes "$title"
 	dialog --title "Password changed." --msgbox "Your \"$fulladdr\" password has been changed. To start the download of your mail, you can manually run \`offlineimap -a $title\` in a terminal. The first sync may take some time depending on the amount of your mail." 8 60 ;}
 
-chooseDetect() { for x in $(grep "^accounts =" ~/.offlineimaprc | sed -e 's/accounts =\( \)//g;s/\(,\) /\n/g;'); do detectMailboxes $x; done && detectSuccess ;}
+chooseDetect() { for x in $(grep "^accounts =" "$offlineimapdir" | sed -e 's/accounts =\( \)//g;s/\(,\) /\n/g;'); do detectMailboxes $x; done && detectSuccess ;}
 
 detectWarning() { \
 	dialog --title "Mailbox detect requirement" --yesno "In order for the mailbox detection system to work, you must have
@@ -73,7 +74,7 @@ gen_delim() { \
 	echo $delim ;}
 
 detectMailboxes() { \
-	find ~/.mail/$1 -maxdepth 1 -mindepth 1 -type d | sed -e "s/.*\///g;s/^/=/g" > /tmp/$1_boxes
+	find "$XDG_CACHE_HOME/mail/$1" -maxdepth 1 -mindepth 1 -type d | sed -e "s/.*\///g;s/^/=/g" > /tmp/$1_boxes
 	sidebar_width=$(sed -n -e '/^set sidebar_width/p' "$muttdir"/muttrc | awk -F'=' '{print $2}')
 	delim=$(gen_delim $sidebar_width)
 	oneline=$(sed -e "s/^\|$/\"/g" /tmp/$1_boxes | tr "\n" " ")
@@ -98,7 +99,7 @@ detectMailboxes() { \
 
 # Get all accounts in ~/.offlineimaprc and load into variable `accounts`.
 getAccounts() { \
-	grep "^accounts =" ~/.offlineimaprc | sed -e 's/accounts =\( \)//g;s/\(,\) /\n/g;' | nl --number-format=ln > /tmp/numbered
+	grep "^accounts =" "$offlineimapdir" | sed -e 's/accounts =\( \)//g;s/\(,\) /\n/g;' | nl --number-format=ln > /tmp/numbered
 	accounts=()
 	while read n s ; do
 		accounts+=($n "$s" off)
@@ -123,7 +124,7 @@ removeAccount() { sed -ie "
 	s/ $1\(,\|$\)//g
 	s/=$1\(,\|$\)/=/g
 	s/,$//g
-	" ~/.offlineimaprc
+	" "$offlineimapdir"
 	rm "$muttdir"/accounts/$1.muttrc
 	rm "$muttdir"/credentials/$1.gpg
 	rm -rf "$muttdir"/accounts/$1
@@ -200,13 +201,13 @@ addAccount() {
 	mkdir -p "$muttdir/accounts/$title/cache/bodies"
 
 	# Creating the offlineimaprc if it doesn't exist already.
-	if [ ! -f ~/.offlineimaprc ]; then cp "$muttdir"/autoconf/offlineimap_header"$os" ~/.offlineimaprc; fi
-	sed -e "$replacement" "$muttdir"/autoconf/offlineimap_profile"$os" >> ~/.offlineimaprc
-	mkdir -p "$HOME/.mail/$title"
+	if [ ! -f "$offlineimapdir" ]; then cp "$muttdir"/autoconf/offlineimap_header"$os" "$offlineimapdir" fi
+	sed -e "$replacement" "$muttdir"/autoconf/offlineimap_profile"$os" >> "$offlineimapdir"
+	mkdir -p "$XDG_CACHE_HOME/mail/$title"
 
 	# Creating msmtprc if it doesn't exist already.
-	if [ ! -f ~/.msmtprc ]; then cp "$muttdir"/autoconf/msmtprc_header ~/.msmtprc; fi
-	sed -e "$replacement" "$muttdir"/autoconf/msmtprc_profile >> ~/.msmtprc
+	if [ ! -f $XDG_CONFIG_HOME/msmtprc ]; then cp "$muttdir"/autoconf/msmtprc_header $XDG_CONFIG_HOME/msmtprc; fi
+	sed -e "$replacement" "$muttdir"/autoconf/msmtprc_profile >> $XDG_CONFIG_HOME/msmtprc
 
 	# Add the mutt profile.
 	sed -e "$replacement" "$muttdir"/autoconf/mutt_profile > "$muttdir/accounts/$title.muttrc"
@@ -214,7 +215,7 @@ addAccount() {
 	echo "macro index,pager i$idnum '<sync-mailbox><enter-command>source \"$muttdir\"/accounts/$title.muttrc<enter><change-folder>!<enter>;<check-stats>'" >> "$muttdir"/personal.muttrc
 
 	# Add to offlineimaprc sync list.
-	sed -i.bu "s/^accounts =.*[a-zA-Z]$/&, $title/g;s/^accounts =\\s*$/accounts = $title/g" ~/.offlineimaprc && rm ~/.offlineimaprc.bu
+	sed -i.bu "s/^accounts =.*[a-zA-Z]$/&, $title/g;s/^accounts =\\s*$/accounts = $title/g" "$offlineimapdir" && rm "$offlineimapdir".bu
 
 	# Makes account default if there is no default account.
 	grep "$muttdir"/personal.muttrc -e "^source .*accounts.*" >/dev/null && echo there || \
@@ -238,7 +239,7 @@ chooseAdd() { \
 		addloop
 	done ;}
 
-wipe () { rm "$HOME/.offlineimaprc"
+wipe () { rm "$offlineimapdir"
 	rm -rf "$muttdir"/accounts
 	rm -f "$muttdir"/credentials/*gpg
 	rm "$muttdir"/personal.muttrc ;}
@@ -259,7 +260,7 @@ choice=$(dialog --title "Luke's mutt/offlineIMAP wizard" --nocancel \
 
 case $choice in
 0) dialog --title "Accounts detected" --msgbox "The following accounts have been detected:
-$(grep ~/.offlineimaprc -e "^accounts =" | sed 's/accounts =//g')
+$(grep "$offlineimapdir" -e "^accounts =" | sed 's/accounts =//g')
 " 6 60;;
 1) chooseAdd;;
 2) testSync;;

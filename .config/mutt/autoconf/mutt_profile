@@ -3,7 +3,7 @@
 set realname = "$realname"
 set from = "$fulladdr"
 set sendmail = "/usr/bin/msmtp -a $title"
-set folder = "~/.mail/$title"
+set folder = "$XDG_CACHE_HOME/mail/$title"
 set header_cache = ~/.config/mutt/accounts/$title/cache/headers
 set message_cachedir = ~/.config/mutt/accounts/$title/cache/bodies
 set certificate_file = ~/.config/mutt/accounts/$title/certificates
