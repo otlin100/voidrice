@@ -22,6 +22,8 @@ export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export _FASD_DATA="$XDG_DATA_HOME"/fasd/data
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/gopass
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
 [ -f "$XDG_CONFIG_HOME/bash_shortcuts" ] && source "$XDG_CONFIG_HOME/bash_shortcuts" # Load shortcut aliases
