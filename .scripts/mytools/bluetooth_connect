@@ -6,13 +6,16 @@ devices="$XDG_CONFIG_HOME/bluetooth_devices"
 selected=$(awk -v pat=$(awk '{print $1}' $devices | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -l 10 -p "connect to which device?") '$0~pat{print $2}' $devices)
 bt_string=$(systemctl is-active bluetooth)
 
-if [ $selected == "dc" ]; then
-    [ $bt_string == "active" ] && echo -e "power off\n" | bluetoothctl
-elif [ $selected == "sw" ]; then
+if [ "$selected" == "dc" ]; then
+    [ "$bt_string" == "active" ] && echo -e "power off\n" | bluetoothctl
+elif [ "$selected" == "sw" ]; then
     toggle_bluetooth
 else
-    [ $bt_string == "inactive" ] && sudo -A systemctl start bluetooth &
-    wait
+    [ $(echo "$selected" | wc -l) -eq 1 -a ! "$selected" == "cancel" ] || exit
+    if [ $bt_string == "inactive" ]; then
+        sudo -A -b systemctl start bluetooth || exit
+        wait
+    fi
     echo -e "power on\n" | bluetoothctl
     sleep 0.15
     echo -e "connect $selected\n" | bluetoothctl

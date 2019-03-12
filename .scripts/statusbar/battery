@@ -26,6 +26,9 @@ else
 	warn="❗"
 fi
 
+[ "$capacity" -lt 20 ] && notify-send -u critical "Battery low! Will shutdown automatically when below 5%."
+[ "$capacity" -lt 5 ] && sudo shutdown now
+
 [ -z $warn ] && warn=" "
 
 [ "$status" = "Charging" ] && color="#ffffff"
