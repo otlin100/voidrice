@@ -1,8 +1,9 @@
 " vim: filetype=vim
-command! Bf :e $XDG_CONFIG_HOME/bmfiles
-command! Bd :e $XDG_CONFIG_HOME/bmdirs
+command! Bf :e $XDG_CONFIG_HOME/shortcuts/bmfiles
+command! Bd :e $XDG_CONFIG_HOME/shortcuts/bmdirs
 command! Cfb :e ~/.bashrc
-command! Cfa :e $XDG_CONFIG_HOME/bash_aliases
+command! Cfp :e ~/.profile
+command! Cfa :e $XDG_CONFIG_HOME/bash/aliases
 command! Cfv :e $XDG_CONFIG_HOME/nvim/init.vim
 command! Cfx :e $XDG_CONFIG_HOME/X11/Xresources
 command! Cfi :e $XDG_CONFIG_HOME/i3/config

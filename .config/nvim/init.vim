@@ -317,7 +317,7 @@ autocmd QuitPre /tmp/neomutt* :wqa!
 autocmd BufWritePre * %s/\s\+$//e
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
-autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
+autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost ~/.config/X11/Xresources,~/.config/X11/Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png

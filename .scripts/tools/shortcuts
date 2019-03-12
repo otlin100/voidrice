@@ -1,13 +1,13 @@
 #!/bin/bash
 # Output locations. Unactivated progs should go to /dev/null.
-shell_shortcuts="$XDG_CONFIG_HOME/bash_shortcuts"
+shell_shortcuts="$XDG_CONFIG_HOME/bash/shortcuts"
 ranger_shortcuts="/dev/null"
 qute_shortcuts="/dev/null"
 fish_shortcuts="/dev/null"
-vifm_shortcuts="$XDG_CONFIG_HOME/vifmshortcuts"
+vifm_shortcuts="$XDG_CONFIG_HOME/vifm/vifmshortcuts"
 vim_shortcuts="$XDG_CONFIG_HOME/nvim/vim_shortcuts.vim"
-bmdirs="$XDG_CONFIG_HOME/bmdirs"
-bmfiles="$XDG_CONFIG_HOME/bmfiles"
+bmdirs="$XDG_CONFIG_HOME/shortcuts/bmdirs"
+bmfiles="$XDG_CONFIG_HOME/shortcuts/bmfiles"
 
 # Remove, prepare files
 rm -f "$ranger_shortcuts" "$qute_shortcuts" 2>/dev/null

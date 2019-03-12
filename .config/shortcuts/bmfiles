@@ -1,7 +1,8 @@
-bf	$XDG_CONFIG_HOME/bmfiles
-bd	$XDG_CONFIG_HOME/bmdirs
+bf	$XDG_CONFIG_HOME/shortcuts/bmfiles
+bd	$XDG_CONFIG_HOME/shortcuts/bmdirs
 cfb	~/.bashrc
-cfa	$XDG_CONFIG_HOME/bash_aliases
+cfp ~/.profile
+cfa	$XDG_CONFIG_HOME/bash/aliases
 cfv	$XDG_CONFIG_HOME/nvim/init.vim
 cfx	$XDG_CONFIG_HOME/X11/Xresources
 cfi	$XDG_CONFIG_HOME/i3/config

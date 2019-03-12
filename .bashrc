@@ -26,7 +26,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/gopass
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
-[ -f "$XDG_CONFIG_HOME/bash_shortcuts" ] && source "$XDG_CONFIG_HOME/bash_shortcuts" # Load shortcut aliases
-[ -f "$XDG_CONFIG_HOME/bash_aliases" ] && source "$XDG_CONFIG_HOME/bash_aliases"
+[ -f "$XDG_CONFIG_HOME/bash/shortcuts" ] && source "$XDG_CONFIG_HOME/bash/shortcuts" # Load shortcut aliases
+[ -f "$XDG_CONFIG_HOME/bash/aliases" ] && source "$XDG_CONFIG_HOME/bash/aliases"
 
 export GPG_TTY=$(tty)

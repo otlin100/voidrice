@@ -26,8 +26,10 @@ else
 	warn="❗"
 fi
 
-[ "$capacity" -lt 20 ] && notify-send -u critical "Battery low! Will shutdown automatically when below 5%."
-[ "$capacity" -lt 5 ] && sudo shutdown now
+[ "$capacity" -lt 10 ] && notify-send -u critical "Battery low! Will shutdown automatically when below 4%."
+[ "$capacity" -lt 4 ] && sudo shutdown now
+
+[ "$capacity" -gt 99 ] && notify-send -u critical "Battery charged! Please unplug the power adapter!"
 
 [ -z $warn ] && warn=" "
 
