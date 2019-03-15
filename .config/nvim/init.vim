@@ -320,4 +320,4 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost ~/.config/X11/Xresources,~/.config/X11/Xdefaults !xrdb % ;wal -c ;wal -i ~/.config/wall.png
+autocmd BufWritePost ~/.config/X11/Xresources,~/.config/X11/Xdefaults !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png
