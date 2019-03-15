@@ -1,4 +1,21 @@
 #!/bin/sh
 . "${HOME}/.cache/wal/colors.sh"
-password
-dmenu -nb "#000000" -nf "#000000" -sb "$color1" -sf "$color15" -p "$1" <&-
+
+tmp=$XDG_DATA_HOME/dmenu/dmenupass_git.tmp
+
+if [ ! -f $tmp ]; then
+    touch $tmp
+    username=$(</dev/null dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -p "Please enter your Git username: " | awk '{print $1}')
+    [ -z $username ] && exit
+    echo $username > $tmp
+    echo $username <&-
+else
+    username=$(cat $tmp)
+    rm $tmp
+    [ -z $username ] && exit
+    chosen=$(printf "$(gopass ls -f | grep git)" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -i -l 10 -p "Which password?" | awk '{print $1}')
+    [ -z $chosen ] && exit
+    password=$(gopass show $chosen)
+    [ -z $password ] && exit
+    echo $password <&-
+fi

@@ -29,4 +29,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/gopass
 [ -f "$XDG_CONFIG_HOME/bash/shortcuts" ] && source "$XDG_CONFIG_HOME/bash/shortcuts" # Load shortcut aliases
 [ -f "$XDG_CONFIG_HOME/bash/aliases" ] && source "$XDG_CONFIG_HOME/bash/aliases"
 
+tmp=$XDG_DATA_HOME/dmenu/dmenupass_git.tmp
+[ -f $tmp ] && rm $tmp
+
 export GPG_TTY=$(tty)
