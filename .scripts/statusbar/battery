@@ -23,11 +23,10 @@ elif [ "$capacity" -ge 25 ]; then
 	color="#ffff00"
 else
 	color="#ff0000"
-	warn="❗"
 fi
 
-[ "$capacity" -lt 10 ] && notify-send -u critical "Battery low! Will shutdown automatically when below 4%."
-[ "$capacity" -lt 4 ] && sudo shutdown now
+[ "$capacity" -lt 10 ] && warn="❗" && notify-send -u critical "Battery low! Will shutdown automatically when below 4%."
+[ "$capacity" -lt 4 ] && [ ! "$status" = "Charging" ] && sudo shutdown now
 
 [ "$capacity" -gt 99 ] && notify-send -u critical "Battery charged! Please unplug the power adapter!"
 

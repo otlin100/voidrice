@@ -206,7 +206,7 @@ MouseKey mkeys[] = {
 };
 
 static char *openurlcmd[] = { "/bin/sh", "-c",
-    "xurls | uniq | dmenu -nb \"#0a121c\" -nf \"#d3baa6\" -sb \"#6C5854\" -sf \"#d3baa6\" -l 10 | xargs -r xdg-open",
+    "xurls | uniq | dmenu -nb \"#111012\" -nf \"#eae7e2\" -sb \"#34484E\" -sf \"#eae7e2\" -l 10 | xargs -r xdg-open",
     "externalpipe", NULL };
 
 /* static char *openclipcmd[] = { "/bin/sh", "-c", */
