@@ -25,13 +25,13 @@ else
 	color="#ff0000"
 fi
 
-[ "$capacity" -lt 10 ] && warn="❗" && notify-send -u critical "Battery low! Will shutdown automatically when below 4%."
-[ "$capacity" -lt 4 ] && [ ! "$status" = "Charging" ] && sudo shutdown now
+[ "$capacity" -lt 10 ] && [ "$status" != "Charging" ] && warn="❗" && notify-send -u critical "Battery low! Will shutdown automatically when below 4%."
+[ "$capacity" -lt 4 ] && [ "$status" != "Charging" ] && sudo shutdown now
 
-[ "$capacity" -gt 99 ] && notify-send -u critical "Battery charged! Please unplug the power adapter!"
+[ "$capacity" -gt 99 ] && [ "$status" == "Charging" ] && notify-send -u critical "Battery charged! Please unplug the power adapter!"
 
 [ -z $warn ] && warn=" "
 
-[ "$status" = "Charging" ] && color="#ffffff"
+[ "$status" == "Charging" ] && color="#ffffff"
 
 printf "<span color='%s'>%s%s%s</span>" "$color" "$(echo "$status" | sed -e "s/,//;s/Discharging/🔋/;s/Not Charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
