@@ -26,7 +26,22 @@ alternative_order text/plain text/enriched text/html
 set rfc2047_parameters = yes
 
 # General remappings
-bind editor <space> noop
+macro generic <F3> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/muttrc<enter>"
+macro generic <F2> "<enter-command>source $XDG_CONFIG_HOME/mutt/muttrc<enter>"
+bind index,pager gr compose-to-sender
+bind index gd delete-pattern
+bind index,pager H display-toggle-weed
+bind pager,alias,attach,browser h exit
+bind index h sidebar-toggle-visible
+bind browser,alias l select-entry
+bind pager l view-attachments
+bind attach l view-attach
+macro attach s "<save-entry><bol>~/Downloads/<return>" "Save to Downloads"
+bind index l display-message
+# bind index <return> noop
+bind index <return> limit
+bind editor <esc> noop
+macro editor <esc> "<kill-line><return>"
 bind index G last-entry
 bind index gg first-entry
 bind pager j next-line
@@ -42,10 +57,10 @@ bind index,pager R group-reply
 bind index,pager \031 previous-undeleted # Mouse wheel
 bind index,pager \005 next-undeleted # Mouse wheel
 macro index,pager S <sync-mailbox>
-macro index,pager \Cu |urlscan\n
 macro index,pager ,, |urlscan\n
 
 # View attachments properly.
+bind attach <space> tag-entry
 bind attach <return> view-mailcap
 set fast_reply           # skip to compose when replying
 set fcc_attach           # save attachments with the body
@@ -74,17 +89,14 @@ macro index A "<limit>all\n" "show all messages (undo limit)"
 
 # Sidebar mappings
 set sidebar_visible = yes
-set sidebar_width = 20
+set sidebar_width = 22
 set sidebar_short_path = yes
 set sidebar_next_new_wrap = yes
 set mail_check_stats
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
-bind index,pager \Ck sidebar-prev
-bind index,pager \Cj sidebar-next
-bind index,pager \Cl sidebar-open
+macro index,pager \Ck "<sidebar-prev><sidebar-open>"
+macro index,pager \Cj "<sidebar-next><sidebar-open>"
+# bind index,pager \Cl sidebar-open
 bind index,pager \Cp sidebar-prev-new
 bind index,pager \Cn sidebar-next-new
 bind index,pager B sidebar-toggle-visible
-bind browser l select-entry
-bind attach l view-attach
-bind attach h exit

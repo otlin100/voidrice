@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for file in blatt*.pdf;
+do
+    pdftk $file cat 2-r1 output short_${file}
+    rm $file
+done

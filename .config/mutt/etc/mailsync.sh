@@ -30,10 +30,10 @@ rm -f ~/.config/mutt/.dl
 pkill -RTMIN+12 i3blocks
 
 # Check all accounts/mailboxes for new mail. Notify if there is new content.
-for account in $(ls ~/.mail)
+for account in $(ls "$XDG_DATA_HOME"/mail)
 do
 	#List unread messages newer than last mailsync and count them
-	newcount=$(find ~/.mail/"$account"/INBOX/new/ -type f -newer ~/.config/mutt/etc/.mailsynclastrun 2> /dev/null | wc -l)
+	newcount=$(find "$XDG_DATA_HOME"/mail/"$account"/INBOX/new/ -type f -newer ~/.config/mutt/etc/.mailsynclastrun 2> /dev/null | wc -l)
 	if [ "$newcount" -gt "0" ]
 	then
 		notify "$account" "$newcount" &

@@ -1,9 +1,8 @@
 [general]
-accounts = hhu, outlook
+accounts = hhu, outlook, gmail
 starttls = yes
 ssl = yes
 pythonfile = ~/.config/mutt/credentials/imappwd.py
-
 
 
 [Account hhu]
@@ -22,6 +21,7 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 [Repository hhu-local]
 type = Maildir
 localfolders = $XDG_DATA_HOME/mail/hhu
+
 
 [Account outlook]
 localrepository = outlook-local
@@ -51,8 +51,9 @@ folderfilter = lambda folder: folder not in [
     'Sync Issues/Server Failures',
     'Tasks',
     'Tasks/Sub Folder 1',
-    'Tasks/Sub Folder 2'
+    'Tasks/Sub Folder 2',
     ]
+
 auth_mechanisms = LOGIN
 type = IMAP
 remoteuser = ottolin@outlook.de
@@ -64,3 +65,28 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 [Repository outlook-local]
 type = Maildir
 localfolders = $XDG_DATA_HOME/mail/outlook
+
+
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+
+[Repository gmail-remote]
+
+folderfilter = lambda foldername: foldername not in [
+    '[Gmail]/Alle Nachrichten',
+    '[Gmail]/All Mail',
+    ]
+
+auth_mechanisms = LOGIN
+type = IMAP
+remoteuser = 0ttolin42.ol@gmail.com
+remotepasseval = mailpasswd("gmail")
+remotehost = imap.gmail.com
+remoteport = 993
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+ssl_version = tls1_2
+
+[Repository gmail-local]
+type = Maildir
+localfolders = $XDG_DATA_HOME/mail/gmail

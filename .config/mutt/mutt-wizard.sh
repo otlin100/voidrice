@@ -12,7 +12,7 @@ createMailboxes() { \
 	offlineimap --info -a "$1" 2&> "$tmpdir"/log
 	sed -n '/^Folderlist/,/^Folderlist/p' "$tmpdir"/log |
 		grep "^ " | sed -e "s/\//./g;s/(.*//g;s/^ //g" > "$tmpdir"/lognew
-	while read box; do mkdir -p "$XDG_CACHE_HOME/mail/$1/$box"; done <"$tmpdir"/lognew ;}
+	while read box; do mkdir -p "$XDG_DATA_HOME/mail/$1/$box"; done <"$tmpdir"/lognew ;}
 
 testSync() { (crontab -l | grep mailsync.sh && removeSync) || addSync ;}
 
@@ -74,7 +74,7 @@ gen_delim() { \
 	echo $delim ;}
 
 detectMailboxes() { \
-	find "$XDG_CACHE_HOME/mail/$1" -maxdepth 1 -mindepth 1 -type d | sed -e "s/.*\///g;s/^/=/g" > /tmp/$1_boxes
+	find "$XDG_DATA_HOME/mail/$1" -maxdepth 1 -mindepth 1 -type d | sed -e "s/.*\///g;s/^/=/g" > /tmp/$1_boxes
 	sidebar_width=$(sed -n -e '/^set sidebar_width/p' "$muttdir"/muttrc | awk -F'=' '{print $2}')
 	delim=$(gen_delim $sidebar_width)
 	oneline=$(sed -e "s/^\|$/\"/g" /tmp/$1_boxes | tr "\n" " ")
@@ -203,7 +203,7 @@ addAccount() {
 	# Creating the offlineimaprc if it doesn't exist already.
 	if [ ! -f "$offlineimapdir" ]; then cp "$muttdir"/autoconf/offlineimap_header"$os" "$offlineimapdir" fi
 	sed -e "$replacement" "$muttdir"/autoconf/offlineimap_profile"$os" >> "$offlineimapdir"
-	mkdir -p "$XDG_CACHE_HOME/mail/$title"
+	mkdir -p "$XDG_DATA_HOME/mail/$title"
 
 	# Creating msmtprc if it doesn't exist already.
 	if [ ! -f $XDG_CONFIG_HOME/msmtprc ]; then cp "$muttdir"/autoconf/msmtprc_header $XDG_CONFIG_HOME/msmtprc; fi
