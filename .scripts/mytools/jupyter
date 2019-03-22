@@ -1,0 +1,4 @@
+#!/bin/sh
+
+source /opt/anaconda/bin/activate root && unset BROWSER
+nohup jupyter notebook &>/dev/null &

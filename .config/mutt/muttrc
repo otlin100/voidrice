@@ -13,7 +13,7 @@ set editor = $EDITOR
 set timeout = "5"
 set mail_check = "10"
 set mailcap_path = ~/.config/mutt/etc/mailcap
-set date_format="%d.%m.%y %I:%M"
+set date_format="%d.%m.%y %H:%M"
 set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set markers = no
 set mark_old = no
@@ -75,8 +75,10 @@ set include                          # include message in replies
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 #sync email
+macro index <esc>O "<shell-escape>$HOME/.config/mutt/etc/mailsync.sh -f<enter>" "force run offlineimap to sync all mail"
+macro index <esc>o "<shell-escape>$HOME/.config/mutt/etc/mailsync.sh -f -- -qf INBOX,Inbox<enter>" "force run offlineimap to sync inbox"
 macro index O "<shell-escape>$HOME/.config/mutt/etc/mailsync.sh<enter>" "run offlineimap to sync all mail"
-macro index o "<shell-escape>$HOME/.config/mutt/etc/mailsync.sh -qf INBOX,Inbox<enter>" "run offlineimap to sync inbox"
+macro index o "<shell-escape>$HOME/.config/mutt/etc/mailsync.sh -- -qf INBOX,Inbox<enter>" "run offlineimap to sync inbox"
 
 #copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
