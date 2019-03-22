@@ -7,9 +7,10 @@ source etc/muttcol
 source etc/aliases
 source personal.muttrc
 set sleep_time = 0
-set sort_aux = 'reverse-date'
+set sort_aux = 'last-date-received'
 set sort = 'reverse-threads'
 set narrow_tree = yes
+set collapse_all = yes
 set editor = $EDITOR
 #set copy = no
 set timeout = "5"
@@ -17,7 +18,7 @@ set mail_check = "10"
 set mailcap_path = ~/.config/mutt/etc/mailcap
 set date_format="%d.%m.%y %H:%M"
 # set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
-set index_format="%2C %zs %zt %?X?a& ? %D %-15.15F %s (%-4.4c)"
+set index_format="%2C %zs %?X?a& ? %D %zt %-15.15F %s (%-4.4c)"
 set markers = no
 set mark_old = no
 set mime_forward = yes
