@@ -25,10 +25,10 @@ else
 	color="#ff0000"
 fi
 
-[ "$capacity" -lt 10 ] && [ "$status" != "Charging" ] && warn="❗" && notify-send -u critical "<big>Battery low! Will shutdown automatically when below 4%.</big>"
+[ "$capacity" -lt 10 ] && [ "$status" != "Charging" ] && warn="❗" && mpv --really-quiet ~/.config/mutt/etc/notify.opus && pgrep -x dunst && notify-send -u critical "<big>Battery low! Will shutdown automatically when below 4%.</big>"
 [ "$capacity" -lt 4 ] && [ "$status" != "Charging" ] && sudo shutdown now
 
-[ "$capacity" -gt 99 ] && [ "$status" == "Charging" ] && notify-send -u critical "Battery charged! Please unplug the power adapter!"
+[ "$capacity" -gt 99 ] && [ "$status" == "Charging" ] && mpv --really-quiet ~/.config/mutt/etc/notify.opus && pgrep -x dunst && notify-send -u critical "Battery charged! Please unplug the power adapter!"
 
 [ -z $warn ] && warn=" "
 

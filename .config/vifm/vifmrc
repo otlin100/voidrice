@@ -64,6 +64,7 @@ fileviewer *.html w3m -dump %c
 filextype *.html,*.htm firefox %f 2>/dev/null &
 
 fileviewer *.docx docx2txt %c -
+filextype *.ipynb jupyter %f
 
 filetype *.csv,*.xlsx sc-im %c
 fileviewer *.csv sed "s/,,,,/,,-,,/g;s/,,/ /g" %c | column -t | sed "s/ - /  /g" | cut -c -%pw
@@ -81,7 +82,8 @@ fileviewer *.[1-8] man ./%c | col -b
 filetype *.[1-8] man ./%c
 
 fileviewer *.jpg,*.jpeg,*.png,*.ico vifmimg draw %px %py %pw %ph %c %pc vifmimg clear
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm,*.tiff  rotdir %f 2>/dev/null | sxiv -ia 2>/dev/null &
+" filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm,*.tiff rotdir %f 2>/dev/null | sxiv -ia 2>/dev/null &
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.tiff rotdir %f 2>/dev/null | sxiv -ia 2>/dev/null &
 
 filextype *.svg inkscape %f 2>/dev/null &
 filextype *.xcf gimp %f 2>/dev/null &

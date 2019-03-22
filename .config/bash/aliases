@@ -25,7 +25,6 @@ alias ka="killall" \
     gpo="git pull origin" \
     ga="git add -u" \
     gc="git commit -m" \
-    car="source /opt/anaconda/bin/activate root && unset BROWSER" \
     svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
     tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
@@ -53,4 +52,8 @@ gpt() {
     fi
     git_prompt_toggle
     git status
+}
+
+car() {
+    source /opt/anaconda/bin/activate root && unset BROWSER
 }

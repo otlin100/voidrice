@@ -28,8 +28,8 @@ done
 # Checks for internet connection and set notification script.
 if ! $FORCE; then
     echo "pinging 1.1.1.1 ..." | tee -a "$logfile"
-    ping -q -w 4 -c 1 1.1.1.1 > /dev/null || echo "[ERROR]: ping failed, no internet connection or router blocks pings.
-    use ESC-o or ESC-O to force" | tee -a "$logfile" && read -n 1 -s -r -p "Press any key to continue" && exit
+    ping -q -w 4 -c 1 1.1.1.1 > /dev/null || (echo "[ERROR]: ping failed, no internet connection or router blocks pings 
+    use ESC-o or ESC-O to force" | tee -a "$logfile" && read -n 1 -s -r -p "Press any key to continue" && exit)
 fi
 
 # Settings are different for MacOS (Darwin) systems.
