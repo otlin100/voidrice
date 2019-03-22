@@ -113,7 +113,7 @@ bindsym $mod+Shift+w		move workspace to output right
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
 
-bindsym $mod+r			exec --no-startup-id $term -e env FROM_VIFM=1 vifm
+bindsym $mod+r			exec --no-startup-id $term vifm
 bindsym $mod+Shift+r		exec --no-startup-id winresize
 
 bindsym $mod+t			split toggle

@@ -1,6 +1,5 @@
 #!/bin/sh
 alias ka="killall" \
-    cdp="cd $(cat $XDG_CACHE_HOME/vifm/last_session)" \
     bw="wal -i ~/.config/wall.png" \
     mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
     p="sudo pacman" \
@@ -27,7 +26,6 @@ alias ka="killall" \
     ga="git add -u" \
     gc="git commit -m" \
     car="source /opt/anaconda/bin/activate root && unset BROWSER" \
-    jn="nohup jupyter notebook &>/dev/null &" \
     svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
     tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
@@ -44,14 +42,6 @@ gitdir() {
 
 gitignore() {
     git status|grep -P '\t'|awk '{print $1}' >> .gitignore;
-}
-
-vifm() {
-    if [ -z "$FROM_VIFM" ]; then
-        env FROM_VIFM=1 FROM_BASH=1 /usr/bin/vifm $(cat $XDG_CACHE_HOME/vifm/last_session) "$@"
-    else
-        exit
-    fi
 }
 
 gpt() {
