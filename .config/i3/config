@@ -179,7 +179,7 @@ bindsym $mod+Mod1+l			workspace next_on_output
 bindsym $mod+y			gaps inner current plus 5
 bindsym $mod+Shift+y		gaps outer current plus 5
 
-bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id slock
+bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
 # bindsym $mod+c			exec --no-startup-id freealf
