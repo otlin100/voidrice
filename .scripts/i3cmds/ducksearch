@@ -1,16 +1,15 @@
 #!/bin/bash
-. "${HOME}/.cache/wal/colors.sh"
 
-# Gives a dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"     prompt to search DuckDuckGo.
+# Gives a dmenu_colored prompt to search DuckDuckGo.
 # Without input, will open DuckDuckGo.com.
 # URLs will be directly handed to the browser.
 # Anything else, it search it.
 
 browser=${BROWSER:-firefox}
 
-pgrep -x dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" && exit
+pgrep -x dmenu_colored && exit
 
-choice=$(echo "🦆" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"     -i -p "Search DuckDuckGo:") || exit 1
+choice=$(echo "🦆" | dmenu_colored -i -p "Search DuckDuckGo:") || exit 1
 
 if [ "$choice" = "🦆"  ]; then
     $browser "https://duckduckgo.com"

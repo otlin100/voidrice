@@ -1,3 +1,2 @@
 #!/bin/sh
-. "${HOME}/.cache/wal/colors.sh"
-echo "📐" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -p "Give width and height:" | xargs xdotool windowsize "$(xdotool getwindowfocus)"
+echo "📐" | dmenu_colored -p "Give width and height:" | xargs xdotool windowsize "$(xdotool getwindowfocus)"

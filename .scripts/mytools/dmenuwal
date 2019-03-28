@@ -1,13 +1,9 @@
 #!/bin/sh
 
-prepend=". \"\${HOME}/.cache/wal/colors.sh\""
 for FILE1 in "$@"
 do
-    if grep -qe "\(clip\|dmenu\)" $FILE1; then
-        if ! grep -q "$prepend" $FILE1; then
-            sed -i "1 a $prepend" $FILE1
-        fi
+    if grep -qe "dmenu" $FILE1; then
         sed -i 's/-\(nb\|nf\|sb\|sf\) [^ ]* *//g' $FILE1
-        sed -i 's/\(clip\|d\)menu /\1menu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" /g' $FILE1
+        sed -i 's/dmenu /dmenu_colored /g' $FILE1
     fi
 done

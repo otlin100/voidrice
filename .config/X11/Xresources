@@ -18,6 +18,6 @@
 !! Transparency (0-255):
 st.alpha: 230
 !! Set a default font and font size as below:
-*.font: FuraMono Nerd Font-13.0;
+*.font: FuraMono Nerd Font-14.0;
 /* *.font: InconsolataGo Nerd Font-14; */
 /* *.font: Hack Nerd Font Mono-13; */

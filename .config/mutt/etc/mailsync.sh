@@ -9,10 +9,13 @@
 
 export DISPLAY=:0.0
 logfile="$XDG_CONFIG_HOME"/mutt/etc/.offlineimap.log
+logfile_old="$XDG_CONFIG_HOME"/mutt/etc/.offlineimap.log_old
 FORCE=false
 
 clear
-> "$logfile"
+[ -z "$logfile_old" ] && rm "$logfile_old"
+mv "$logfile" "$logfile_old"
+touch "$logfile"
 
 TEMP=`getopt -o f -n 'mailsync.sh' -- "$@"`
 eval set -- "$TEMP"
@@ -27,9 +30,15 @@ done
 
 # Checks for internet connection and set notification script.
 if ! $FORCE; then
-    echo "pinging 1.1.1.1 ..." | tee -a "$logfile"
-    ping -q -w 4 -c 1 1.1.1.1 > /dev/null || (echo "[ERROR]: ping failed, no internet connection or router blocks pings 
-    use ESC-o or ESC-O to force" | tee -a "$logfile" && read -n 1 -s -r -p "Press any key to continue" && exit)
+    ping -q -w 4 -c 1 1.1.1.1 >> "$logfile"
+    if [ $? -ne 0 ]; then
+        echo -e "\n[ERROR]: no internet connection or something is blocking the pings, use ESC-o or ESC-O to force\n" |
+        tee -a "$logfile" &&
+        read -n 1 -s -r -p "Press any key to continue" &&
+        exit
+
+    fi
+    echo -e "\n-----------------------------------\n\n" >> "$logfile"
 fi
 
 # Settings are different for MacOS (Darwin) systems.
@@ -43,21 +52,29 @@ fi
 echo " 🔃" > /tmp/imapsyncicon
 pkill -RTMIN+12 i3blocks
 
+accounts=$(ls "$XDG_DATA_HOME"/mail)
+
 # Run offlineimap. You can feed this script different settings.
-offlineimap -l "$logfile" -o "$@"
+echo "$accounts" | xargs --max-procs=4 -n 1 offlineimap -l "$logfile" -o "$@" -a
+
+[ $? -ne 0 ] &&
+    echo -e "\n\n---------\nSomething went wrong, check this log file for Errors!\n---------\n" >> "$logfile" &&
+    nvim -M + "$logfile"
+
 rm -f /tmp/imapsyncicon
 pkill -RTMIN+12 i3blocks
 
 # Check all accounts/mailboxes for new mail. Notify if there is new content.
-for account in $(ls "$XDG_DATA_HOME"/mail)
+for account in $accounts
 do
-	#List unread messages newer than last mailsync and count them
-	newcount=$(find "$XDG_DATA_HOME"/mail/"$account"/INBOX/new/ \
+    #List unread messages newer than last mailsync and count them
+    newcount=$(find "$XDG_DATA_HOME"/mail/"$account"/INBOX/new/ \
         -type f -newer ~/.config/mutt/etc/.mailsynclastrun 2> /dev/null | wc -l)
-	if [ "$newcount" -gt "0" ]
-	then
-		notify "$account" "$newcount" &
-	fi
+
+    if [ "$newcount" -gt "0" ]
+    then
+        notify "$account" "$newcount" &
+    fi
 done
 notmuch new
 

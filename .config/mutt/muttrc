@@ -30,6 +30,7 @@ alternative_order text/plain text/enriched text/html
 set rfc2047_parameters = yes
 
 # General remappings
+macro generic <F4> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/etc/.offlineimap.log<enter>"
 macro generic <F3> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/muttrc<enter>"
 macro generic <F2> "<enter-command>source $XDG_CONFIG_HOME/mutt/muttrc<enter>"
 bind index,pager gr compose-to-sender

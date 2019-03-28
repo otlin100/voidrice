@@ -7,3 +7,5 @@ if [[ $bt_string == 'inactive' ]]; then
 else
     sudo -A systemctl stop bluetooth
 fi
+
+pkill -RTMIN+10 i3blocks

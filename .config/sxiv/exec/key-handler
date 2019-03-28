@@ -1,21 +1,33 @@
 #!/bin/sh
-. "${HOME}/.cache/wal/colors.sh"
-stconf="$XDG_CACHE_HOME/st"
 while read file
 do
     case "$1" in
         "w")
             wal -n -i "$file" && setbg "$file" && cp "$file" ~/.config/wall.png ;;
         "W")
-            wal -n -i "$file" && setbg "$file" && cp "$file" ~/.config/wall.png && dmenuwal_st "$stconf/config.h" && sudo -A make -C $stconf -s clean install ;;
+            wal -n -i "$file" && setbg "$file" && cp "$file" ~/.config/wall.png && sudo -A make -C "$XDG_CACHE_HOME/st" -s clean install ;;
         "c")
-            [ -z "$destdir" ] && destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.config/bmdirs | awk '{print $2}' | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -l 20 -i -p "Copy file(s) to where?" | sed "s|~|$HOME|g")"
+            [ -z "$destdir" ] &&
+                destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.config/bmdirs |
+                awk '{print $2}' |
+                dmenu_colored -l 20 -i -p "Copy file(s) to where?" |
+                sed "s|~|$HOME|g")"
+
             [ -z "$destdir" ] && exit
-            cp "$file" "$destdir" && notify-send -i "$(readlink -f "$file")" "$file copied to $destdir." & ;;
+            cp "$file" "$destdir" &&
+                notify-send -i "$(readlink -f "$file")" "$file copied to $destdir." & ;;
+
         "m")
-            [ -z "$destdir" ] && destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.config/bmdirs | awk '{print $2}' | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -l 20 -i -p "Move file(s) to where?" | sed "s|~|$HOME|g")"
+            [ -z "$destdir" ] &&
+                destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.config/bmdirs |
+                awk '{print $2}' |
+                dmenu_colored -l 20 -i -p "Move file(s) to where?" |
+                sed "s|~|$HOME|g")"
+
             [ -z "$destdir" ] && exit
-            mv "$file" "$destdir" && notify-send -i "$(readlink -f "$file")" "$file moved to $destdir." & ;;
+            mv "$file" "$destdir" &&
+                notify-send -i "$(readlink -f "$file")" "$file moved to $destdir." & ;;
+
         "r")
             convert -rotate 90 "$file" "$file" ;;
         "R")
@@ -23,11 +35,19 @@ do
         "f")
             convert -flop "$file" "$file" ;;
         "y")
-            echo -n "$file" | xclip -selection clipboard && notify-send "$file copied to clipboard" & ;;
+            echo -n "$file" |
+                xclip -selection clipboard &&
+                notify-send "$file copied to clipboard" & ;;
+
         "Y")
-            echo -n "$(readlink -f "$file")" | xclip -selection clipboard && notify-send "$(readlink -f "$file") copied to clipboard" & ;;
+            echo -n "$(readlink -f "$file")" |
+                xclip -selection clipboard &&
+                notify-send "$(readlink -f "$file") copied to clipboard" & ;;
+
         "d")
-            mv "$file" $XDG_DATA_HOME/mytrash && notify-send "$file sent to trash." ;;
+            mv "$file" $XDG_DATA_HOME/mytrash &&
+                notify-send "$file sent to trash." ;;
+
         "g")
             ifinstalled gimp && gimp "$file" & ;;
     esac

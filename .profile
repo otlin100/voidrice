@@ -7,16 +7,15 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
-export FILE="vu"
+export FILE="vifm"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 export GIT_ASKPASS="$HOME/.scripts/mytools/dmenupass_git"
-export PIX="$HOME/.pix/"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-# export VIMINIT=":source $XDG_CONFIG_HOME"/nvim/init.vim
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
 # less/man colors
 export LESS=-R

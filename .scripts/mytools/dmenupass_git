@@ -1,12 +1,11 @@
 #!/bin/bash
-. "${HOME}/.cache/wal/colors.sh"
 
 if [[ "$1" =~ "Username " ]]; then
-    username=$(</dev/null dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -p "Please enter your Git username: " | awk '{print $1}')
+    username=$(</dev/null dmenu_colored -p "Please enter your Git username: " | awk '{print $1}')
     [ -z $username ] && exit
     echo $username <&-
 else
-    chosen=$(printf "$(gopass ls -f | grep git)" | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -i -l 10 -p "Which password?" | awk '{print $1}')
+    chosen=$(printf "$(gopass ls -f | grep git)" | dmenu_colored -i -l 10 -p "Which password?" | awk '{print $1}')
     [ -z $chosen ] && exit
     password=$(gopass show $chosen)
     [ -z $password ] && exit

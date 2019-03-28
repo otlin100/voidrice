@@ -19,19 +19,33 @@ if [ "$capacity" -ge 75 ]; then
 	color="#00ff00"
 elif [ "$capacity" -ge 50 ]; then
 	color="#ffffff"
-elif [ "$capacity" -ge 25 ]; then
+elif [ "$capacity" -ge 20 ]; then
 	color="#ffff00"
 else
 	color="#ff0000"
 fi
 
-[ "$capacity" -lt 10 ] && [ "$status" != "Charging" ] && warn="❗" && mpv --really-quiet ~/.config/mutt/etc/notify.opus && pgrep -x dunst && notify-send -u critical "<big>Battery low! Will shutdown automatically when below 4%.</big>"
-[ "$capacity" -lt 4 ] && [ "$status" != "Charging" ] && sudo shutdown now
+[ "$capacity" -lt 8 ] && [ "$status" != "Charging" ] &&
+    pgrep -x dunst &>/dev/null &&
+    notify-send -u critical "<big>Battery low! Will hibernate automatically when below 4%.</big>" &&
+    mpv --really-quiet ~/.config/mutt/etc/notify.opus &&
+    warn="❗"
 
-[ "$capacity" -gt 99 ] && [ "$status" == "Charging" ] && mpv --really-quiet ~/.config/mutt/etc/notify.opus && pgrep -x dunst && notify-send -u critical "Battery charged! Please unplug the power adapter!"
+[ "$capacity" -lt 4 ] && [ "$status" != "Charging" ] &&
+    sudo systemctl hibernate
+
+[ "$capacity" -gt 99 ] && [ "$status" == "Charging" ] &&
+    pgrep -x dunst &>/dev/null &&
+    notify-send -u critical "Battery charged! Please unplug the power adapter!" &&
+    mpv --really-quiet ~/.config/mutt/etc/notify.opus
 
 [ -z $warn ] && warn=" "
 
 [ "$status" == "Charging" ] && color="#ffffff"
 
-printf "<span color='%s'>%s%s%s</span>" "$color" "$(echo "$status" | sed -e "s/,//;s/Discharging/🔋/;s/Not Charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
+printf \
+    "<span color='%s'>%s%s%s</span>" \
+    "$color" \
+    "$(echo "$status" | sed -e "s/,//;s/Discharging/🔋/;s/Not Charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" \
+    "$warn" \
+    "$(echo "$capacity" | sed -e 's/$/%/')"

@@ -1,3 +1,2 @@
 #!/bin/sh
-. "${HOME}/.cache/wal/colors.sh"
-man -Tpdf $(man -k . | awk '{print $1}' | uniq | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -l 20) | zathura -
+man -Tpdf $(man -k . | awk '{print $1}' | uniq | dmenu_colored -l 20) | zathura -

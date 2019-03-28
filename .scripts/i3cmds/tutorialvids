@@ -1,5 +1,4 @@
 #!/bin/sh
-. "${HOME}/.cache/wal/colors.sh"
 vidlist="
 status bar	https://www.youtube.com/watch?v=gKumet6b-WY
 sxiv (image viewer)	https://www.youtube.com/watch?v=GYW9i_u5PYs
@@ -17,4 +16,4 @@ urlview		https://www.youtube.com/watch?v=IgzpAjFgbCw
 colorschemes with pywal	https://www.youtube.com/watch?v=Es79N_9BblE
 vi mode in shell	https://www.youtube.com/watch?v=GqoJQft5R2E
 "
-echo "$vidlist" | grep -P "^$(echo "$vidlist" | grep "https:" | sed 's/\t.*//g' | dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -i -p "Learn about what? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r mpv
+echo "$vidlist" | grep -P "^$(echo "$vidlist" | grep "https:" | sed 's/\t.*//g' | dmenu_colored -i -p "Learn about what? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r mpv

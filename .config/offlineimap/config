@@ -2,7 +2,8 @@
 accounts = hhu, outlook, gmail
 starttls = yes
 ssl = yes
-pythonfile = ~/.config/mutt/credentials/imappwd.py
+pythonfile = ${XDG_CONFIG_HOME}/mutt/credentials/imappwd.py
+metadata = ${XDG_CACHE_HOME}/offlineimap
 
 
 [Account hhu]
