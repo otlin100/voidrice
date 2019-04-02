@@ -1,38 +1,40 @@
 #!/bin/sh
 alias ka="killall" \
-    bw="wal -i ~/.config/wall.png" \
-    mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-    p="sudo pacman" \
-    q="exit" \
-    SS="sudo systemctl" \
-    r="vifm" \
-    g="git" \
-    trem="transmission-remote" \
-    e="$EDITOR" \
-    x="sxiv -ft *" \
-    sdn="sudo shutdown -h now" \
-    gua="git remote | xargs -L1 git push --all" \
-    grep="grep --color=auto" \
-    diff="diff --color=auto" \
-    ccat="highlight --out-format=ansi" \
-    yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
-    yta="yt -x -f bestaudio/best" \
-    YT="youtube-viewer" \
-    ref="shortcuts >/dev/null; source ~/.shortcuts" \
-    upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
-    lsp="pacman -Qett --color=always | less" \
+	mkd="mkdir -pv" \
+	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+	calcurse="calcurse -D ~/.config/calcurse" \
+	magit="nvim -c MagitOnly" \
+	p="sudo pacman" \
+	SS="sudo systemctl" \
+	r="$FILE" \
+	g="git" \
+	trem="transmission-remote" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	x="sxiv -ft *" \
+	sdn="sudo shutdown -h now" \
+	gua="git remote | xargs -L1 git push --all" \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
+	yta="yt -x -f bestaudio/best" \
+	YT="youtube-viewer" \
+	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
+	lsp="pacman -Qett --color=always | less" \
+	ffmpeg="ffmpeg -hide_banner" \
     gpom="git push origin master" \
     gpo="git pull origin" \
     ga="git add -u" \
     gc="git commit -m" \
     svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
-    tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+    tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf" \
+    q="exit"
 
-command -v nvim >/dev/null && alias vimdiff="nvim -d" # Use neovim for vimdiff if present.
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
-shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
-se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 
 gitdir() {

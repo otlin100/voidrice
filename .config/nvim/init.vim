@@ -324,7 +324,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" When shortcut files are updated, renew bash and ranger configs with new material:
+" When shortcut files are updated, renew bash and vifm configs with new material:
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.

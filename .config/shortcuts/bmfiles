@@ -17,3 +17,4 @@ cfu	$XDG_CONFIG_HOME/newsboat/urls
 cfn	$XDG_CONFIG_HOME/newsboat/config
 cfmb $XDG_CONFIG_HOME/ncmpcpp/bindings
 cfmc $XDG_CONFIG_HOME/ncmpcpp/config
+cfB	$XDG_CONFIG_HOME/i3blocks/config
