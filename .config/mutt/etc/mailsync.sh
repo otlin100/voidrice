@@ -55,7 +55,7 @@ pkill -RTMIN+12 i3blocks
 accounts=$(ls "$XDG_DATA_HOME"/mail)
 
 # Run offlineimap. You can feed this script different settings.
-echo "$accounts" | xargs --max-procs=4 -n 1 offlineimap -l "$logfile" -o "$@" -a
+echo "$accounts" | xargs --max-procs=4 -n 1 -I account offlineimap -l "$logfile" -a account -o "$@"
 
 [ $? -ne 0 ] &&
     echo -e "\n\n---------\nSomething went wrong, check this log file for Errors!\n---------\n" >> "$logfile" &&

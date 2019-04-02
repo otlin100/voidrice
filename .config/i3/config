@@ -94,6 +94,7 @@ bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
 bindsym $mod+BackSpace	exec $suspend
 bindsym $mod+Mod1+BackSpace	exec $hibernate
+bindsym $mod+Mod5+BackSpace	exec $reboot
 bindsym $mod+Shift+BackSpace exec $shutdown
 
 bindsym $mod+grave		exec --no-startup-id dmenuunicode

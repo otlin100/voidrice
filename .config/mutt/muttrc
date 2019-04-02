@@ -29,10 +29,13 @@ auto_view application/pgp-encrypted
 alternative_order text/plain text/enriched text/html
 set rfc2047_parameters = yes
 
+set confirmappend = no
+set delete = yes
+
 # General remappings
 macro generic <F4> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/etc/.offlineimap.log<enter>"
 macro generic <F3> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/muttrc<enter>"
-macro generic <F2> "<enter-command>source $XDG_CONFIG_HOME/mutt/muttrc<enter>"
+macro generic <F2> "<enter-command>source $XDG_CONFIG_HOME/mutt/muttrc<enter><change-folder>!<enter><check-stats>"
 bind index,pager gr compose-to-sender
 bind index gd delete-pattern
 bind index,pager H display-toggle-weed
@@ -59,6 +62,7 @@ bind index D delete-message
 bind index U undelete-message
 bind index F search
 bind index,pager R group-reply
+bind index,pager <esc>m compose-to-sender
 bind index,pager \031 previous-undeleted # Mouse wheel
 bind index,pager \005 next-undeleted # Mouse wheel
 macro index,pager S <sync-mailbox>

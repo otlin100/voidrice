@@ -1,10 +1,10 @@
 [general]
-accounts = hhu, outlook, gmail
+accounts = hhu, outlook, gmail, sipgate
 starttls = yes
 ssl = yes
 pythonfile = ${XDG_CONFIG_HOME}/mutt/credentials/imappwd.py
 metadata = ${XDG_CACHE_HOME}/offlineimap
-
+fsync = false
 
 [Account hhu]
 localrepository = hhu-local
@@ -91,3 +91,27 @@ ssl_version = tls1_2
 [Repository gmail-local]
 type = Maildir
 localfolders = $XDG_DATA_HOME/mail/gmail
+
+[Account sipgate]
+localrepository = sipgate-local
+remoterepository = sipgate-remote
+
+[Repository sipgate-remote]
+
+folderfilter = lambda foldername: foldername not in [
+    '[Gmail]/Alle Nachrichten',
+    '[Gmail]/All Mail',
+    ]
+
+auth_mechanisms = LOGIN
+type = IMAP
+remoteuser = lin@sipgate.de
+remotepasseval = mailpasswd("sipgate")
+remotehost = imap.gmail.com
+remoteport = 993
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+ssl_version = tls1_2
+
+[Repository sipgate-local]
+type = Maildir
+localfolders = $XDG_DATA_HOME/mail/sipgate
