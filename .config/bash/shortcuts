@@ -31,3 +31,4 @@ cfu="$EDITOR $XDG_CONFIG_HOME/newsboat/urls" \
 cfn="$EDITOR $XDG_CONFIG_HOME/newsboat/config" \
 cfmb="$EDITOR $XDG_CONFIG_HOME/ncmpcpp/bindings" \
 cfmc="$EDITOR $XDG_CONFIG_HOME/ncmpcpp/config" \
+cfB="$EDITOR $XDG_CONFIG_HOME/i3blocks/config" \

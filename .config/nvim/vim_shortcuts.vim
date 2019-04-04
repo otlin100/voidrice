@@ -18,3 +18,4 @@ command! Cfu :e $XDG_CONFIG_HOME/newsboat/urls
 command! Cfn :e $XDG_CONFIG_HOME/newsboat/config
 command! Cfmb :e $XDG_CONFIG_HOME/ncmpcpp/bindings
 command! Cfmc :e $XDG_CONFIG_HOME/ncmpcpp/config
+command! CfB :e $XDG_CONFIG_HOME/i3blocks/config
