@@ -158,7 +158,7 @@ set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+Mod1+f			fullscreen toggle global
-bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "<b>Distraction-free mode activated.</b> Press Super+Shift+f to return."
+bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
 
 # bindsym $mod+g			workspace prev
 bindsym $mod+Shift+g		exec --no-startup-id gimp; workspace $ws5
