@@ -8,7 +8,7 @@ gaps outer 15
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill
-set $shutdown sudo shutdown -h now
+set $shutdown --no-startup-id myshutdown
 set $reboot sudo reboot
 set $hibernate sudo systemctl hibernate
 set $suspend sudo systemctl suspend

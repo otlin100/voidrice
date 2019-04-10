@@ -26,7 +26,7 @@ fi
 
 [ "$capacity" -lt 8 ] && [ "$status" != "Charging" ] &&
     pgrep -x dunst &>/dev/null &&
-    notify-send -u critical "<big>Battery low! Will hibernate automatically when below 4%.</big>" &&
+    notify-send -u critical "Battery low! Will hibernate automatically when below 4%." &&
     mpv --really-quiet ~/.config/mutt/etc/notify.opus &&
     warn="❗"
 

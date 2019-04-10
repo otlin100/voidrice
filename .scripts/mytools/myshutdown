@@ -1,0 +1,12 @@
+#!/bin/bash
+
+status=$(cat /sys/class/power_supply/BAT1/status)
+
+if [ "$status" == "Charging" ]; then
+    pgrep -x dunst &>/dev/null &&
+    notify-send -u critical "Battery is charging! Please unplug the power adapter before shutdown!" &&
+    mpv --really-quiet ~/.config/mutt/etc/notify.opus
+    exit
+fi
+
+sudo shutdown -h now
