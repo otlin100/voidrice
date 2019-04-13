@@ -29,6 +29,7 @@ alias ka="killall" \
     gpo="git pull origin" \
     ga="git add -u" \
     gc="git commit -m" \
+    gst="git status" \
     svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
     tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf" \
     q="exit"
