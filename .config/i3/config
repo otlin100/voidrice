@@ -109,7 +109,7 @@ bindsym $mod+Insert		exec --no-startup-id showclip
 
 # #---Letter Key Bindings---# #
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
 bindsym $mod+w			exec --no-startup-id $BROWSER
 bindsym $mod+Shift+w		move workspace to output right
@@ -180,7 +180,7 @@ bindsym $mod+Mod1+l			workspace next_on_output
 bindsym $mod+y			gaps inner current plus 5
 bindsym $mod+Shift+y		gaps outer current plus 5
 
-bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 193248
+bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 193248; exec --no-startup-id xset dpms force off
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
 # bindsym $mod+c			exec --no-startup-id freealf
@@ -285,14 +285,14 @@ no_focus [title="mpvfloat"]
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+30 i3blocks
 
 # #---Function Buttons---# #
-bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom $XDG_DATA_HOME/larbs/readme.mom -Tpdf | zathura -
+bindsym $mod+F1		exec --no-startup-id groff -mom $XDG_DATA_HOME/larbs/readme.mom -Tpdf | zathura -
 bindsym $mod+F2		restart
 bindsym $mod+F3		exec --no-startup-id displayselect
 bindsym $mod+F4		exec --no-startup-id prompt "Hibernate computer?" "$hibernate"
 bindsym $mod+F5		exec --no-startup-id $netrefresh
 bindsym $mod+F6		exec --no-startup-id torwrap
 bindsym $mod+F7		exec --no-startup-id td-toggle
-bindsym $mod+F8		exec --no-startup-id ~/.config/mutt/etc/mailsync.sh
+bindsym $mod+F8		exec --no-startup-id mailsync
 bindsym $mod+F9		exec --no-startup-id dmenumount
 bindsym $mod+F10	exec --no-startup-id dmenuumount
 bindsym $mod+F11	exec --no-startup-id ducksearch
