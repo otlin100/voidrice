@@ -3,9 +3,7 @@
 	name = otlin100
 [credential]
 	helper = cache --timeout=3600
-
 [alias]
-    luke = pull https://github.com/LukeSmithxyz/voidrice.git
     co = checkout
     m = merge
     st = status
