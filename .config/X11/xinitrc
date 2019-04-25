@@ -10,4 +10,8 @@ xset r rate 200 50
 
 source "$XDG_CONFIG_HOME/screenlayout/default.sh"
 
+gpg-agent --homedir /home/otlin/.config/gnupg --daemon
+
+eval $(ssh-agent)
+
 exec i3
