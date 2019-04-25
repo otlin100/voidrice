@@ -13,6 +13,7 @@ esac
 
 capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
 status=$(cat /sys/class/power_supply/"$1"/status)
+audio_device="pulse/alsa_output.pci-0000_00_1b.0.analog-stereo"
 
 if [ "$capacity" -ge 75 ]; then
 	color="#00ff00"
@@ -24,10 +25,15 @@ else
 	color="#ff0000"
 fi
 
+notify() {
+    mpv --really-quiet --volume=130 --audio-device="$audio_device" "$XDG_DATA_HOME"/sounds/notification/notify.opus
+    mpv --really-quiet "$XDG_DATA_HOME"/sounds/notification/notify.opus
+}
+
 [ "$capacity" -lt 8 ] && [ "$status" != "Charging" ] &&
     pgrep -x dunst &>/dev/null &&
     notify-send -u critical "Battery low! Will hibernate automatically when below 4%." &&
-    mpv --really-quiet ~/.config/mutt/etc/notify.opus &&
+    notify &&
     warn="❗"
 
 [ "$capacity" -lt 4 ] && [ "$status" != "Charging" ] &&
@@ -36,7 +42,7 @@ fi
 [ "$capacity" -gt 99 ] && [ "$status" == "Charging" ] &&
     pgrep -x dunst &>/dev/null &&
     notify-send -u critical "Battery charged! Please unplug the power adapter!" &&
-    mpv --really-quiet ~/.config/mutt/etc/notify.opus
+    notify
 
 [ -z $warn ] && warn=" "
 
