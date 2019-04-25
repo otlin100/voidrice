@@ -33,6 +33,7 @@ alias ka="killall" \
     svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
     tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf" \
     idea="intellij-idea-ultimate-edition" \
+    smi="sudo -A make install" \
     q="exit"
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
