@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mpv --really-quiet --volume=130 --audio-device="$audio_device" "$XDG_DATA_HOME"/sounds/notification/notify.opus
+mpv --really-quiet "$XDG_DATA_HOME"/sounds/notification/notify.opus

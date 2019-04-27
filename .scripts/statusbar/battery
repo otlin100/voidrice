@@ -25,15 +25,10 @@ else
 	color="#ff0000"
 fi
 
-notify() {
-    mpv --really-quiet --volume=130 --audio-device="$audio_device" "$XDG_DATA_HOME"/sounds/notification/notify.opus
-    mpv --really-quiet "$XDG_DATA_HOME"/sounds/notification/notify.opus
-}
-
 [ "$capacity" -lt 8 ] && [ "$status" != "Charging" ] &&
     pgrep -x dunst &>/dev/null &&
     notify-send -u critical "Battery low! Will hibernate automatically when below 4%." &&
-    notify &&
+    mynotify &&
     warn="❗"
 
 [ "$capacity" -lt 4 ] && [ "$status" != "Charging" ] &&
@@ -42,7 +37,7 @@ notify() {
 [ "$capacity" -gt 99 ] && [ "$status" == "Charging" ] &&
     pgrep -x dunst &>/dev/null &&
     notify-send -u critical "Battery charged! Please unplug the power adapter!" &&
-    notify
+    mynotify
 
 [ -z $warn ] && warn=" "
 
