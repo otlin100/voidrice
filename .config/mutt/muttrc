@@ -11,6 +11,7 @@ set date_format="%d.%m.%y %H:%M"
 macro generic <F2> "<enter-command>source $XDG_CONFIG_HOME/mutt/muttrc<enter><change-folder>!<enter><check-stats>"
 macro generic <F3> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/muttrc<enter>"
 macro generic <F4> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/.mbsync.log<enter>"
+macro generic <F5> "<shell-escape>nvim $XDG_CONFIG_HOME/abook/addressbook<enter>"
 bind index,pager gr compose-to-sender
 bind index gd delete-pattern
 bind index,pager H display-toggle-weed
