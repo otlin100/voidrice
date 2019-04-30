@@ -46,7 +46,7 @@ gitdir() {
 }
 
 gitignore() {
-    git status|grep -P '\t'|awk '{print $1}' >> .gitignore;
+    git status|grep -P '\t'|awk '{print $1}' >> .git/info/exclude;
 }
 
 gpt() {
