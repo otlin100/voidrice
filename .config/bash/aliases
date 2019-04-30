@@ -34,6 +34,7 @@ alias ka="killall" \
     tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf" \
     idea="intellij-idea-ultimate-edition" \
     smi="sudo -A make install" \
+    car="source /opt/anaconda3/bin/activate root" \
     q="exit"
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
@@ -57,8 +58,4 @@ gpt() {
     fi
     git_prompt_toggle
     git status
-}
-
-car() {
-    source /opt/anaconda/bin/activate root && unset BROWSER
 }

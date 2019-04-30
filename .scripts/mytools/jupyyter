@@ -1,4 +1,4 @@
 #!/bin/sh
 
-source /opt/anaconda/bin/activate root && unset BROWSER
+source /opt/anaconda3/bin/activate root && unset BROWSER
 nohup jupyter notebook --config="$XDG_CONFIG_HOME"/jupyter/jupyter_notebook_config.py "$@" &>/dev/null &
