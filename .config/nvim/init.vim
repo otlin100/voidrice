@@ -66,9 +66,9 @@ let g:rg_command = '
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 let g:fzf_tags_command = 'ctags -R -f ./.git/tags .'
 
-" using ag
-nnoremap <leader>a :F<cr>
-nnoremap <leader><leader>a :Ack!<space>-t<space><space>$HOME<left><left><left><left><left><left>
+" using ag/rg
+nnoremap <leader>a :Ag<cr>
+nnoremap <leader><leader>a :Rg<cr>
 
 " dont't clear clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))

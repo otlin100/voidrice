@@ -19,6 +19,7 @@ colorscheme luke
 
 " no prompt on regular delete
 set cf=permdelete
+set cpo=fs
 
 " Set custom status line look
 nnoremap <cr> :set runexec!<cr>
@@ -30,7 +31,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map <C-o> <C-w>o
 map <C-s> <C-w>s
 map <C-v> <C-w>v
 
