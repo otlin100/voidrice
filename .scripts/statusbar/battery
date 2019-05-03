@@ -13,7 +13,6 @@ esac
 
 capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
 status=$(cat /sys/class/power_supply/"$1"/status)
-export audio_device="pulse/alsa_output.pci-0000_00_1b.0.analog-stereo"
 
 if [ "$capacity" -ge 75 ]; then
 	color="#00ff00"
