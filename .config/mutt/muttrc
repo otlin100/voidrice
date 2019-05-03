@@ -29,3 +29,5 @@ bind index,pager <esc>m compose-to-sender
 bind attach <space> tag-entry
 set confirmappend = no
 set delete = yes
+macro index MM "<save-message>?"
+macro index MC "<copy-message>?"
