@@ -54,7 +54,7 @@ gpt() {
         source $XDG_DATA_HOME/bash-git-prompt/gitprompt.sh
         GIT_PROMPT_ONLY_IN_REPO=1
         git status
-        ssh-add ~/.ssh/id_rsa
+        [ $(ssh-add -l | grep -c otto.lin@hhu.de) -eq 1 ] || ssh-add ~/.ssh/id_rsa
         return
     fi
     git_prompt_toggle
