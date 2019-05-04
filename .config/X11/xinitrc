@@ -12,6 +12,6 @@ source "$XDG_CONFIG_HOME/screenlayout/default.sh"
 
 gpg-agent --homedir /home/otlin/.config/gnupg --daemon
 
-eval $(ssh-agent)
+eval $(ssh-agent -s)
 
 exec i3
