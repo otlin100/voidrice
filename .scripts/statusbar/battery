@@ -26,7 +26,7 @@ fi
 
 [ "$capacity" -lt 8 ] && [ "$status" != "Charging" ] &&
     pgrep -x dunst &>/dev/null &&
-    notify-send -u critical "Battery low! Will hibernate automatically when below 4%." &&
+    notify-send -t 7000 -u critical "Battery low! Will hibernate automatically when below 4%." &&
     mynotify &&
     warn="❗"
 
@@ -35,7 +35,7 @@ fi
 
 [ "$capacity" -gt 99 ] && [ "$status" == "Charging" ] &&
     pgrep -x dunst &>/dev/null &&
-    notify-send -u critical "Battery charged! Please unplug the power adapter!" &&
+    notify-send -t 7000 -u critical "Battery charged! Please unplug the power adapter!" &&
     mynotify
 
 [ -z $warn ] && warn=" "

@@ -4,7 +4,7 @@ status=$(cat /sys/class/power_supply/BAT1/status)
 
 if [ "$status" == "Charging" ]; then
     pgrep -x dunst &>/dev/null &&
-    notify-send -u critical "Battery is charging! Please unplug the power adapter before shutdown!" &&
+    notify-send -t 5000 -u critical "Battery is charging! Please unplug the power adapter before shutdown!" &&
     mynotify
     exit
 fi
