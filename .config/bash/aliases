@@ -33,7 +33,7 @@ alias ka="killall" \
     svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
     tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf" \
     idea="intellij-idea-ultimate-edition" \
-    smi="sudo -A make install" \
+    smi="sudo -A make -k clean install" \
     car="source /opt/anaconda3/bin/activate root" \
     q="exit"
 

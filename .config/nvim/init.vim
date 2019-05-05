@@ -41,9 +41,12 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
+
+map <leader>n :NERDTreeToggle<cr>
 
 let g:deoplete#enable_at_startup = 0
 
