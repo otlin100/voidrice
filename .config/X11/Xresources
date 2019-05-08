@@ -16,7 +16,7 @@
 *.color14: #8ec07c
 *.color15: #ebdbb2
 !! Transparency (0-255):
-st.alpha: 230
+st.alpha: 0.88
 !! Set a default font and font size as below:
 *.font: FuraMono Nerd Font-14.0;
 /* *.font: InconsolataGo Nerd Font-14; */
