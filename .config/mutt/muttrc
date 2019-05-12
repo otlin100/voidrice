@@ -17,6 +17,7 @@ bind index gd delete-pattern
 bind index,pager H display-toggle-weed
 bind pager,alias,attach,browser h exit
 bind index h sidebar-toggle-visible
+bind compose l noop
 bind alias l select-entry
 macro attach s "<save-entry><bol>~/Downloads/<return>" "Save to Downloads"
 # bind index <return> noop

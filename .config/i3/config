@@ -76,10 +76,12 @@ bar {
                 inactive_workspace $darkblack $darkblack $white
                 urgent_workspace   $darkblack $darkblack $white
         }
+
     status_command i3blocks
         position top
         mode dock
         modifier None
+        tray_output primary
 }
 
 # #---Basic Bindings---# #
@@ -105,7 +107,7 @@ bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-
 
 # Show selection:
 bindsym $mod+Insert		exec --no-startup-id showclip
-##bindsym $mod+Pause
+bindsym $mod+Pause  exec --no-startup-id cabl
 
 # #---Letter Key Bindings---# #
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill

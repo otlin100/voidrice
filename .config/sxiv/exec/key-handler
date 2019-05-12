@@ -19,7 +19,7 @@ do
 
         "m")
             [ -z "$destdir" ] &&
-                destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.config/bmdirs |
+                destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.config/shortcuts/bmdirs |
                 awk '{print $2}' |
                 dmenu_colored -l 20 -i -p "Move file(s) to where?" |
                 sed "s|~|$HOME|g")"
