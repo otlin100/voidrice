@@ -1,7 +1,7 @@
 bf	$XDG_CONFIG_HOME/shortcuts/bmfiles
 bd	$XDG_CONFIG_HOME/shortcuts/bmdirs
 cfb	~/.bashrc
-cfp ~/.bash_profile
+cfp ~/.profile
 cfa	$XDG_CONFIG_HOME/bash/aliases
 cfv	$XDG_CONFIG_HOME/nvim/init.vim
 cfx	$XDG_CONFIG_HOME/X11/Xresources

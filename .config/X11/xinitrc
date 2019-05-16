@@ -12,6 +12,7 @@ source "$XDG_CONFIG_HOME/screenlayout/default.sh"
 
 gpg-agent --homedir /home/otlin/.config/gnupg --daemon
 
-eval $(ssh-agent -s)
+eval "$(ssh-agent -s)"
+eval "$(hub alias -s)"
 
 exec i3
