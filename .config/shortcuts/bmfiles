@@ -5,6 +5,7 @@ cfp ~/.bash_profile
 cfa	$XDG_CONFIG_HOME/bash/aliases
 cfv	$XDG_CONFIG_HOME/nvim/init.vim
 cfx	$XDG_CONFIG_HOME/X11/Xresources
+cfX	$XDG_CONFIG_HOME/X11/xinitrc
 cfi	$XDG_CONFIG_HOME/i3/config
 cfm	$XDG_CONFIG_HOME/mutt/muttrc
 cfA	$XDG_CONFIG_HOME/mutt/etc/aliases

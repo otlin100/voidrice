@@ -19,6 +19,7 @@ cfp="$EDITOR ~/.bash_profile" \
 cfa="$EDITOR $XDG_CONFIG_HOME/bash/aliases" \
 cfv="$EDITOR $XDG_CONFIG_HOME/nvim/init.vim" \
 cfx="$EDITOR $XDG_CONFIG_HOME/X11/Xresources" \
+cfX="$EDITOR $XDG_CONFIG_HOME/X11/xinitrc" \
 cfi="$EDITOR $XDG_CONFIG_HOME/i3/config" \
 cfm="$EDITOR $XDG_CONFIG_HOME/mutt/muttrc" \
 cfA="$EDITOR $XDG_CONFIG_HOME/mutt/etc/aliases" \

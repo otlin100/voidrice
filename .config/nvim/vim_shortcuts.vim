@@ -6,6 +6,7 @@ command! Cfp :e ~/.bash_profile
 command! Cfa :e $XDG_CONFIG_HOME/bash/aliases
 command! Cfv :e $XDG_CONFIG_HOME/nvim/init.vim
 command! Cfx :e $XDG_CONFIG_HOME/X11/Xresources
+command! CfX :e $XDG_CONFIG_HOME/X11/xinitrc
 command! Cfi :e $XDG_CONFIG_HOME/i3/config
 command! Cfm :e $XDG_CONFIG_HOME/mutt/muttrc
 command! CfA :e $XDG_CONFIG_HOME/mutt/etc/aliases
