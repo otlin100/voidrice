@@ -2,7 +2,7 @@
 
 bt_string=$(systemctl is-active bluetooth)
 
-if [[ $bt_string == 'active' ]]; then
+if [ "$bt_string" = "active" ]; then
     printf "%s\\n" ""
 else
     printf ""

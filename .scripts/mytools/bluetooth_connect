@@ -10,7 +10,7 @@ if [ "$selected" == "dc" ]; then
 elif [ "$selected" == "sw" ]; then
     toggle_bluetooth || exit
 else
-    [ $(echo "$selected" | wc -l) -eq 1 -a ! "$selected" == "cancel" ] || exit
+    [ $(echo "$selected" | wc -l) -eq 1 ] && [ ! "$selected" == "cancel" ] || exit
     if [ $bt_string == "inactive" ]; then
         toggle_bluetooth || exit
         wait
@@ -20,7 +20,7 @@ else
     echo -e "connect $selected\n" | bluetoothctl
     sleep 2
     IFS=$'\n'
-    info=($(echo -e "info $selected\n" | bluetoothctl | awk -F ':' '/(Connected:|Name:)/ {print $2}'))
+    info=$(echo -e "info $selected\n" | bluetoothctl | awk -F ':' '/(Connected:|Name:)/ {print $2}')
     unset IFS
     if [ ${info[1]} == "yes" ]; then
         pgrep -x dunst >/dev/null && notify-send "<b>${info[0]}</b> connected"

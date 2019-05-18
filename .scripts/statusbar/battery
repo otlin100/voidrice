@@ -2,7 +2,7 @@
 # Give a battery name (e.g. BAT0) as an argument.
 
 case $BLOCK_BUTTON in
-    3) pgrep -x dunst >/dev/null && notify-send "🔋 Battery module" "🔋: discharging
+    3) pgrep -x dunst >/dev/null 2>&1 && notify-send "🔋 Battery module" "🔋: discharging
 🛑: not charging
 ♻: stagnant charge
 🔌: charging
@@ -25,7 +25,7 @@ else
 fi
 
 [ "$capacity" -lt 8 ] && [ "$status" != "Charging" ] &&
-    pgrep -x dunst &>/dev/null &&
+    pgrep -x dunst >/dev/null 2>&1 &&
     notify-send -t 7000 -u critical "Battery low! Will hibernate automatically when below 4%." &&
     mynotify &&
     warn="❗"
@@ -34,13 +34,13 @@ fi
     sudo systemctl hibernate
 
 [ "$capacity" -gt 99 ] && [ "$status" != "Discharging" ] &&
-    pgrep -x dunst &>/dev/null &&
+    pgrep -x dunst >/dev/null 2>&1 &&
     notify-send -t 7000 -u critical "Battery charged! Please unplug the power adapter!" &&
     mynotify
 
 [ -z $warn ] && warn=" "
 
-[ "$status" == "Charging" ] && color="#ffffff"
+[ "$status" = "Charging" ] && color="#ffffff"
 
 printf \
     "<span color='%s'>%s%s%s</span>" \

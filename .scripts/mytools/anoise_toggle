@@ -1,4 +1,4 @@
 #!/bin/sh
 
-pid=$(ps aux|grep -v grep | grep "mpv .*anoise" | awk '{print $2}')
-kill $pid &>/dev/null || nohup mpv --loop-file=inf $XDG_DATA_HOME/sounds/anoise &>/dev/null & exit
+pid=$(pgrep -f "mpv .*anoise")
+kill $pid >/dev/null 2>&1 || nohup mpv --loop-file=inf $XDG_DATA_HOME/sounds/anoise >/dev/null 2>&1 & exit
