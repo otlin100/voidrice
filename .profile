@@ -1,8 +1,7 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
-# Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
@@ -11,9 +10,9 @@ export FILE="vifm"
 export BATTERY="BAT1"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
-export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
-export SSH_ASKPASS="$HOME/.scripts/tools/dmenupass"
-export GIT_ASKPASS="$HOME/.scripts/mytools/dmenupass_git"
+export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
+export SSH_ASKPASS="$HOME/.local/bin/tools/dmenupass"
+export GIT_ASKPASS="$HOME/.local/bin/mytools/dmenupass_git"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -60,4 +59,4 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 
 # Switch escape and caps if tty:
-sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
+sudo -n loadkeys ~/.local/bin/ttymaps.kmap 2>/dev/null

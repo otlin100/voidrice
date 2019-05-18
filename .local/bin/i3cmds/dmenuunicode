@@ -6,7 +6,11 @@
 
 xclip -h >/dev/null || exit
 
-chosen=$(grep -v "#" $XDG_DATA_HOME/emoji | dmenu_colored -i -l 20)
+if [ -e ~/.config/fontawesome ]; then
+    chosen=$(grep -v "#" -h $XDG_DATA_HOME/emoji ~/.config/fontawesome | dmenu_colored -i -l 20 -fn Monospace-18)
+else
+    chosen=$(grep -v "#" $XDG_DATA_HOME/emoji | dmenu_colored -i -l 20 -fn Monospace-18)
+fi
 
 [ "$chosen" != "" ] || exit
 
