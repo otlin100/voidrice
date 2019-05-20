@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 alias ka="killall" \
 	mkd="mkdir -pv" \
 	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
@@ -51,7 +51,7 @@ gitignore() {
 
 gpt() {
     if ! type "git_prompt_toggle" >/dev/null 2>&1; then
-        . $XDG_DATA_HOME/bash-git-prompt/gitprompt.sh
+        source $XDG_DATA_HOME/bash-git-prompt/gitprompt.sh
         GIT_PROMPT_ONLY_IN_REPO=1
         git status
         [ $(ssh-add -l | grep -c otto.lin@hhu.de) -eq 1 ] || echo none | ssh-add ~/.ssh/id_rsa

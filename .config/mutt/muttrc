@@ -15,9 +15,9 @@ macro generic <F5> "<shell-escape>nvim $XDG_CONFIG_HOME/abook/addressbook<enter>
 bind index,pager gr compose-to-sender
 bind index gd delete-pattern
 bind index,pager H display-toggle-weed
-bind pager,alias,attach,browser h exit
+bind pager,alias,attach,browser,compose h exit
 bind index h sidebar-toggle-visible
-bind compose l noop
+bind compose l view-attach
 bind alias l select-entry
 macro attach s "<save-entry><bol>~/Downloads/<return>" "Save to Downloads"
 # bind index <return> noop
