@@ -85,8 +85,6 @@ bar {
 }
 
 # #---Basic Bindings---# #
-bindsym $mod+Return 		exec $term
-bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
 bindsym $mod+Shift+space 	floating toggle
 bindsym $mod+space		focus mode_toggle
@@ -100,26 +98,18 @@ bindsym $mod+Mod5+BackSpace	exec $reboot
 bindsym $mod+Shift+BackSpace exec $shutdown
 
 bindsym $mod+grave		exec --no-startup-id dmenuunicode
-##bindsym $mod+asciitilde
 
 #STOP/HIDE EVERYTHING:
 bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
-
-# Show selection:
-bindsym $mod+Insert		exec --no-startup-id showclip
-bindsym $mod+Pause  exec --no-startup-id cabl
 
 # #---Letter Key Bindings---# #
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
-bindsym $mod+w			exec --no-startup-id $BROWSER
 bindsym $mod+Shift+w		move workspace to output right
 
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
-bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
 
-bindsym $mod+r			exec $term -e vifm
 bindsym $mod+Shift+r		exec --no-startup-id winresize
 
 bindsym $mod+t			split toggle
@@ -132,26 +122,16 @@ bindsym $mod+Shift+z		exec --no-startup-id i3resize left
 bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
 bindsym $mod+Shift+u		exec --no-startup-id i3resize down
 
-bindsym $mod+i 			exec $term -e htop
 bindsym $mod+Shift+i		exec --no-startup-id i3resize up
 
 bindsym $mod+o			sticky toggle
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 
-bindsym $mod+p			exec --no-startup-id password
-bindsym $mod+Shift+p		exec --no-startup-id lmc pause
-
 bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
-bindsym $mod+Shift+a		exec $term -e pulsemixer
 
 bindsym $mod+s			gaps inner current minus 5
 bindsym $mod+Shift+s		gaps outer current minus 5
 
-# toggle ambient noise
-bindsym $mod+period exec --no-startup-id anoise_toggle
-bindsym $mod+Shift+period exec --no-startup-id anoise_shuffle
-
-bindsym $mod+d			exec --no-startup-id dmen
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
@@ -194,12 +174,10 @@ bindsym $mod+c exec --no-startup-id $clip_chooser show
 bindsym $mod+Shift+c exec --no-startup-id $clip_chooser clean
 
 # bindsym $mod+v			exec --no-startup-id $term -e vim -c "VimwikiIndex"
-bindsym $mod+v			exec --no-startup-id $term -e $EDITOR
 bindsym $mod+Shift+v    layout toggle
 
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
-bindsym $mod+Mod1+b     exec --no-startup-id bluetooth_connect
 
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
@@ -290,15 +268,7 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+30 i3blocks
 bindsym $mod+F1		exec --no-startup-id groff -mom $XDG_DATA_HOME/larbs/readme.mom -Tpdf | zathura -
 bindsym $mod+F2		restart
 bindsym $mod+F3		exec --no-startup-id displayselect
-bindsym $mod+F4		exec --no-startup-id prompt "Hibernate computer?" "$hibernate"
 bindsym $mod+F5		exec --no-startup-id $netrefresh
-bindsym $mod+F6		exec --no-startup-id torwrap
-bindsym $mod+F7		exec --no-startup-id td-toggle
-bindsym $mod+F8		exec --no-startup-id mailsync
-bindsym $mod+F9		exec --no-startup-id dmenumount
-bindsym $mod+F10	exec --no-startup-id dmenuumount
-bindsym $mod+F11	exec --no-startup-id ducksearch
-bindsym $mod+F12	exec --no-startup-id networkmanager_dmenu
 
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
@@ -320,10 +290,6 @@ bindsym $mod+less 		exec --no-startup-id lmc prev
 bindsym $mod+Shift+less		exec --no-startup-id lmc replay
 bindsym $mod+greater		exec --no-startup-id lmc next
 bindsym $mod+Shift+greater	exec --no-startup-id lmc next
-
-#set backlight
-bindsym $mod+plus		exec --no-startup-id light -A 3
-bindsym $mod+minus 		exec --no-startup-id light -U 3
 
 # For advancing forward/backward in an mpd song
 bindsym $mod+bracketleft 	exec --no-startup-id lmc back 10

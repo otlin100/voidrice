@@ -6,7 +6,7 @@ pp	~/Pictures
 cf	$XDG_CONFIG_HOME
 xd  $XDG_DATA_HOME
 xc  $XDG_CACHE_HOME
-sc	~/.scripts
+sc	~/.local/bin
 so	$XDG_DATA_HOME/sounds
 e	/etc
 w	~/Pictures/wallpapers

@@ -42,6 +42,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree'
+Plug 'baskerville/vim-sxhkdrc'
 call plug#end()
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
@@ -223,7 +224,7 @@ nmap Y y$
 set ignorecase
 set path+=**
 set path+=$XDG_CONFIG_HOME/**
-set path+=$HOME/.scripts/**
+set path+=$HOME/.local/bin/**
 
 set wildmenu
 " Ignore compiled files
@@ -332,4 +333,6 @@ autocmd BufWinLeave * call clearmatches()
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost ~/.config/X11/Xresources,~/.config/X11/Xdefaults !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png
+autocmd BufWritePost *Xresources, *Xdefaults !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png
+
+autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
