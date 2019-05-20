@@ -10,10 +10,11 @@ xset r rate 200 50
 
 source "$XDG_CONFIG_HOME/screenlayout/default.sh"
 
-sxhkd &
 gpg-agent --homedir /home/otlin/.config/gnupg --daemon
 
-eval "$(ssh-agent -s)"
-eval "$(hub alias -s)"
+eval $(ssh-agent -s)
+eval $(hub alias -s)
+
+sxhkd &
 
 exec i3
