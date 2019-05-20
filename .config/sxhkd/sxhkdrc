@@ -1,0 +1,50 @@
+super + Return
+    $TERMINAL
+super + shift + Return
+    samedir
+super + period
+    anoise_toggle
+super + shift + period
+    anoise_shuffle
+super + d
+    dmen
+super + v
+    $TERMINAL -e $EDITOR
+super + alt + b
+    bluetooth_connect
+super + F6
+    torwrap
+super + F7
+    td-toggle
+super + F8
+    mailsync
+super + F9
+    dmenumount
+super + F10
+    dmenuumount
+super + F11
+    ducksearch
+super + F12
+    networkmanager_dmenu
+super + plus
+    light -A 3
+super + minus
+    light -U 3
+super + p
+    password
+super + shift + p
+    lmc pause
+super + i
+    $TERMINAL -e htop
+super + shift + a
+    $TERMINAL -e pulsemixer
+super + r
+    $TERMINAL -e $FILE
+super + shift + e
+    tutorialvids
+super + w
+    $BROWSER
+super + Insert
+    showclip
+super + Pause
+    cabl
