@@ -285,8 +285,8 @@ nmap <c-k> <c-w>k
 set wmh=0
 
 " Check file in shellcheck:
-" map <leader>s :!clear && shellcheck %<CR>
-nnoremap <leader>s :w<cr>:so %<cr>
+map <leader>sc :!clear && shellcheck %<CR>
+nnoremap <leader>so :w<cr>:so %<cr>
 
 " Open my bibliography file in split
 map <leader>b :e<space>$BIB<CR>
