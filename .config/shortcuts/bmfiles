@@ -7,6 +7,8 @@ cfv	$XDG_CONFIG_HOME/nvim/init.vim
 cfx	$XDG_CONFIG_HOME/X11/Xresources
 cfX	$XDG_CONFIG_HOME/X11/xinitrc
 cfi	$XDG_CONFIG_HOME/i3/config
+cfl	$XDG_CONFIG_HOME/lf/lfrc
+cfs	$XDG_CONFIG_HOME/sxhkd/sxhkdrc
 cfm	$XDG_CONFIG_HOME/mutt/muttrc
 cfA	$XDG_CONFIG_HOME/mutt/etc/aliases
 cfg	$XDG_CONFIG_HOME/gtk-3.0/settings.ini

@@ -10,5 +10,5 @@ sc	~/.local/bin
 so	$XDG_DATA_HOME/sounds
 e	/etc
 w	~/Pictures/wallpapers
-t	$XDG_DATA_HOME/mytrash
+t	$XDG_DATA_HOME/trash
 fo  $XDG_DATA_HOME/fonts

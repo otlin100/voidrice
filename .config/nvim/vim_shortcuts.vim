@@ -8,6 +8,8 @@ command! Cfv :e $XDG_CONFIG_HOME/nvim/init.vim
 command! Cfx :e $XDG_CONFIG_HOME/X11/Xresources
 command! CfX :e $XDG_CONFIG_HOME/X11/xinitrc
 command! Cfi :e $XDG_CONFIG_HOME/i3/config
+command! Cfl :e $XDG_CONFIG_HOME/lf/lfrc
+command! Cfs :e $XDG_CONFIG_HOME/sxhkd/sxhkdrc
 command! Cfm :e $XDG_CONFIG_HOME/mutt/muttrc
 command! CfA :e $XDG_CONFIG_HOME/mutt/etc/aliases
 command! Cfg :e $XDG_CONFIG_HOME/gtk-3.0/settings.ini
