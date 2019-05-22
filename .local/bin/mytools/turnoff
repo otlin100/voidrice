@@ -2,7 +2,7 @@
 
 case "$1" in
     reboot)
-        sudo systemctl reboot ;;
+        reboot ;;
     shutdown)
         myshutdown ;;
     suspend)
@@ -11,4 +11,6 @@ case "$1" in
         sudo systemctl hibernate ;;
     lock)
         slock ;;
+    logout)
+        pkill -u "$USER"
 esac

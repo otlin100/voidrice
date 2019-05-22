@@ -1,0 +1,13 @@
+#!/bin/sh
+
+sounds="$XDG_DATA_HOME/sounds"
+toggle() {
+    pkill -f "mpv .*anoise" >/dev/null 2>&1 || nohup mpv --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
+}
+
+case "$1" in
+    toggle)
+        toggle; exit;;
+    shuffle)
+        find "$sounds"/* -prune -name '*.*' | shuf -n1 | xargs -I '{}' cp {} "$sounds"/anoise && toggle && toggle ;;
+esac

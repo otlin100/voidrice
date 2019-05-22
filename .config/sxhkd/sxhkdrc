@@ -2,20 +2,16 @@ super + Return
     $TERMINAL
 super + shift + Return
     samedir
-super + period
-    anoise_toggle
-super + shift + period
-    anoise_shuffle
+super {_,+ shift} + period
+    anoise {toggle,shuffle}
 super + d
     dmen
 super + v
     $TERMINAL -e $EDITOR
 super + alt + b
     bluetooth_connect
-super + c
-    clipmenu.sh show
-super + shift + c
-    clipmenu.sh clean
+super {_,+ shift} + c
+    clipmenu.sh {show,clean}
 super + z
     camtoggle
 super + acute
@@ -66,8 +62,8 @@ super + Insert
     showclip
 super + Pause
     cabl
-super + x ; {s,h,r,x,l}
-    turnoff {suspend,hibernate,reboot,shutdown,lock}
+super + x ; {s,h,r,l,w,x}
+    turnoff {suspend,hibernate,reboot,lock,logout,shutdown}
 Print
     maim pic-full-"$(date '+%d%m%y-%H%M-%S').png"
 shift + Print
@@ -78,3 +74,9 @@ super + Scroll_Lock
     "killall screenkey || screenkey"
 super + Delete
     dmenurecord kill
+XF86AudioMute
+    lmc mute
+XF86AudioLowerVolume
+    lmc down 5
+XF86AudioRaiseVolume
+    lmc up 5

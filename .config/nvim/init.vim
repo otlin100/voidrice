@@ -222,9 +222,9 @@ call yankstack#setup()
 nmap Y y$
 
 set ignorecase
+set path+=$HOME/.local/bin/**
 set path+=**
 set path+=$XDG_CONFIG_HOME/**
-set path+=$HOME/.local/bin/**
 
 set wildmenu
 " Ignore compiled files

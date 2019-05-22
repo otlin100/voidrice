@@ -65,9 +65,6 @@ bar {
 bindsym $mod+Shift+space 	floating toggle
 bindsym $mod+space		focus mode_toggle
 
-bindsym $mod+Escape		workspace prev
-bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
-
 # #---Letter Key Bindings---# #
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
@@ -119,12 +116,9 @@ bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
 
 bindsym $mod+m			exec --no-startup-id ddspawn_program spotify
-bindsym $mod+Shift+m		exec --no-startup-id lmc mute
 
 # #---Workspace Bindings---# #
 bindsym $mod+Tab		workspace back_and_forth
-
-bindsym $mod+apostrophe		split horizontal ;; exec $term
 
 set $ws1 "1"
 set $ws2 "2"
@@ -139,9 +133,6 @@ set $ws10 "10"
 
 assign [class="Skype"] $ws4
 workspace $ws10 output HDMI-1
-workspace $ws9 output HDMI-1
-workspace $ws8 output HDMI-1
-workspace $ws7 output HDMI-1
 
 # move focused container to workspace
 bindsym $mod+1		move container to workspace $ws1
