@@ -12,6 +12,22 @@ super + v
     $TERMINAL -e $EDITOR
 super + alt + b
     bluetooth_connect
+super + c
+    clipmenu.sh show
+super + shift + c
+    clipmenu.sh clean
+super + z
+    camtoggle
+super + acute
+    dmenuunicode
+super + shift + r
+    winresize
+super + F1
+    groff -mom $XDG_DATA_HOME/larbs/readme.mom -Tpdf | zathura -
+super + F3
+    displayselect
+super + F5
+    sudo -A systemctl restart NetworkManager
 super + F6
     torwrap
 super + F7
@@ -40,6 +56,8 @@ super + shift + a
     $TERMINAL -e pulsemixer
 super + r
     $TERMINAL -e $FILE
+super + shift + r
+    remaps
 super + shift + e
     tutorialvids
 super + w
@@ -48,3 +66,15 @@ super + Insert
     showclip
 super + Pause
     cabl
+super + x ; {s,h,r,x,l}
+    turnoff {suspend,hibernate,reboot,shutdown,lock}
+Print
+    maim pic-full-"$(date '+%d%m%y-%H%M-%S').png"
+shift + Print
+    maimpick
+super + Print
+    dmenurecord
+super + Scroll_Lock
+    "killall screenkey || screenkey"
+super + Delete
+    dmenurecord kill
