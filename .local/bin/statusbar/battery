@@ -24,13 +24,13 @@ else
 	color="#ff0000"
 fi
 
-[ "$capacity" -lt 8 ] && [ "$status" != "Charging" ] &&
+[ "$capacity" -lt 11 ] && [ "$status" != "Charging" ] &&
     pgrep -x dunst >/dev/null 2>&1 &&
-    notify-send -t 7000 -u critical "Battery low! Will hibernate automatically when below 4%." &&
+    notify-send -t 7000 -u critical "Battery low! Will hibernate automatically when below 9%." &&
     mynotify &&
     warn="❗"
 
-[ "$capacity" -lt 4 ] && [ "$status" != "Charging" ] &&
+[ "$capacity" -lt 9 ] && [ "$status" != "Charging" ] &&
     sudo systemctl hibernate
 
 [ "$capacity" -gt 99 ] && [ "$status" != "Discharging" ] &&

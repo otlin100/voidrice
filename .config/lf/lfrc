@@ -24,7 +24,8 @@ set scrolloff 10
 map <enter> shell
 
 # execute current file (must be executable)
-map x $nohup sxiv -ft * >/dev/null 2>&1 &
+map x $nohup sxiv -ft . >/dev/null 2>&1 &
+
 map X !$f
 
 # dedicated keys for file opener actions
@@ -97,6 +98,8 @@ cmd zip ${{
     rm -rf $1
 }}
 
+map c
+map U :clear
 # -------- START --------
 # -------- SHORTCUTS --------
 map gh :cd ~/
