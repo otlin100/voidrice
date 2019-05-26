@@ -1,48 +1,33 @@
 #!/bin/bash
-alias ka="killall" \
-	mkd="mkdir -pv" \
-	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-	calcurse="calcurse -D ~/.config/calcurse" \
-	magit="nvim -c MagitOnly" \
-	p="sudo pacman" \
-	SS="sudo systemctl" \
-	r="$FILE" \
-	g="git" \
-	trem="transmission-remote" \
-	e="$EDITOR" \
-	v="$EDITOR" \
-	x="sxiv -ft *" \
-	sdn="sudo shutdown -h now" \
-	gua="git remote | xargs -L1 git push --all" \
-	ls="ls -hN --color=auto --group-directories-first" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi" \
-	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
-	yta="yt -x -f bestaudio/best" \
-	YT="youtube-viewer" \
-	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
-	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
-	lsp="pacman -Qett --color=always | less" \
-	ffmpeg="ffmpeg -hide_banner" \
+alias mkd="mkdir -pv" \
+    mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+    p="sudo pacman" \
+    SS="sudo systemctl" \
+    r="$FILE" \
+    g="git" \
+    e="$EDITOR" \
+    v="$EDITOR" \
+    x="sxiv -ft *" \
+    ls="ls -hN --color=auto --group-directories-first" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    ffmpeg="ffmpeg -hide_banner" \
     gpom="git push origin master" \
     gpo="git pull origin" \
     ga="git add -u" \
     gc="git commit -m" \
     gst="git status" \
-    svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
-    tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf" \
-    idea="intellij-idea-ultimate-edition" \
     smi="sudo -A make -k clean install" \
     car="source /opt/anaconda3/bin/activate root" \
-    q="exit"
-
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
+    q="exit" \
+    vim="nvim" \
+    vimdiff="nvim -d" \
+    nvm="unalias nvm && source /usr/share/nvm/nvm.sh --no-use && nvm"
 
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 
 gitdir() {
-    svn checkout ${1%.git}'/trunk/'$2 $HOME'/Downloads/'$(echo ${2%/} | awk -F '/' '{print $NF}')
+    svn --config-dir $XDG_CONFIG_HOME/subversion checkout ${1%.git}'/trunk/'$2 $HOME'/Downloads/'$(echo ${2%/} | awk -F '/' '{print $NF}')
 }
 
 gitignore() {

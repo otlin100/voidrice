@@ -1,15 +1,13 @@
 #!/bin/sh
 
+setbg &
 wal -n -R
 
 eval $(ssh-agent -s)
 eval $(hub alias -s)
 
-setbg &		# Set the background
 sxhkd -m 1 &	# Bind keys
-# Switch to US international with Caps as Mod/Escape
 setxkbmap -option caps:super && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
-# Properties button extra Mod/Escape
 xmodmap -e 'keycode 105 = Caps_Lock' &
 xmodmap -e 'keycode 135 = Super_R' &
 xset r rate 200 50 &
