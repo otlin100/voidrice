@@ -45,6 +45,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'baskerville/vim-sxhkdrc'
 call plug#end()
 
+let g:vim_textobj_parameter_mapping = 'a'
+
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
 
 map <leader>n :NERDTreeToggle<cr>
