@@ -50,7 +50,12 @@ map o &mimeopen $f
 map O $mimeopen --ask $f
 
 %mkdir -p ~/.local/share/trash
-cmd trash %set -f; mv -f $fx ~/.local/share/trash
+cmd trash ${{
+    set -f
+    mv -f $fx ~/.local/share/trash && exit
+    cp -rf $fx ~/.local/share/trash
+    rm -rf $fx
+}}
 
 cmd extract ${{
     set -f
