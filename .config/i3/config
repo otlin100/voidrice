@@ -14,7 +14,7 @@ for_window [instance="dropdown_*"] floating enable, move scratchpad, sticky enab
 for_window [instance="dropdown_tmuxdd"] resize set 625 450, border pixel 3
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300, border pixel 2
 for_window [instance="dropdown_*"] move position center
-for_window [instance=spotify] floating enable, sticky enable, move scratchpad, scratchpad show, resize set 1700 900, move position center
+for_window [instance=spotify] floating enable, sticky enable, move scratchpad, scratchpad show, resize set 1300 800, move position center
 
 # Set Xresources colors:
 set_from_resource $darkblack	color0  #000000
@@ -42,7 +42,7 @@ client.focused_inactive	$transparent	$blue		$white		$darkblue		$darkblack
 client.urgent		$darkred	$darkred	$black		$darkred		$darkred
 client.background $black
 bar {
-    font pango: FuraMono Nerd Font 9
+    font pango: FuraMono Nerd Font 12
         colors {
             background $darkblack
                 statusline $darkwhite
