@@ -24,7 +24,7 @@ else
 	color="#ff0000"
 fi
 
-[ "$capacity" -lt 11 ] && [ "$status" != "Charging" ] &&
+[ "$capacity" -lt 12 ] && [ "$status" != "Charging" ] &&
     pgrep -x dunst >/dev/null 2>&1 &&
     notify-send -t 7000 -u critical "Battery low! Will hibernate automatically when below 9%." &&
     mynotify &&
