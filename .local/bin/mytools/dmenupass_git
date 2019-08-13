@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ "$1" =~ "Username " ]]; then
     username=$(</dev/null dmenu_colored -p "Please enter your Git username: " | awk '{print $1}')

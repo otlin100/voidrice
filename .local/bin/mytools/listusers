@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Purpose: List all normal user and system accounts in the system. Tested on RHEL / Debian Linux
 # Author: Vivek Gite <www.cyberciti.biz>, under GPL v2.0+
 # -----------------------------------------------------------------------------------

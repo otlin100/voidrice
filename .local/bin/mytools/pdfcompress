@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 [ -z tmp ] && mkdir tmp
 mv "$1" tmp/ && cd tmp/

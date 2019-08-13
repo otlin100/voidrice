@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # A dmenu_colored binary prompt script.
 # Gives a dmenu_colored prompt labeled with $1 to perform command $2.
 # For example:

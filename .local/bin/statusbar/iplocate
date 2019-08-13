@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 ifinstalled "geoiplookup" || exit
 addr="$(curl ifconfig.me 2>/dev/null)" || exit

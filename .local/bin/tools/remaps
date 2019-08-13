@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # Increase key speed via a rate change
 xset r rate 200 50
 # Map the caps lock key to super...

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 LC_TIME=de_DE.utf8 date '+%_d. %B (%a) %H:%M '
 

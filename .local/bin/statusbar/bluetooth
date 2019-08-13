@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 bt_string=$(systemctl is-active bluetooth)
 

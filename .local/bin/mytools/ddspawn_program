@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 if xwininfo -tree -root | grep "(\"$1\" ";
 then
