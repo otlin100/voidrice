@@ -3,7 +3,7 @@
 
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
-gaps inner 8
+gaps inner 7
 gaps outer 0
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
@@ -14,8 +14,7 @@ for_window [instance="dropdown_*"] floating enable, move scratchpad, sticky enab
 for_window [instance="dropdown_tmuxdd"] resize set 625 450, border pixel 3
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300, border pixel 2
 for_window [instance="dropdown_*"] move position center
-for_window [instance=spotify] floating enable, sticky enable, move scratchpad, scratchpad show, resize set 1300 800, move position center
-
+for_window [instance=spotify] floating enable, sticky enable, move scratchpad, scratchpad show, resize set 1370 772, move position center, move up 12 px
 # Set Xresources colors:
 set_from_resource $darkblack	color0  #000000
 set_from_resource $black	color8  #000000

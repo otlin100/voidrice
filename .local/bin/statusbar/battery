@@ -33,11 +33,6 @@ fi
 [ "$capacity" -lt 9 ] && [ "$status" != "Charging" ] &&
     sudo systemctl hibernate
 
-[ "$capacity" -gt 99 ] && [ "$status" != "Discharging" ] &&
-    pgrep -x dunst >/dev/null 2>&1 &&
-    notify-send -t 7000 -u critical "Battery charged! Please unplug the power adapter!" &&
-    mynotify
-
 [ -z $warn ] && warn=" "
 
 [ "$status" = "Charging" ] && color="#ffffff"
