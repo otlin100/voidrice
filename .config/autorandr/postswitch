@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+xwallpaper --zoom ~/.config/wall.png
+sleep 2
+pgrep -x dunst >/dev/null && notify-send "switched to '$AUTORANDR_CURRENT_PROFILE'"

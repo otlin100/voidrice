@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+grep '^*.font: ' .config/X11/Xresources | sed 's/.*-//' | tr -d ';'

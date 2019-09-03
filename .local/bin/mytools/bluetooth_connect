@@ -9,6 +9,11 @@ if [ "$selected" == "dc" ]; then
     [ "$bt_string" == "active" ] && echo -e "power off\n" | bluetoothctl
 elif [ "$selected" == "sw" ]; then
     toggle_bluetooth || exit
+elif [ "$selected" == "new" ]; then
+    $TERMINAL $EDITOR $devices || exit
+elif [ "$selected" == "bm" ]; then
+    blueman-applet
+    blueman-manager || exit
 else
     [ $(echo "$selected" | wc -l) -eq 1 ] && [ ! "$selected" == "cancel" ] || exit
     if [ $bt_string == "inactive" ]; then
@@ -23,8 +28,8 @@ else
     info=$(echo -e "info $selected\n" | bluetoothctl | awk -F ':' '/(Connected:|Name:)/ {print $2}')
     unset IFS
     if [ ${info[1]} == "yes" ]; then
-        pgrep -x dunst >/dev/null && notify-send "<b>${info[0]}</b> connected"
+        pgrep -x dunst >/dev/null && notify-send "${info[0]} connected"
     else
-        pgrep -x dunst >/dev/null && notify-send -t 15000 -u critical "failed to connect <b>${info[0]}</b>"
+        pgrep -x dunst >/dev/null && notify-send -t 15000 -u critical "failed to connect ${info[0]}"
     fi
 fi

@@ -10,6 +10,10 @@ super + v
     $TERMINAL -e $EDITOR
 super + alt + b
     bluetooth_connect
+super + alt + k
+    fontsize +0.5
+super + alt + j
+    fontsize -0.5
 super {_,+ shift} + c
     clipmenu.sh {show,clean}
 super + z

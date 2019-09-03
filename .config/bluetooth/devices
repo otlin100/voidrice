@@ -1,5 +1,10 @@
-toggle      sw
-redmi       38:E6:0A:35:3A:A6
-taotronics  FC:58:FA:04:0C:DB
-disconnect  dc
+toggle          sw
+-----------------------------------------   cancel
+redmi           38:E6:0A:35:3A:A6
+taotronics      FC:58:FA:04:0C:DB
+sb_roar_pro     00:02:3C:5F:8F:1C
+-----------------------------------------   cancel
+blueman         bm
+new_device      new
+disconnect      dc
 -----------------------------------------   cancel

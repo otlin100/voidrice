@@ -8,6 +8,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
@@ -28,20 +29,13 @@ Plug 'dylanaraps/wal.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'SirVer/ultisnips'
 Plug 'vim-scripts/mru.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'jreybert/vimagit'
 Plug 'LukeSmithxyz/vimling'
-Plug 'vifm/vifm.vim'
 Plug 'mileszs/ack.vim'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'scrooloose/nerdtree'
 Plug 'baskerville/vim-sxhkdrc'
 call plug#end()
 
@@ -49,14 +43,17 @@ let g:vim_textobj_parameter_mapping = 'a'
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
 
-map <leader>n :NERDTreeToggle<cr>
-
 let g:deoplete#enable_at_startup = 0
 
 let g:python3_host_prog = '/usr/bin/python3'
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='alduin'
+
+ " Enable the list of buffers
+" let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+" let g:airline#extensions#tabline#fnamemod = ':t'
 
 nnoremap <leader>d :call deoplete#toggle()<cr>
 
@@ -81,16 +78,6 @@ autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
 " disable highlighting
 nmap <silent> <leader><cr> :noh<cr>
-
-" Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 
 "no timeoutlen in insert mode
 autocmd InsertEnter * set timeoutlen=0
@@ -157,9 +144,21 @@ nmap <leader>/ /\<\><left><left>
 nmap <leader>e :Files<cr>
 
 "delete! current buffer and quit if it is the last buffer
-" nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bp<bar>bd!#<cr>'
-nnoremap <expr> <leader>q len(getbufinfo({'buflisted':1}))==1 ? ':q!<cr>' : ':bd!<cr>'
 
+command! CloseOrQuit call CloseOrQuit()
+function! CloseOrQuit()
+    if len(getbufinfo({'buflisted':1}))==1
+        execute("q!")
+    else
+        execute("bd!")
+    endif
+endfunction
+
+nnoremap <leader>q :CloseOrQuit<cr>
+au CmdwinEnter : nnoremap <leader>q :q!<cr>
+au CmdwinLeave : nnoremap <leader>q :CloseOrQuit<cr>
+
+" vertical diff
 set diffopt=vertical
 
 " Don't close window, when deleting a buffer
@@ -294,12 +293,6 @@ nnoremap <leader>so :w<cr>:so %<cr>
 map <leader>b :e<space>$BIB<CR>
 map <leader>R :e<space>$REFER<CR>
 
-" repeat last executed command
-map <leader>r :<up><cr>
-
-" Replace all is aliased to S.
-nnoremap <leader>S :%s//g<Left><Left>
-
 " Compile document, be it groff/LaTeX/markdown/etc.
 map <leader>c :w! \| !compiler <c-r>%<CR>
 
@@ -310,11 +303,9 @@ map <leader>p :!opout <c-r>%<CR><CR>
 autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-" let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.tex set filetype=tex
-
 
 " Enable Goyo by default for mutt writting
 " Goyo's width will be the line limit in mutt.
@@ -335,6 +326,6 @@ autocmd BufWinLeave * call clearmatches()
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost *Xresources, *Xdefaults !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png
+autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png ;$TERMINAL $EDITOR % &' | q!
 
 autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
