@@ -41,7 +41,7 @@ client.focused_inactive	$transparent	$blue		$white		$darkblue		$darkblack
 client.urgent		$darkred	$darkred	$black		$darkred		$darkred
 client.background $black
 bar {
-    font pango: FuraMono Nerd Font 12
+    font pango: FuraMono Nerd Font 11
         colors {
             background $darkblack
                 statusline $darkwhite
@@ -131,7 +131,6 @@ set $ws9 "9"
 set $ws10 "10"
 
 assign [class="Skype"] $ws4
-workspace $ws10 output HDMI-1
 
 # move focused container to workspace
 bindsym $mod+1		move container to workspace $ws1
