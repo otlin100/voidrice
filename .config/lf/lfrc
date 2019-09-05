@@ -74,16 +74,21 @@ map r push :rename<space>
 map br bulk-rename
 map <enter> shell
 map R reload
+map x sxiv_list
 map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
+
+cmd sxiv_list ${{
+    set -f
+    sxiv -r $fx &
+}}
 
 %mkdir -p ~/.local/share/trash
 cmd trash ${{
     set -f
     mv -f $fx ~/.local/share/trash && exit
-    cp -rf $fx ~/.local/share/trash
-    rm -rf $fx
+    cp -rf $fx ~/.local/share/trash && rm -rf $fx &
 }}
 
 cmd extract ${{
