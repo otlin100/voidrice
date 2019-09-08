@@ -326,5 +326,6 @@ autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !sho
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png ;$TERMINAL $EDITOR % &' | q!
+autocmd BufWritePost */via/websites :exe 'silent! !via -ro'
 
 autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd

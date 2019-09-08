@@ -1,7 +1,7 @@
 bf	~/.config/shortcuts/bmfiles
 bd	~/.config/shortcuts/bmdirs
 cfb	~/.bashrc
-cfp ~/.profile
+cfp	~/.profile
 cfa	~/.config/bash/aliases
 cfv	~/.config/nvim/init.vim
 cfx	~/.config/X11/Xresources
