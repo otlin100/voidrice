@@ -9,7 +9,7 @@ expand_tilda() {
 }
 
 if [[ "$1" == "-r" ]] || [[ ! -e "$cache" ]]; then
-	cat "$XDG_CONFIG_HOME/via/shortcuts" > "$cache"
+	cat "$XDG_CONFIG_HOME/via/shortcuts" > "$cache" 2>/dev/null
 	cat "$XDG_CONFIG_HOME/via/websites" >> "$cache"
 	cat "$XDG_CONFIG_HOME/shortcuts/bmdirs" | cut -f2 | expand_tilda >> "$cache"
 	cat "$XDG_CONFIG_HOME/shortcuts/bmfiles" | cut -f2 | expand_tilda >> "$cache"
