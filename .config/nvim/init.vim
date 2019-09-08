@@ -46,7 +46,7 @@ let g:deoplete#enable_at_startup = 0
 let g:python3_host_prog = '/usr/bin/python3'
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='alduin'
+let g:airline_theme='solarized'
 
  " Enable the list of buffers
 " let g:airline#extensions#tabline#enabled = 1
