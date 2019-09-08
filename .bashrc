@@ -9,4 +9,3 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 [ -f "$XDG_CONFIG_HOME/bash/aliases" ] && source "$XDG_CONFIG_HOME/bash/aliases"
 
 export GPG_TTY=$(tty)
-bind -x '"\C-p": $EDITOR $(fzf);'
