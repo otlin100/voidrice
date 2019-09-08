@@ -93,6 +93,7 @@ filetype plugin on
 syntax on
 set encoding=utf-8
 
+set isfname+={,}
 set go=a
 set mouse=a
 set foldenable

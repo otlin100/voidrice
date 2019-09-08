@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-# A dmenu_colored binary prompt script.
-# Gives a dmenu_colored prompt labeled with $1 to perform command $2.
+# A dmen binary prompt script.
+# Gives a dmen prompt labeled with $1 to perform command $2.
 # For example:
 # `./prompt "Do you want to shutdown?" "shutdown -h now"`
 
-[ "$(printf "No\\nYes" | dmenu_colored -i -p "$1")" = "Yes" ] && $2
+[ "$(printf "No\\nYes" | dmen -i -p "$1")" = "Yes" ] && $2

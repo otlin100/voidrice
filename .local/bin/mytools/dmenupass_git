@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 if [[ "$1" =~ "Username " ]]; then
-    username=$(</dev/null dmenu_colored -p "Please enter your Git username: " | awk '{print $1}')
+    username=$(</dev/null dmen -p "Please enter your Git username: " | awk '{print $1}')
     [ -z $username ] && exit
     echo $username <&-
 else
-    chosen=$(printf "$(gopass ls -f | grep git)" | dmenu_colored -i -l 10 -p "Which password?" | awk '{print $1}')
+    chosen=$(printf "$(gopass ls -f | grep git)" | dmen -i -l 10 -p "Which password?" | awk '{print $1}')
     [ -z $chosen ] && exit
     password=$(gopass show $chosen)
     [ -z $password ] && exit

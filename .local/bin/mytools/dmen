@@ -1,4 +1,17 @@
 #!/usr/bin/env sh
 . "${HOME}/.cache/wal/colors.sh"
 
-dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -fn "$(getfont)" "$@"
+colored="-nb $color0 -nf $color15 -sb $color1 -sf $color15"
+
+first="$1"
+shift
+case "$first" in
+    run)
+        dmenu_run $colored -fn "$(getfont)" "$@" ;;
+    pass)
+        dmenu -P $colored -fn "$(getfont)" -p "$1" <&- ;;
+    clip)
+        clipmenu $colored -fn "$(getfont)" ;;
+    *)
+        dmenu $colored -fn "$(getfont)" "$first" "$@" ;;
+esac

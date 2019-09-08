@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# Give dmenu_colored list of all unicode characters to copy.
+# Give dmen list of all unicode characters to copy.
 # Shows the selected character in dunst if running.
 
 # Must have xclip installed to even show menu.
@@ -7,9 +7,9 @@
 xclip -h >/dev/null || exit
 
 if [ -e ~/.config/fontawesome ]; then
-    chosen=$(grep -v "#" -h $XDG_DATA_HOME/emoji ~/.config/fontawesome | dmenu_colored -i -l 20)
+    chosen=$(grep -v "#" -h $XDG_DATA_HOME/emoji ~/.config/fontawesome | dmen -i -l 20)
 else
-    chosen=$(grep -v "#" $XDG_DATA_HOME/emoji | dmenu_colored -i -l 20)
+    chosen=$(grep -v "#" $XDG_DATA_HOME/emoji | dmen -i -l 20)
 fi
 
 [ "$chosen" != "" ] || exit

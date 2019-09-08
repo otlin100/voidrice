@@ -2,7 +2,7 @@
 
 devices="$XDG_CONFIG_HOME/bluetooth/devices"
 
-selected=$(awk -v pat=$(awk '{print $1}' $devices | dmenu_colored -l 10 -p "connect to which device?") '$0~pat{print $2}' $devices)
+selected=$(awk -v pat=$(awk '{print $1}' $devices | dmen -l 10 -p "connect to which device?") '$0~pat{print $2}' $devices)
 bt_string=$(systemctl is-active bluetooth)
 
 if [ "$selected" == "dc" ]; then

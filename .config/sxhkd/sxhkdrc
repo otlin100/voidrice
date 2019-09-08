@@ -5,7 +5,7 @@ super + shift + Return
 super {_,+ shift} + period
     anoise {toggle,shuffle}
 super + d
-    dmen
+    dmen run
 super + v
     $TERMINAL -e $EDITOR
 super + alt + b

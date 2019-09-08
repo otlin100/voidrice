@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-for FILE1 in "$@"
-do
-    if grep -qe "dmenu" $FILE1; then
-        sed -i 's/-\(nb\|nf\|sb\|sf\) [^ ]* *//g' $FILE1
-        sed -i 's/dmenu /dmenu_colored /g' $FILE1
-    fi
-done

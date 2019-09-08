@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Usage:
-# `record`: Ask for recording type via dmenu_colored 
+# `record`: Ask for recording type via dmen 
 # `record screencast`: Record both audio and screen
 # `record video`: Record only screen
 # `record audio`: Record only audio
@@ -84,7 +84,7 @@ audio() { \
 }
 
 askrecording() { \
-    choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | dmenu_colored -i -p "Select recording style:")
+    choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | dmen -i -p "Select recording style:")
     case "$choice" in
         screencast) screencast;;
         audio) audio;;
@@ -95,7 +95,7 @@ askrecording() { \
 }
 
 asktoend() { \
-    response=$(printf "No\\nYes" | dmenu_colored -i -p "Recording still active. End recording?") &&
+    response=$(printf "No\\nYes" | dmen -i -p "Recording still active. End recording?") &&
     [ "$response" = "Yes" ] &&  killrecording
 }
 
