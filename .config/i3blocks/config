@@ -32,10 +32,10 @@ signal=11
 #[iplocate]
 #interval=30
 
-[pacpackages]
-label=📦
-interval=once
-signal=8
+#[pacpackages]
+#label=📦
+#interval=once
+#signal=8
 
 [torrent]
 interval=20
