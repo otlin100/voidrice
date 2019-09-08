@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
-
-# Import the colors
 . "${HOME}/.cache/wal/colors.sh"
 
-dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -fn "FuraMono Nerd Font-16" "$@"
+dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -fn "$(getfont)" "$@"

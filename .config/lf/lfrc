@@ -53,7 +53,7 @@ cmd moveto ${{
 	clear; echo "Move to where?"
 	dest="$(cut -d'	' -f2- ~/.config/shortcuts/bmdirs | fzf)" &&
 	eval mv -iv $fx $dest &&
-	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+	notify-send "File(s) moved." "File(s) moved to $dest."
 }}
 
 cmd copyto ${{
@@ -61,7 +61,7 @@ cmd copyto ${{
 	clear; echo "Copy to where?"
 	dest="$(cut -d'	' -f2- ~/.config/shortcuts/bmdirs | fzf)" &&
 	eval cp -ivr $fx $dest &&
-	notify-send "📋 File(s) copied." "File(s) copies to $dest."
+	notify-send "File(s) copied." "File(s) copies to $dest."
 }}
 
 # Bindings

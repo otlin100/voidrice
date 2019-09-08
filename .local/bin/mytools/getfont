@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+cat $XDG_CONFIG_HOME/X11/Xresources | grep -E '^\*\.font' | cut -d' ' -f2- | tr -d ';'
