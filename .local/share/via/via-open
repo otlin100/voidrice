@@ -8,9 +8,9 @@ while read arg; do
 		http*)
 			$BROWSER "$arg" &
 			;;
-		# [^/]*) # doesn't start with '/'
-		# 	sh -c "$arg"
-		# 	;;
+		[^/]*) # doesn't start with '/'
+			sh -c "$arg"
+			;;
 		*.txt)
 			$TERMINAL $EDITOR "$arg" &
 			;;
