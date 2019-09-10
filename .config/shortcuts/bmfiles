@@ -1,10 +1,8 @@
 bd	~/.config/shortcuts/bmdirs
 bf	~/.config/shortcuts/bmfiles
 cfa	~/.config/bash/aliases
-cfA	~/.config/mutt/etc/aliases
 cfb	~/.bashrc
 cfB	~/.config/i3blocks/config
-cfg	~/.config/gtk-3.0/settings.ini
 cfi	~/.config/i3/config
 cfk	~/.config/sxiv/exec/key-handler
 cfl	~/.config/lf/lfrc
@@ -15,6 +13,6 @@ cfp	~/.profile
 cfs	~/.config/sxhkd/sxhkdrc
 cfu	~/.config/newsboat/urls
 cfv	~/.config/nvim/init.vim
-cfw ~/.config/via/websites
+cfw	~/.config/via/websites
 cfX	~/.config/X11/xinitrc
 cfx	~/.config/X11/Xresources

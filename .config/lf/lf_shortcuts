@@ -15,10 +15,8 @@ map gw :cd ~/Pictures/wallpapers
 map bd $$EDITOR ~/.config/shortcuts/bmdirs
 map bf $$EDITOR ~/.config/shortcuts/bmfiles
 map cfa $$EDITOR ~/.config/bash/aliases
-map cfA $$EDITOR ~/.config/mutt/etc/aliases
 map cfb $$EDITOR ~/.bashrc
 map cfB $$EDITOR ~/.config/i3blocks/config
-map cfg $$EDITOR ~/.config/gtk-3.0/settings.ini
 map cfi $$EDITOR ~/.config/i3/config
 map cfk $$EDITOR ~/.config/sxiv/exec/key-handler
 map cfl $$EDITOR ~/.config/lf/lfrc
