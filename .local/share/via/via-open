@@ -9,7 +9,7 @@ while read arg; do
 			$BROWSER "$arg" &
 			;;
 		[^/]*) # doesn't start with '/'
-			sh -c "$arg"
+			sh -c "$arg" || $TERMINAL sh -c "$arg" &
 			;;
 		*.txt)
 			$TERMINAL $EDITOR "$arg" &
