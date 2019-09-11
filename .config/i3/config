@@ -41,7 +41,7 @@ client.focused_inactive	$transparent	$blue		$white		$darkblue		$darkblack
 client.urgent		$darkred	$darkred	$black		$darkred		$darkred
 client.background $black
 bar {
-    font pango: FuraMono Nerd Font 11
+    font pango: FuraMono Nerd Font 10
         colors {
             background $darkblack
                 statusline $darkwhite

@@ -22,9 +22,7 @@ alias mkd="mkdir -pv" \
     q="exit" \
     vim="nvim" \
     vimdiff="nvim -d" \
-    nvm="unalias nvm && source /usr/share/nvm/nvm.sh --no-use && nvm"
-
-vf() { fzf | xargs -r -I % $EDITOR % ;}
+    nvm="unalias nvm && source $NVM_DIR/nvm.sh --no-use && nvm"
 
 gitdir() {
     svn --config-dir $XDG_CONFIG_HOME/subversion checkout ${1%.git}'/trunk/'$2 $HOME'/Downloads/'$(echo ${2%/} | awk -F '/' '{print $NF}')

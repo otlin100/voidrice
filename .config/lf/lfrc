@@ -1,4 +1,4 @@
-set shell sh
+﻿set shell sh
 set previewer ~/.config/lf/scope
 set shellopts '-eu'
 set ifs "\n"
