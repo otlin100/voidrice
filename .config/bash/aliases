@@ -28,7 +28,8 @@ gitdir() {
 }
 
 gitignore() {
-    git status|grep -P '\t'|awk '{print $1}' >> .git/info/exclude;
+    echo "add following files to gitignore: \n\n"
+    git status | grep -P '\t' | tr -d '\t' | sed 's/\ /\\\ /g' | tee >> .git/info/exclude;
 }
 
 gpt() {
