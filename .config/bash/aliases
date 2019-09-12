@@ -1,14 +1,13 @@
 #!/bin/bash
 alias mkd="mkdir -pv" \
     mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-    p="sudo pacman" \
-    SS="sudo systemctl" \
+    SS="sudo -A systemctl" \
     r="$FILE" \
     g="git" \
     e="$EDITOR" \
-    v="$EDITOR" \
     x="sxiv -ft *" \
     ls="ls -hN --color=auto --group-directories-first" \
+    s="sudo -A" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
     ffmpeg="ffmpeg -hide_banner" \
