@@ -12,6 +12,7 @@ unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 mpdupdate &
+clipmenud &
 
 xrdb -merge "$XDG_CONFIG_HOME/X11/Xresources"
 
