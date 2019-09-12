@@ -14,7 +14,7 @@ if [[ "$1" == "-r" ]] || [[ ! -e "$cache" ]]; then
 	cat "$XDG_CONFIG_HOME/via/shortcuts" > "$cache" 2>/dev/null
 	cat "$XDG_CONFIG_HOME/via/websites" >> "$cache"
 	cat "$XDG_CONFIG_HOME/shortcuts/bmdirs" | cut -f2 | expand_tilda >> "$cache"
-    find "$HOME" -mindepth 1 \( -name ".*" -o -path "*/lib/python*" \) -prune -o -print >> "$cache"
+    find "$HOME" -mindepth 1 \( -name ".*" -o -path "*/lib/python*" -o -path "$HOME/go/*" -o -path "$HOME/git/*" -o -path "*/node_modules/*" \) -prune -o -print >> "$cache"
     dmenu_path | grep -v ^via >> "$cache"
     git ls-tree -r master --name-only | sed "s:^:$HOME/:g" >> "$cache"
 fi

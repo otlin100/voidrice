@@ -3,7 +3,6 @@
 
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export PATH="$HOME/go/bin:$PATH"
-export PATH="${PATH}:$(du "/opt/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
