@@ -1,0 +1,4 @@
+# vim: filetype=neomuttrc
+set sidebar_visible = yes
+set index_format="%2C %Z %?X?%X& ? %D %-15.15F %s (%-4.4c)"
+macro index,pager h "<enter-command>source /home/otlin/.config/mutt/formats/minimal.muttrc<enter>"
