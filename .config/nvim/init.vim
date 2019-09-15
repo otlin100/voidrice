@@ -221,6 +221,8 @@ nmap <leader>v :e $MYVIMRC<cr>
 call yankstack#setup()
 nmap Y y$
 
+command! Smi :cd %:p:h | :!mymake
+
 set ignorecase
 set path+=$HOME/.local/bin/**
 set path+=**

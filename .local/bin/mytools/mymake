@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+working_dir=$(pwd)
+
+while [ ! -f $working_dir/Makefile ]
+do
+    if [ $working_dir == "/" ]; then
+        echo "No Makefile found"
+        exit
+    fi
+    # echo "No Makefile found in $working_dir"
+    cd ..
+    working_dir=$(pwd)
+done
+echo "Makefile found in $working_dir"
+
+sudo -A make --directory "$working_dir" install
