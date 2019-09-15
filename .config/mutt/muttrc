@@ -13,28 +13,34 @@ source /home/otlin/.config/mutt/formats/default.muttrc
 set date_format="%d.%m.%y %H:%M"
 set sidebar_format = '%B%?F? %F!?%* %?N?%N/? %?S?%S?'
 
+set confirmappend = no
+set delete = yes
+
 macro generic <F2> "<enter-command>source $XDG_CONFIG_HOME/mutt/muttrc<enter><change-folder>!<enter><check-stats>"
 macro generic <F3> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/muttrc<enter>"
 macro generic <F4> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/.mbsync.log<enter>"
 macro generic <F5> "<shell-escape>nvim $XDG_CONFIG_HOME/abook/addressbook<enter>"
-bind index,pager gr compose-to-sender
-bind index gd delete-pattern
-bind index,pager H display-toggle-weed
 
 bind pager,alias,attach,browser,compose h exit
-# bind index h sidebar-toggle-visible
-bind compose l view-attach
-bind alias l select-entry
-macro attach s "<save-entry><bol>~/Downloads/<return>" "Save to Downloads"
-# bind index <return> noop
+
+bind index gd delete-pattern
 bind index <return> limit
-bind editor <esc> noop
-macro editor <esc> "<kill-line><return>"
-macro index,pager \Ck "<sidebar-prev><sidebar-open>"
-macro index,pager \Cj "<sidebar-next><sidebar-open>"
-bind index,pager <esc>m compose-to-sender
-bind attach <space> tag-entry
-set confirmappend = no
-set delete = yes
+macro index O "<shell-escape>mailsync 2>&1 | sed 's/^/parent: /' >> $XDG_CONFIG_HOME/mutt/.mbsync.log &<enter>" "run mailsync to sync all mail"
 macro index MM "<save-message>?"
 macro index MC "<copy-message>?"
+
+bind index,pager gr compose-to-sender
+bind index,pager <esc>m compose-to-sender
+bind index,pager H display-toggle-weed
+macro index,pager \Ck "<sidebar-prev><sidebar-open>"
+macro index,pager \Cj "<sidebar-next><sidebar-open>"
+
+bind compose l view-attach
+
+bind alias l select-entry
+
+bind attach <space> tag-entry
+macro attach s "<save-entry><bol>~/Downloads/<return>" "Save to Downloads"
+
+bind editor <esc> noop
+macro editor <esc> "<kill-line><return>"
