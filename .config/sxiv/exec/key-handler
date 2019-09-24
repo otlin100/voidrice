@@ -50,5 +50,7 @@ do
 
         "g")
             ifinstalled gimp && gimp "$file" & ;;
+        "p")
+            lpr -o scaling=100 "$file"
     esac
 done

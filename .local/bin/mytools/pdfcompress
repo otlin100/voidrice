@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-[ -z tmp ] && mkdir tmp
+[ -d tmp ] || mkdir tmp
 mv "$1" tmp/ && cd tmp/
 pdftoppm "$1" pngs -png -r 300
 convert -adjoin -compress Group4 *.png tiffs%02d.tiff

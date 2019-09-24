@@ -7,7 +7,6 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="lf"
-export BATTERY="BAT1"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.local/bin/mytools/dmenupass"
@@ -39,6 +38,10 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
+
+# Workstation specific
+export BATTERY="BAT1"
+export PRINTER="HP_OfficeJet_3830_series"
 
 # less/man colors
 export LESS=-R

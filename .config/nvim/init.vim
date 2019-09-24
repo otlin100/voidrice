@@ -35,6 +35,8 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'VebbNix/lf-vim'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'elmcast/elm-vim'
 call plug#end()
 
 let g:vim_textobj_parameter_mapping = 'a'
@@ -129,6 +131,9 @@ colorscheme wal
 " yank path/dir
 nmap yp :let @"=@%<CR>
 nmap yd :let @" = expand("%:p:h")<cr>
+
+" edit new file when path doesn't exist
+map gf :e <cfile><cr>
 
 " clipboard, reg, selection rotation
 nnoremap <leader>y :let @t=@+ <bar> let @+=@" <bar> let @"=@* <bar> let @*=@t<cr>
