@@ -64,11 +64,14 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Change to pure prompt
+fpath+=("$XDG_DATA_HOME/pure")
+autoload -U promptinit; promptinit
+prompt pure
+
 # Load aliases and shortcuts if existent.
 [ -f "$XDG_CONFIG_HOME/shell/shortcuts" ] && source "$XDG_CONFIG_HOME/shell/shortcuts"
 [ -f "$XDG_CONFIG_HOME/shell/aliases" ] && source "$XDG_CONFIG_HOME/shell/aliases"
-
-fpath+=("$XDG_DATA_HOME/pure")
 
 # Load zsh-syntax-highlighting; should be last.
 source "$XDG_DATA_HOME/fsh/fast-syntax-highlighting.plugin.zsh"
