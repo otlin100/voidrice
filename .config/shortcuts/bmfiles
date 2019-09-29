@@ -1,6 +1,6 @@
 bd	~/.config/shortcuts/bmdirs
 bf	~/.config/shortcuts/bmfiles
-cfa	~/.config/bash/aliases
+cfa	~/.config/shell/aliases
 cfb	~/.bashrc
 cfB	~/.config/i3blocks/config
 cfi	~/.config/i3/config
@@ -16,3 +16,4 @@ cfv	~/.config/nvim/init.vim
 cfw	~/.config/via/websites
 cfX	~/.config/X11/xinitrc
 cfx	~/.config/X11/Xresources
+cfz	~/.config/zsh/.zshrc

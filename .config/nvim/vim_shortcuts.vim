@@ -1,7 +1,7 @@
 " vim: filetype=vim
 command! Bd :e ~/.config/shortcuts/bmdirs
 command! Bf :e ~/.config/shortcuts/bmfiles
-command! Cfa :e ~/.config/bash/aliases
+command! Cfa :e ~/.config/shell/aliases
 command! Cfb :e ~/.bashrc
 command! CfB :e ~/.config/i3blocks/config
 command! Cfi :e ~/.config/i3/config
@@ -17,3 +17,4 @@ command! Cfv :e ~/.config/nvim/init.vim
 command! Cfw :e ~/.config/via/websites
 command! CfX :e ~/.config/X11/xinitrc
 command! Cfx :e ~/.config/X11/Xresources
+command! Cfz :e ~/.config/zsh/.zshrc

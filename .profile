@@ -1,6 +1,7 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
+export SHELL=/bin/zsh
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"
 export TERMINAL="st"
@@ -38,6 +39,7 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Workstation specific
 export BATTERY="BAT1"

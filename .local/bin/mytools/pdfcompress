@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 [ -d tmp ] || mkdir tmp
-mv "$1" tmp/ && cd tmp/
+cp "$1" tmp/ && cd tmp/
 pdftoppm "$1" pngs -png -r 300
 convert -adjoin -compress Group4 *.png tiffs%02d.tiff
 tiffcp -c g4 *.tiff onetiff.tiff
-tiff2pdf -o "$2" onetiff.tiff
+tiff2pdf -o "compressed_$1" onetiff.tiff
 rm *.tiff *.png
 mv *.pdf ../
 cd ../
