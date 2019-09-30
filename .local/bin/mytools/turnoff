@@ -4,7 +4,7 @@ case "$1" in
     reboot)
         reboot ;;
     shutdown)
-        myshutdown ;;
+        sudo shutdown -h now ;;
     suspend)
         sudo systemctl suspend ;;
     hibernate)

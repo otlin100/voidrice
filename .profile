@@ -8,7 +8,6 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="lf"
-export BATTERY="BAT1"
 export SUDO_ASKPASS="$HOME/.local/bin/mytools/dmenupass"
 export SSH_ASKPASS="$HOME/.local/bin/mytools/dmenupass"
 export GIT_ASKPASS="$HOME/.local/bin/mytools/dmenupass_git"
@@ -34,6 +33,11 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 xset r rate 200 50
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# Workstation specific
+export BATTERY="BAT1"
+export PRINTER="HP_OfficeJet_3830_series"
 
 # less/man colors
 export LESS=-R
