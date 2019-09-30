@@ -37,7 +37,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Workstation specific
 export BATTERY="BAT1"
-export PRINTER="HP_OfficeJet_3830_series"
+export PRINTER="empfang"
 
 # less/man colors
 export LESS=-R

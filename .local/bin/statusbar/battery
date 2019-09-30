@@ -30,8 +30,8 @@ fi
     mynotify &&
     warn="❗"
 
-[ "$capacity" -lt 9 ] && [ "$status" != "Charging" ] &&
-    sudo systemctl hibernate
+[ "$capacity" -lt 9 ] && [ "$status" != "Charging" ]
+    # sudo systemctl hibernate
 
 [ -z $warn ] && warn=" "
 
