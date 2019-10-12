@@ -8,4 +8,4 @@ else
     sudo -A systemctl stop bluetooth
 fi
 
-pkill -RTMIN+10 i3blocks
+pkill -RTMIN+15 i3blocks

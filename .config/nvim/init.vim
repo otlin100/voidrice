@@ -133,7 +133,7 @@ nmap yp :let @"=@%<CR>
 nmap yd :let @" = expand("%:p:h")<cr>
 
 " edit new file when path doesn't exist
-map gf :e <cfile><cr>
+map gF :e <cfile><cr>
 
 " clipboard, reg, selection rotation
 nnoremap <leader>y :let @t=@+ <bar> let @+=@" <bar> let @"=@* <bar> let @*=@t<cr>
