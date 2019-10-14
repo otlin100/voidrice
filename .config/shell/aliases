@@ -31,7 +31,7 @@ gitdir() {
 
 gitignore() {
     echo -e "add following files to gitignore:\n"
-    git status 2>/dev/null | grep -P '\t' | grep -v 'modified:' | tr -d '\t' | sed 's/\ /\\\ /g' | tee -a .git/info/exclude
+    git status 2>/dev/null | grep -P '\t' | grep -v '.*: ' | tr -d '\t' | sed 's/\ /\\\ /g' | tee -a .git/info/exclude
 }
 
 gpt() {
