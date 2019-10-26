@@ -218,13 +218,17 @@ let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsUsePythonVersion = 3
-nmap <leader><tab> <plug>(fzf-maps-n)
 nmap <leader>ue :UltiSnipsEdit<cr>
+
+nmap <leader><tab> <plug>(fzf-maps-n)
 nmap <leader>w :cd %:p:h<cr>
 
 nmap <leader>v :e $MYVIMRC<cr>
 call yankstack#setup()
 nmap Y y$
+
+" LATIN SMALL O WITH DIAERESIS
+nnoremap <Char-246> "
 
 command! Smi :cd %:p:h | :!mymake
 
@@ -241,6 +245,9 @@ if has("win16") || has("win32")
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
+
+" Enable autocompletion:
+set wildmode=longest,list,full
 
 set ruler
 set hid
@@ -264,9 +271,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
-
-" Enable autocompletion:
-set wildmode=longest,list,full
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

@@ -8,6 +8,7 @@ set scrolloff 10
 cmd open ${{
     case $(file --mime-type $f -b) in
     	text/troff) man ./ $f ;;
+        text/html) $BROWSER $fx ;;
         text/*) $EDITOR $fx ;;
 	    image/x-xcf|image/svg+xml) setsid gimp $f >/dev/null 2>&1 & ;;
 	    image/*) rotdir $f | setsid sxiv -ai >/dev/null 2>&1 & ;;

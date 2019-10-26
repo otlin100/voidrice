@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
-. "${HOME}/.cache/wal/colors.sh"
+
+# look in "${HOME}/.cache/wal/colors.sh" for the colors
+
+color0='#061014'
+color6='#6897A0'
+color15='#d7d1c9'
 
 colored="-nb $color0 -nf $color15 -sb $color6 -sf $color15"
 
