@@ -12,6 +12,7 @@ macro generic,pager <F2> "<enter-command>source $XDG_CONFIG_HOME/mutt/muttrc<ent
 macro generic,pager <F3> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/muttrc<enter>"
 macro generic,pager <F4> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/.mbsync.log<enter>"
 macro generic,pager <F5> "<shell-escape>nvim $XDG_CONFIG_HOME/abook/addressbook<enter>"
+macro generic,pager <F6> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/files/patterns<enter>"
 
 macro index O "<shell-escape>mailsync 2>&1 | sed 's/^/parent: /' >> $XDG_CONFIG_HOME/mutt/.mbsync.log &<enter>" "run mailsync to sync all mail"
 

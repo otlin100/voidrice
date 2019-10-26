@@ -7,7 +7,7 @@ cfi	~/.config/i3/config
 cfk	~/.config/sxiv/exec/key-handler
 cfl	~/.config/lf/lfrc
 cfM	~/.config/mpd/mpd.conf
-cfm	~/.config/mutt/muttrc
+cfm	~/.local/share/mutt-wizard/share/mutt-wizard.muttrc
 cfn	~/.config/newsboat/config
 cfp	~/.profile
 cfs	~/.config/sxhkd/sxhkdrc

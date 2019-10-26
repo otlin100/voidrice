@@ -147,7 +147,7 @@ map cfi $$EDITOR ~/.config/i3/config
 map cfk $$EDITOR ~/.config/sxiv/exec/key-handler
 map cfl $$EDITOR ~/.config/lf/lfrc
 map cfM $$EDITOR ~/.config/mpd/mpd.conf
-map cfm $$EDITOR ~/.config/mutt/muttrc
+map cfm $$EDITOR ~/.local/share/mutt-wizard/share/mutt-wizard.muttrc
 map cfn $$EDITOR ~/.config/newsboat/config
 map cfp $$EDITOR ~/.profile
 map cfs $$EDITOR ~/.config/sxhkd/sxhkdrc
