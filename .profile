@@ -1,6 +1,10 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"
 export TERMINAL="st"
@@ -12,16 +16,13 @@ export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.local/bin/mytools/dmenupass"
 export SSH_ASKPASS="$HOME/.local/bin/mytools/dmenupass"
 export GIT_ASKPASS="$HOME/.local/bin/mytools/dmenupass_git"
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/config"
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export SSH_AUTH_SOCK=$(gpgconf --homedir $GNUPGHOME --list-dirs agent-ssh-socket)
 export CONDARC="$XDG_CONFIG_HOME/anaconda/.condarc"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
