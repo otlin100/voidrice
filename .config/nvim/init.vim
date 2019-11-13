@@ -323,6 +323,12 @@ autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
 autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
 autocmd QuitPre /tmp/neomutt* :wqa!
 
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave *.tex :mkview
+  autocmd BufWinEnter *.tex :silent loadview
+augroup END
+
 " Automatically highlights all trailing whitespace on save.
 " autocmd BufWritePre * %s/\s\+$//e
 highlight ExtraWhitespace ctermbg=red guibg=red
