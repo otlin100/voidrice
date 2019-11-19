@@ -38,7 +38,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/gopass"
 export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Duser.home=$XDG_DATA_HOME/java"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
