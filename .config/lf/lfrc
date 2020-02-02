@@ -132,6 +132,9 @@ map gD :cd ~/Downloads
 map gpp :cd ~/Pictures
 map gcf :cd ~/.config
 map gxd :cd ~/.local/share
+map gxdm :cd ~/.local/share/mutt-wizard
+map gxdd :cd ~/.local/share/dmenu
+map gxds :cd ~/.local/share/st
 map gxc :cd ~/.cache
 map gsc :cd ~/.local/bin
 map gso :cd ~/.local/share/sounds
