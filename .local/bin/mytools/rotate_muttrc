@@ -4,18 +4,19 @@ prestring_hl='macro index,pager \\C[hl] '"'"'<sync-mailbox><enter-command>source
 prestring_h='macro index,pager \\Ch '"'"'<sync-mailbox><enter-command>source '
 prestring_l='macro index,pager \\Cl '"'"'<sync-mailbox><enter-command>source '
 
-poststring='<enter><change-folder>!<enter>;<check-stats>'"'"
+middlestring='<enter><change-folder>!<enter><enter-command>source '
+poststring='<enter>;<check-stats>'"'"
 
 for x in $@; do
-    sed -i "/$prestring_hl.*\.muttrc$poststring/d" $x
+    sed -i "/$prestring_hl.*\.muttrc.*/d" $x
 done
 
 function print_h() {
-    echo -e "$prestring_h$(pwd)/$1$poststring"
+    echo -e "$prestring_h$(pwd)/$1$middlestring$(pwd)/$1$poststring"
 }
 
 function print_l() {
-    echo -e "$prestring_l$(pwd)/$1$poststring"
+    echo -e "$prestring_l$(pwd)/$1$middlestring$(pwd)/$1$poststring"
 }
 
 print_h "${*: -1}" >> "$1"

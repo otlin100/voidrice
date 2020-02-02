@@ -36,12 +36,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'VebbNix/lf-vim'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'elmcast/elm-vim'
+Plug 'otlin100/vim-lf'
+Plug 'otlin100/termopen.vim'
 call plug#end()
 
 let g:vim_textobj_parameter_mapping = 'a'
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
+
+let g:lf_on_exit = 'silent! q'
+nmap <leader>r :call TermOpenRanger('lf', 'b')<cr>
 
 let g:deoplete#enable_at_startup = 0
 
@@ -326,7 +330,7 @@ autocmd QuitPre /tmp/neomutt* :wqa!
 augroup AutoSaveFolds
   autocmd!
   autocmd BufWinLeave *.tex :mkview
-  autocmd BufWinEnter *.tex :silent loadview
+  autocmd BufWinEnter *.tex :silent! loadview
 augroup END
 
 " Automatically highlights all trailing whitespace on save.
