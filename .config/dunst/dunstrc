@@ -24,7 +24,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = FuraMono Nerd Font 16
+    font = FuraMono Nerd Font 13
     line_height = 0
     markup = full
 
@@ -82,8 +82,8 @@ background = "#191311"
 timeout = 4
 
 [urgency_normal]
-frame_color = "#E8A061"
-foreground = "#E8A061"
+frame_color = "#6FAACF"
+foreground = "#6FAACF"
 background = "#191311"
 #background = "#2B313C"
 timeout = 6
