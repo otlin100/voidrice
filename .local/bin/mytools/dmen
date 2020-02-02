@@ -2,9 +2,9 @@
 
 # look in "${HOME}/.cache/wal/colors.sh" for the colors
 
-color0='#061014'
-color6='#6897A0'
-color15='#d7d1c9'
+color0='#1d1f21'
+color6='#8abeb7'
+color15='#ffffff'
 
 colored="-nb $color0 -nf $color15 -sb $color6 -sf $color15"
 

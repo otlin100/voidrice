@@ -1,8 +1,6 @@
 let mapleader =" "
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -38,28 +36,30 @@ Plug 'VebbNix/lf-vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'otlin100/vim-lf'
 Plug 'otlin100/termopen.vim'
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 let g:vim_textobj_parameter_mapping = 'a'
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
 
-let g:lf_on_exit = 'silent! q'
-nmap <leader>r :call TermOpenRanger('lf', 'b')<cr>
+" set termguicolors
+" lua require'colorizer'.setup()
 
-let g:deoplete#enable_at_startup = 0
+colorscheme wal
+
+let g:lf_on_exit = 'bd!'
+nmap <leader>r :call TermOpenRanger('lf', 'b')<cr>
 
 let g:python3_host_prog = '/usr/bin/python3'
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+let g:airline_theme = 'wal'
 
  " Enable the list of buffers
 " let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':t'
-
-nnoremap <leader>d :call deoplete#toggle()<cr>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -129,7 +129,6 @@ set nobackup
 set nowb
 set noswapfile
 
-colorscheme wal
 " set bg=light
 
 " yank path/dir
@@ -346,7 +345,8 @@ autocmd BufWinLeave * call clearmatches()
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts ;via -ro
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png ;$TERMINAL $EDITOR % &' | q!
+" autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png ;$TERMINAL $EDITOR % &' | q!
+autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -R ;$TERMINAL $EDITOR % &' | q!
 autocmd BufWritePost */via/websites !via -ro
 
 autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd

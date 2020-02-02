@@ -8,7 +8,7 @@ wal -n -R
 eval $(hub alias -s)
 
 sxhkd -m 1 &	# Bind keys
-xset r rate 200 50 &
+xset r rate 190 48 &
 unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications

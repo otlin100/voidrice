@@ -5,7 +5,7 @@ alias mkd="mkdir -pv" \
     SS="sudo systemctl" \
     r="$FILE" \
     g="git" \
-    e="$EDITOR" \
+    e="nvim_mru" \
     v="$EDITOR" \
     x="sxiv -ft *" \
     ls="ls -hN --color=auto --group-directories-first" \

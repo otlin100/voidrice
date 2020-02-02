@@ -75,24 +75,22 @@
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#3B7C87"
-foreground = "#3B7C87"
-background = "#191311"
-#background = "#2B313C"
+# look in "${HOME}/.cache/wal/colors.sh" for the colors
+frame_color = "#81a2be" #color4
+foreground = "#81a2be" #color4
+background = "#1d1f21" #color0
 timeout = 4
 
 [urgency_normal]
-frame_color = "#6FAACF"
-foreground = "#6FAACF"
-background = "#191311"
-#background = "#2B313C"
+frame_color = "#8abeb7" #color6
+foreground = "#8abeb7" #color6
+background = "#1d1f21" #color0
 timeout = 6
 
 [urgency_critical]
-frame_color = "#B7472A"
-foreground = "#B7472A"
-background = "#191311"
-#background = "#2B313C"
+frame_color = "#cc6666" #color1
+foreground = "#cc6666" #color1
+background = "#1d1f21" #color0
 timeout = 8
 
 #[urgency_low]

@@ -20,6 +20,7 @@ application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 application/rss+xml=rss.desktop;
 application/pdf=pdf.desktop;
+application/x-abook-addressbook=text.desktop;
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -33,4 +34,4 @@ application/x-extension-shtml=firefox.desktop;
 application/xhtml+xml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
-text/plain=nvim.desktop;
+text/plain=text.desktop;
