@@ -3,6 +3,8 @@ toggle          sw
 redmi           38:E6:0A:35:3A:A6
 taotronics      FC:58:FA:04:0C:DB
 sb_roar_pro     00:02:3C:5F:8F:1C
+fiio_utws1_r    00:02:5B:11:82:97
+fiio_utws1_l    00:02:5B:81:10:1D
 -----------------------------------------   cancel
 blueman         bm
 new_device      new

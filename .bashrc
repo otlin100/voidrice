@@ -11,3 +11,4 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 export GPG_TTY=$(tty)
 source /usr/share/autojump/autojump.bash
+source /home/otlin/.config/broot/launcher/bash/br

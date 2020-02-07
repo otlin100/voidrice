@@ -2,7 +2,7 @@
 
 devices="$XDG_CONFIG_HOME/bluetooth/devices"
 
-selected=$(awk -v pat=$(awk '{print $1}' $devices | dmen -l 10 -p "connect to which device?") '$0~pat{print $2}' $devices)
+selected=$(awk -v pat="$(awk '{print $1}' "$devices" | dmen -l 10 -p "connect to which device?")" '$0~pat{print $2}' "$devices")
 bt_string=$(systemctl is-active bluetooth)
 
 if [ "$selected" == "dc" ]; then
@@ -10,13 +10,13 @@ if [ "$selected" == "dc" ]; then
 elif [ "$selected" == "sw" ]; then
     toggle_bluetooth || exit
 elif [ "$selected" == "new" ]; then
-    $TERMINAL $EDITOR $devices || exit
+    $TERMINAL "$EDITOR" "$devices" || exit
 elif [ "$selected" == "bm" ]; then
     toggle_bluetooth
     blueman-manager &
 else
-    [ $(echo "$selected" | wc -l) -eq 1 ] && [ ! "$selected" == "cancel" ] || exit
-    if [ $bt_string == "inactive" ]; then
+    [ "$(echo "$selected" | wc -l)" -eq 1 ] && [ ! "$selected" == "cancel" ] || exit
+    if [ "$bt_string" == "inactive" ]; then
         toggle_bluetooth || exit
         wait
     fi
@@ -27,9 +27,11 @@ else
     IFS=$'\n'
     info=$(echo -e "info $selected\n" | bluetoothctl | awk -F ':' '/(Connected:|Name:)/ {print $2}')
     unset IFS
-    if [ ${info[1]} == "yes" ]; then
-        pgrep -x dunst >/dev/null && notify-send "${info[0]} connected"
+    device=$(echo "$info" | head -n 1 | xargs)
+    isConnected=$(echo "$info" | sed -n 2p | xargs)
+    if [ "$isConnected" == "yes" ]; then
+        pgrep -x dunst >/dev/null && notify-send "'$device' connected"
     else
-        pgrep -x dunst >/dev/null && notify-send -t 15000 -u critical "failed to connect ${info[0]}"
+        pgrep -x dunst >/dev/null && notify-send -t 15000 -u critical "failed to connect '$device'"
     fi
 fi
