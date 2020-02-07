@@ -12,8 +12,14 @@ elif [ "$selected" == "sw" ]; then
 elif [ "$selected" == "new" ]; then
     $TERMINAL "$EDITOR" "$devices" || exit
 elif [ "$selected" == "bm" ]; then
-    toggle_bluetooth
+    pkill -f blueman
+    if [ "$bt_string" == "inactive" ]; then
+        toggle_bluetooth
+    fi
     blueman-manager &
+    blueman-applet &
+    sleep 1
+    pkill -f blueman-tray
 else
     [ "$(echo "$selected" | wc -l)" -eq 1 ] && [ ! "$selected" == "cancel" ] || exit
     if [ "$bt_string" == "inactive" ]; then
