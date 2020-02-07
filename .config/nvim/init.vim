@@ -37,6 +37,7 @@ Plug 'baskerville/vim-sxhkdrc'
 Plug 'VebbNix/lf-vim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'elmcast/elm-vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:vim_textobj_parameter_mapping = 'a'

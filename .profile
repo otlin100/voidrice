@@ -31,6 +31,7 @@ export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+export JAVA_HOME="/usr/lib/jvm/zulu-11-amd64"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 xset r rate 200 50
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
