@@ -2,6 +2,7 @@ bd	~/.config/shortcuts/bmdirs
 bf	~/.config/shortcuts/bmfiles
 cfa	~/.config/shell/aliases
 cfb	~/.bashrc
+cfd	~/.config/dunst/dunstrc
 cfB	~/.config/i3blocks/config
 cfi	~/.config/i3/config
 cfk	~/.config/sxiv/exec/key-handler

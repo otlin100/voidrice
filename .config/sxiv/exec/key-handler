@@ -3,9 +3,9 @@ while read file
 do
     case "$1" in
         "w")
-            wal -c && wal -n -i "$file" && setbg "$file" && cp "$file" ~/.config/wall.png ;;
-        "W")
-            wal -c && wal -n -i "$file" && setbg "$file" && cp "$file" ~/.config/wall.png && sudo -A make -C "$XDG_CACHE_HOME/st" -s clean install ;;
+            setbg "$file" && cp "$file" ~/.config/wall.png ;;
+        # "W")
+            # setbg "$file" && cp "$file" ~/.config/wall.png && sudo -A make -C "$XDG_CACHE_HOME/st" -s clean install ;;
         "c")
             [ -z "$destdir" ] &&
                 destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.config/shortcuts/bmdirs |
