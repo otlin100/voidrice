@@ -4,8 +4,6 @@ setxkbmap -option caps:super && killall xcape 2>/dev/null ; xcape -e 'Super_L=Es
 xmodmap -e 'keycode 105 = Caps_Lock' &
 xmodmap -e 'keycode 135 = Super_R' &
 
-eval $(ssh-agent -s)
-
 sxhkd -m 1 &	# Bind keys
 xset r rate 200 50 &
 unclutter &		# Remove mouse when idle
@@ -17,7 +15,7 @@ setbg &
 
 xrdb -merge "$XDG_CONFIG_HOME/X11/Xresources"
 
-gpg-agent --homedir /home/lin/.config/gnupg --daemon
+gpgconf --homedir $GNUPGHOME --launch gpg-agent
 autorandr -c --force
 wal -n -R
 
