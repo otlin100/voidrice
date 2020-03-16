@@ -1,0 +1,19 @@
+set ignorecase
+set smartcase
+set scrolloff=3
+set surround
+let mapleader = " "
+nmap <leader>h <c-w>h
+nmap <leader>l <c-w>l
+nmap <leader>k <c-w>k
+nmap <leader>j <c-w>j
+set clipboard=unnamedplus,unnamed
+nmap L gt
+nmap H gT
+nmap <leader>s :so ~/.ideavimrc<cr>
+nmap <leader>q :q!<cr>
+nmap <leader>d :action ToggleDistractionFreeMode<cr>
+nmap <leader>r :action ChooseRunConfiguration<cr>
+nmap <leader>m :action ToggleMainMenuAction<cr>
+nmap Y y$
+nnoremap <leader>S :%s//g<Left><Left>

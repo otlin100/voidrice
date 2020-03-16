@@ -9,4 +9,4 @@ pkill -RTMIN+14 i3blocks
 sleep 2
 
 xrdb ~/.config/X11/Xresources
-wal -i ~/.config/wall.png
+wal -R

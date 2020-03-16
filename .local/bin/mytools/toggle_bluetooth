@@ -5,7 +5,8 @@ bt_string=$(systemctl is-active bluetooth)
 if [ "$bt_string" = 'inactive' ]; then
     sudo -A systemctl start bluetooth
 else
+    pkill -f blueman
     sudo -A systemctl stop bluetooth
 fi
 
-pkill -RTMIN+10 i3blocks
+pkill -RTMIN+15 i3blocks

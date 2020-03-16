@@ -4,7 +4,7 @@ case "$1" in
     reboot)
         reboot ;;
     shutdown)
-        myshutdown ;;
+        sudo shutdown -h now ;;
     suspend)
         sudo systemctl suspend ;;
     hibernate)
@@ -12,5 +12,5 @@ case "$1" in
     lock)
         slock ;;
     logout)
-        pkill -u "$USER"
+        i3-msg exit ;;
 esac

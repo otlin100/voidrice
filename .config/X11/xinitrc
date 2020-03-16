@@ -12,10 +12,11 @@ unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 mpdupdate &
+setbg &
 
 xrdb -merge "$XDG_CONFIG_HOME/X11/Xresources"
 
-gpg-agent --homedir /home/otlin/.config/gnupg --daemon
+gpg-agent --homedir /home/lin/.config/gnupg --daemon
 autorandr -c --force
 wal -n -R
 

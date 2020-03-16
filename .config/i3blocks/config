@@ -2,17 +2,21 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[fontsize]
+[anoise]
 interval=once
-signal=14
+signal=13
 
 [bluetooth]
 interval=once
-signal=10
+signal=15
 
 [capslock]
 interval=once
 signal=30
+
+[fontsize]
+interval=once
+signal=14
 
 [record]
 command=cat /tmp/recordingicon

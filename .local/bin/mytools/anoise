@@ -1,13 +1,26 @@
 #!/usr/bin/env sh
 
 sounds="$XDG_DATA_HOME/sounds"
+
 toggle() {
-    pkill -f "mpv .*anoise" >/dev/null 2>&1 || nohup mpv --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
+    pkill -f "mpv .*anoise" >/dev/null 2>&1
+    [ "$?" -eq 1 ] && notify-send "$(cat "$sounds"/track)" && exec mpv --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
 }
 
 case "$1" in
     toggle)
-        toggle; exit;;
+        toggle ;;
     shuffle)
-        find "$sounds"/* -prune -name '*.*' | shuf -n1 | xargs -I '{}' cp {} "$sounds"/anoise && toggle && toggle ;;
+        [ "$(pgrep -c -f "anoise shuffle")" -gt 1 ] && exit
+        pkill -f "mpv .*anoise" >/dev/null 2>&1
+        success=$?
+        newfile=$(find "$sounds"/* -prune -name '*.*' | shuf -n1)
+        cp "$newfile" "$sounds"/anoise
+        pgrep -x dunst >/dev/null && notify-send "background audio switched to $(basename "$newfile")"
+        basename "$newfile" > "$sounds"/track
+        if [ "$success" -eq 0 ]; then
+            exec mpv --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
+        fi ;;
 esac
+
+pkill -RTMIN+13 i3blocks

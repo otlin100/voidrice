@@ -4,6 +4,9 @@ D	~/Downloads
 pp	~/Pictures
 cf	~/.config
 xd	~/.local/share
+xdm	~/.local/share/mutt-wizard
+xdd	~/.local/share/dmenu
+xds	~/.local/share/st
 xc	~/.cache
 sc	~/.local/bin
 so	~/.local/share/sounds
