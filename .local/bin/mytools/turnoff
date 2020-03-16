@@ -12,5 +12,5 @@ case "$1" in
     lock)
         slock ;;
     logout)
-        pkill -u "$USER"
+        i3-msg exit ;;
 esac

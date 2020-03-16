@@ -11,6 +11,7 @@ macro generic <F2> "<enter-command>source $XDG_CONFIG_HOME/mutt/muttrc<enter>"
 macro generic <F3> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/muttrc<enter>"
 macro generic <F4> "<shell-escape>nvim $XDG_CONFIG_HOME/mutt/.mbsync.log<enter>"
 macro generic <F5> "<shell-escape>nvim $XDG_CONFIG_HOME/abook/addressbook<enter>"
+<<<<<<< HEAD
 
 bind pager,alias,attach,browser,compose h exit
 
@@ -21,19 +22,18 @@ bind index M noop
 macro index MM "<save-message>?"
 macro index MC "<copy-message>?"
 
+=======
+>>>>>>> workMerge
 bind index,pager gr compose-to-sender
-bind index,pager <esc>m compose-to-sender
+bind index gd delete-pattern
 bind index,pager H display-toggle-weed
-macro index,pager \Ck "<sidebar-prev><sidebar-open>"
-macro index,pager \Cj "<sidebar-next><sidebar-open>"
-
+bind pager,alias,attach,browser,compose h exit
+bind index h sidebar-toggle-visible
 bind compose l view-attach
-
 bind alias l select-entry
-
-bind attach <space> tag-entry
 macro attach s "<save-entry><bol>~/Downloads/<return>" "Save to Downloads"
-
+# bind index <return> noop
+bind index <return> limit
 bind editor <esc> noop
 macro editor <esc> "<kill-line><return>"
 macro index,pager \Ck "<sidebar-prev><sidebar-open>"
@@ -42,3 +42,9 @@ bind index,pager <esc>m compose-to-sender
 bind attach <space> tag-entry
 set confirmappend = no
 set delete = yes
+<<<<<<< HEAD
+=======
+bind index M noop
+macro index MM "<save-message>?"
+macro index MC "<copy-message>?"
+>>>>>>> workMerge

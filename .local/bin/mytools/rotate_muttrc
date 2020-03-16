@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+prestring_hl='macro index,pager \\C[hl] '"'"'<sync-mailbox><enter-command>source '
+prestring_h='macro index,pager \\Ch '"'"'<sync-mailbox><enter-command>source '
+prestring_l='macro index,pager \\Cl '"'"'<sync-mailbox><enter-command>source '
+
+middlestring='<enter><change-folder>!<enter><enter-command>source '
+poststring='<enter>;<check-stats>'"'"
+
+for x in $@; do
+    sed -i "/$prestring_hl.*\.muttrc.*/d" $x
+done
+
+function print_h() {
+    echo -e "$prestring_h$(pwd)/$1$middlestring$(pwd)/$1$poststring"
+}
+
+function print_l() {
+    echo -e "$prestring_l$(pwd)/$1$middlestring$(pwd)/$1$poststring"
+}
+
+print_h "${*: -1}" >> "$1"
+print_l "$2" >> "$1"
+
+for ((i=2; i<=$# -1; i++)); do
+    h=$((i - 1))
+    l=$((i + 1))
+    print_h "${!h}" >> "${!i}"
+    print_l "${!l}" >> "${!i}"
+done
+
+print_h "${*: -2:1}" >> "${*: -1}"
+print_l "$1" >> "${*: -1}"

@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+if [ -z "$1" ]
+then
+    $EDITOR "$(sed -n 2p "$XDG_DATA_HOME"/nvim/mru/vim_mru_files)"
+else
+    $EDITOR $@
+fi

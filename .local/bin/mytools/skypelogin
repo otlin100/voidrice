@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+xdotool keyup shift
+xdotool keyup s
+xdotool keyup super
+
 username="ottolin@outlook.de"
 password="$(gopass ol/general/microsoft/"$username")"
 
@@ -10,10 +14,10 @@ xdotool key --clearmodifiers --window "$id" Return
 sleep 1
 
 xdotool windowfocus "$id"
-xdotool type --clearmodifiers $username
+xdotool type --clearmodifiers "$username"
 xdotool key --clearmodifiers --window "$id" Return
 sleep 1
 
 xdotool windowfocus "$id"
-xdotool type --clearmodifiers $password
+xdotool type --clearmodifiers "$password"
 xdotool key --clearmodifiers --window "$id" Return

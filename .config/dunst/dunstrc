@@ -24,7 +24,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = Monospace 16
+    font = FuraMono Nerd Font 13
     line_height = 0
     markup = full
 
@@ -73,24 +73,45 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#282828"
-    foreground = "#928374"
-    timeout = 5
-    # Icon for notifications with low urgency, uncomment to enable
-    #icon = /path/to/icon
+# IMPORTANT: colors have to be defined in quotation marks.
+# Otherwise the "#" and following would be interpreted as a comment.
+# look in "${HOME}/.cache/wal/colors.sh" for the colors
+frame_color = "#81a2be" #color4
+foreground = "#81a2be" #color4
+background = "#1d1f21" #color0
+timeout = 4
 
 [urgency_normal]
-    background = "#458588"
-    foreground = "#ebdbb2"
-    timeout = 5
+frame_color = "#8abeb7" #color6
+foreground = "#8abeb7" #color6
+background = "#1d1f21" #color0
+timeout = 6
 
 [urgency_critical]
-    background = "#cc2421"
-    foreground = "#ebdbb2"
-    frame_color = "#fabd2f"
-    timeout = 0
+frame_color = "#cc6666" #color1
+foreground = "#cc6666" #color1
+background = "#1d1f21" #color0
+timeout = 8
+
+#[urgency_low]
+#    # IMPORTANT: colors have to be defined in quotation marks.
+#    # Otherwise the "#" and following would be interpreted as a comment.
+#    background = "#282828"
+#    foreground = "#928374"
+#    timeout = 5
+#    # Icon for notifications with low urgency, uncomment to enable
+#    #icon = /path/to/icon
+
+#[urgency_normal]
+#    background = "#458588"
+#    foreground = "#ebdbb2"
+#    timeout = 5
+
+#[urgency_critical]
+#    background = "#cc2421"
+#    foreground = "#ebdbb2"
+#    frame_color = "#fabd2f"
+#    timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

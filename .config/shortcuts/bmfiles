@@ -2,12 +2,13 @@ bd	~/.config/shortcuts/bmdirs
 bf	~/.config/shortcuts/bmfiles
 cfa	~/.config/shell/aliases
 cfb	~/.bashrc
+cfd	~/.config/dunst/dunstrc
 cfB	~/.config/i3blocks/config
 cfi	~/.config/i3/config
 cfk	~/.config/sxiv/exec/key-handler
 cfl	~/.config/lf/lfrc
 cfM	~/.config/mpd/mpd.conf
-cfm	~/.config/mutt/muttrc
+cfm	~/.local/share/mutt-wizard/share/mutt-wizard.muttrc
 cfn	~/.config/newsboat/config
 cfp	~/.profile
 cfs	~/.config/sxhkd/sxhkdrc

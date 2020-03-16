@@ -1,8 +1,6 @@
 let mapleader =" "
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -36,27 +34,33 @@ Plug 'junegunn/fzf.vim'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'VebbNix/lf-vim'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'elmcast/elm-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'otlin100/vim-lf'
+Plug 'otlin100/termopen.vim'
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 let g:vim_textobj_parameter_mapping = 'a'
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
 
-let g:deoplete#enable_at_startup = 0
+" set termguicolors
+" lua require'colorizer'.setup()
+
+colorscheme wal
+
+let g:lf_on_exit = 'bd!'
+nmap <leader>r :call TermOpenRanger('lf', 'b')<cr>
 
 let g:python3_host_prog = '/usr/bin/python3'
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+let g:airline_theme = 'wal'
 
  " Enable the list of buffers
 " let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':t'
-
-nnoremap <leader>d :call deoplete#toggle()<cr>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -126,7 +130,6 @@ set nobackup
 set nowb
 set noswapfile
 
-colorscheme wal
 " set bg=light
 
 " yank path/dir
@@ -219,13 +222,17 @@ let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsUsePythonVersion = 3
-nmap <leader><tab> <plug>(fzf-maps-n)
 nmap <leader>ue :UltiSnipsEdit<cr>
+
+nmap <leader><tab> <plug>(fzf-maps-n)
 nmap <leader>w :cd %:p:h<cr>
 
 nmap <leader>v :e $MYVIMRC<cr>
 call yankstack#setup()
 nmap Y y$
+
+" LATIN SMALL O WITH DIAERESIS
+nnoremap <Char-246> "
 
 command! Smi :cd %:p:h | :!mymake
 
@@ -242,6 +249,9 @@ if has("win16") || has("win32")
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
+
+" Enable autocompletion:
+set wildmode=longest,list,full
 
 set ruler
 set hid
@@ -265,9 +275,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
-
-" Enable autocompletion:
-set wildmode=longest,list,full
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -320,6 +327,12 @@ autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
 autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
 autocmd QuitPre /tmp/neomutt* :wqa!
 
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave *.tex :mkview
+  autocmd BufWinEnter *.tex :silent! loadview
+augroup END
+
 " Automatically highlights all trailing whitespace on save.
 " autocmd BufWritePre * %s/\s\+$//e
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -333,7 +346,8 @@ autocmd BufWinLeave * call clearmatches()
 autocmd BufWritePost ~/.config/shortcuts/bmdirs,~/.config/shortcuts/bmfiles !shortcuts ;via -ro
 
 " Run xrdb and wal whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png ;$TERMINAL $EDITOR % &' | q!
+" autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -c ;wal -n -i ~/.config/wall.png ;$TERMINAL $EDITOR % &' | q!
+autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -R ;$TERMINAL $EDITOR % &' | q!
 autocmd BufWritePost */via/websites !via -ro
 
 autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd

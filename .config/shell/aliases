@@ -4,7 +4,8 @@ alias mkd="mkdir -pv" \
     SS="sudo -A systemctl" \
     r="$FILE" \
     g="git" \
-    e="$EDITOR" \
+    e="nvim_mru" \
+    v="$EDITOR" \
     x="sxiv -ft *" \
     ls="ls -hN --color=auto --group-directories-first" \
     s="sudo -A" \
@@ -29,15 +30,15 @@ gitdir() {
 
 gitignore() {
     echo -e "add following files to gitignore:\n"
-    git status 2>/dev/null | grep -P '\t' | grep -v 'modified:' | grep -v 'new file:' | tr -d '\t' | sed 's/\ /\\\ /g' | tee -a .git/info/exclude
+    git status 2>/dev/null | grep -P '\t' | grep -v '.*: ' | tr -d '\t' | sed 's/\ /\\\ /g' | tee -a .git/info/exclude
 }
 
 gpt() {
     if ! type "git_prompt_toggle" >/dev/null 2>&1; then
+        GIT_PROMPT_THEME=Solarized_Extravagant
         source $XDG_DATA_HOME/bash-git-prompt/gitprompt.sh
         GIT_PROMPT_ONLY_IN_REPO=1
         git status
-        [ $(ssh-add -l | grep -c otto.lin@hhu.de) -eq 1 ] || echo none | ssh-add ~/.ssh/id_rsa
         return
     fi
     git_prompt_toggle

@@ -37,5 +37,6 @@ sed "s/\s*#.*$//;/^\s*$/d"  "$bmfiles" | tee >(awk '{print $1"=\"$EDITOR "$2"\" 
     >(awk '{print "command!", toupper(substr($1,1,1))substr($1,2), ":e", $2 }' >> "$vim_shortcuts") \
     | awk '{print "map "$1" shell $EDITOR "$2}' >> "$ranger_shortcuts"
 
+# Print the lf shortcuts to lfrc
 printf "$lf_marker\n" >> "$lf_shortcuts"
 sed -i -e "/$lf_marker/,/$lf_marker/d;/START/r $lf_shortcuts" $lf_config
