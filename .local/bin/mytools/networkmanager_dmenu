@@ -163,10 +163,14 @@ def create_other_actions(client):
                Action("{} Networking".format(networking_action),
                       toggle_networking, not networking_enabled),
                Action("Launch Connection Manager", launch_connection_editor),
+               Action("Restart Networkmanager", restart_networkmanager),
                Action("Delete a Connection", delete_connection)]
     if wifi_enabled:
         actions.append(Action("Rescan Wifi Networks", rescan_wifi))
     return actions
+
+def restart_networkmanager():
+    Popen(["sudo" , "systemctl", "restart", "NetworkManager"]).communicate()
 
 def rescan_wifi():
     """
