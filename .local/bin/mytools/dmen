@@ -6,7 +6,11 @@ color0='#1d1f21'
 color6='#8abeb7'
 color15='#ffffff'
 
+darkGrey='#222222'
+white='#eeeeee'
+
 colored="-nb $color0 -nf $color15 -sb $color6 -sf $color15"
+uncolored="-nb $darkGrey -nf $white -sb $darkGrey -sf $white"
 
 first="$1"
 shift
@@ -14,7 +18,7 @@ case "$first" in
     run)
         dmenu_run $colored -fn "$(getfont)" "$@" ;;
     pass)
-        dmenu -P $colored -fn "$(getfont)" -p "$1" <&- ;;
+        dmenu -b -P $uncolored -fn "FuraMono Nerd Font:size=9" -p " $1" <&- ;;
     clip)
         clipmenu $colored -fn "$(getfont)" ;;
     *)

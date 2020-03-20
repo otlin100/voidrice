@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+password_file=$XDG_DATA_HOME/openvpn/password
+touch $password_file
+echo lin > $password_file
+gopass show ol/general/sipgate/ldap/lin >> $password_file
+
+sudo openvpn --config $XDG_DATA_HOME/openvpn/telearbeit --auth-user-pass $password_file --daemon
+
+rm $password_file

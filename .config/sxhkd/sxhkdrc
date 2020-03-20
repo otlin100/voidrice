@@ -20,8 +20,22 @@ super + z
     camtoggle
 super + acute
     dmenuunicode
+super + e
+    $TERMINAL -e neomutt && pkill -RTMIN+12 i3blocks
 super + shift + r
     winresize
+super + shift + z
+    i3resize left
+super + shift + o
+    i3resize right
+super + shift + i
+    i3resize up
+super + shift + u
+    i3resize down
+super + m
+    ddspawn_program spotify
+super + n
+    $TERMINAL -e newsboat && pkill -RTMIN+6 i3blocks
 super + s
     skypeforlinux
 super + shift + s
@@ -56,8 +70,10 @@ super + shift + p
     lmc pause
 super + i
     $TERMINAL -e htop
-super + shift + a
+super + a
     $TERMINAL -e pulsemixer
+super + shift + a
+    ddspawn dropdowncalc -f mono:pixelsize=24
 super + r
     $TERMINAL -e $FILE
 super + shift + r

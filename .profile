@@ -45,7 +45,6 @@ export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 
 # Workstation specific
 export BATTERY="BAT1"
-export PRINTER="empfang"
 
 # less/man colors
 export LESS=-R

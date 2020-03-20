@@ -3,7 +3,7 @@ alias mkd="mkdir -pv" \
     mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
     SS="sudo -A systemctl" \
     r="$FILE" \
-    g="git" \
+    g="./gradlew" \
     e="nvim_mru" \
     v="$EDITOR" \
     x="sxiv -ft *" \
@@ -12,10 +12,7 @@ alias mkd="mkdir -pv" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
     ffmpeg="ffmpeg -hide_banner" \
-    gpom="git push origin master" \
-    gpo="git pull origin" \
     ga="git add -u" \
-    gc="git commit -m" \
     gst="git status" \
     smi="sudo -A make -k clean install" \
     car="source /opt/anaconda3/bin/activate root" \

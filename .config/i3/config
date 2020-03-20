@@ -5,13 +5,11 @@
 for_window [class="^.*"] border pixel 2
 gaps inner 7
 gaps outer 0
-set $term --no-startup-id $TERMINAL
 set $mod Mod4
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
 for_window [instance="dropdown_*"] floating enable, move scratchpad, sticky enable, scratchpad show
-for_window [instance="dropdown_tmuxdd"] resize set 625 450, border pixel 3
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300, border pixel 2
 for_window [instance="dropdown_*"] move position center
 for_window [instance=spotify] floating enable, sticky enable, move scratchpad, scratchpad show, resize set 1370 772, move position center, move up 12 px
@@ -70,18 +68,9 @@ bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec -
 
 bindsym $mod+Shift+w		move workspace to output right
 
-bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
-
 bindsym $mod+t			split toggle
 
-bindsym $mod+Shift+z		exec --no-startup-id i3resize left
-bindsym $mod+Shift+o		exec --no-startup-id i3resize right
-bindsym $mod+Shift+i		exec --no-startup-id i3resize up
-bindsym $mod+Shift+u		exec --no-startup-id i3resize down
-
 bindsym $mod+o			sticky toggle
-
-bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 
 bindsym $mod+Shift+t		gaps inner current set 8; gaps outer current set 0
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
@@ -111,10 +100,7 @@ bindsym $mod+Mod1+l			workspace next_on_output
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
 
-bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
-
-bindsym $mod+m			exec --no-startup-id ddspawn_program spotify
 
 # #---Workspace Bindings---# #
 bindsym $mod+Tab		workspace back_and_forth

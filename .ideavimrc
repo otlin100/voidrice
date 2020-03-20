@@ -16,7 +16,7 @@ nmap <leader>q :q!<cr>
 nmap <leader>d :action ToggleDistractionFreeMode<cr>
 nmap <leader>r :action ChooseRunConfiguration<cr>
 nmap <leader>m :action ToggleMainMenuAction<cr>
-nmap ge :action GotoNextError<cr>
-nmap gE :action GotoPreviousError<cr>
+map ge :action GotoNextError<cr>
+map gE :action GotoPreviousError<cr>
 nmap Y y$
 nnoremap <leader>S :%s//g<Left><Left>
