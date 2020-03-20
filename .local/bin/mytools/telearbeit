@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+sudo killall openvpn
+
 password_file=$XDG_DATA_HOME/openvpn/password
 touch $password_file
 echo lin > $password_file
