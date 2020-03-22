@@ -51,6 +51,6 @@ do
         "g")
             ifinstalled gimp && gimp "$file" & ;;
         "p")
-            lpr -o scaling=100 "$file"
+            lpr -o fit-to-page -o scaling=100 -o media=A4 -o outputorder=reverse "$file"
     esac
 done

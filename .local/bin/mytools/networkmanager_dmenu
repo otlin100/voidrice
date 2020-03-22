@@ -158,13 +158,13 @@ def create_other_actions(client):
     networking_action = "Disable" if networking_enabled else "Enable"
     wifi_enabled = client.wireless_get_enabled()
     wifi_action = "Disable" if wifi_enabled else "Enable"
-    actions = [Action("{} Wifi".format(wifi_action), toggle_wifi,
+    actions = [Action("Restart Networkmanager", restart_networkmanager),
+            Action("{} Wifi".format(wifi_action), toggle_wifi,
                       not wifi_enabled),
-               Action("{} Networking".format(networking_action),
-                      toggle_networking, not networking_enabled),
-               Action("Launch Connection Manager", launch_connection_editor),
-               Action("Restart Networkmanager", restart_networkmanager),
-               Action("Delete a Connection", delete_connection)]
+            Action("{} Networking".format(networking_action),
+                toggle_networking, not networking_enabled),
+            Action("Launch Connection Manager", launch_connection_editor),
+            Action("Delete a Connection", delete_connection)]
     if wifi_enabled:
         actions.append(Action("Rescan Wifi Networks", rescan_wifi))
     return actions
@@ -398,13 +398,13 @@ def get_selection(eths, aps, vpns, gsms, blues, wwan, others):
     inp = []
     empty_action = [Action('', None)]
     all_actions = []
+    all_actions += others
     all_actions += eths + empty_action if eths else []
     all_actions += aps + empty_action if aps else []
     all_actions += vpns + empty_action if vpns else []
     all_actions += gsms + empty_action if (gsms and wwan) else []
     all_actions += blues + empty_action if blues else []
     all_actions += wwan + empty_action if wwan else []
-    all_actions += others
 
     if rofi_highlight is True:
         inp = [str(action) for action in all_actions]
