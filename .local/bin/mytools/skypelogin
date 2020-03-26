@@ -4,26 +4,27 @@ xdotool keyup shift
 xdotool keyup s
 xdotool keyup super
 
+id=$(xwininfo -tree -root | grep '"Skype"' | awk '{print $1}')
 username="ottolin@outlook.de"
 password="$(gopass ol/general/microsoft/"$username")"
 
-id=$(xwininfo -tree -root | grep '"Skype"' | awk '{print $1}')
+focus_skype(){
+    i3-msg fullscreen disable
+    xdotool set_desktop "$(xdotool get_desktop_for_window "$id")"
+    xdotool windowfocus "$id"
+}
 
-i3-msg fullscreen disable
-
-xdotool set_desktop "$(xdotool get_desktop_for_window "$id")"
-
-xdotool windowfocus "$id"
 
 sleep 2
+focus_skype
 xdotool key --clearmodifiers --window "$id" Return
 sleep 2
 
-xdotool windowfocus "$id"
+focus_skype
 xdotool type --clearmodifiers "$username"
 xdotool key --clearmodifiers --window "$id" Return
 sleep 2
 
-xdotool windowfocus "$id"
+focus_skype
 xdotool type --clearmodifiers "$password"
 xdotool key --clearmodifiers --window "$id" Return

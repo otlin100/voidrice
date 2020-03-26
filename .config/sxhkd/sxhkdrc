@@ -44,6 +44,8 @@ super + F1
     groff -mom $XDG_DATA_HOME/larbs/readme.mom -Tpdf | zathura -
 super + F3
     displayselect
+super + shift + F3
+    arandr
 super + F5
     sudo -A systemctl restart NetworkManager
 super + F6
