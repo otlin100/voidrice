@@ -2,7 +2,7 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[anoise]
+[anoise_icon]
 interval=once
 signal=13
 

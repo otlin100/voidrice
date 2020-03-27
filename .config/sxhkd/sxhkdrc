@@ -24,14 +24,8 @@ super + e
     $TERMINAL -e neomutt && pkill -RTMIN+12 i3blocks
 super + shift + r
     winresize
-super + shift + z
-    i3resize left
-super + shift + o
-    i3resize right
-super + shift + i
-    i3resize up
-super + shift + u
-    i3resize down
+super + shift + { z, o, i, u }
+    i3resize { left, right, up, down }
 super + m
     ddspawn_program spotify
 super + n
@@ -70,6 +64,10 @@ super + p
     password
 super + shift + p
     lmc pause
+super + alt + { space, n, p }
+    playerctl { play-pause, next, previous }
+super + alt + c
+    showTrackInfo
 super + i
     $TERMINAL -e htop
 super + a

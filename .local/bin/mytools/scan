@@ -1,4 +1,3 @@
 #!/usr/bin/env sh
 
-cd $HOME/Downloads
 scan2pdf scan
