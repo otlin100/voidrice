@@ -1,10 +1,9 @@
 #!/usr/bin/env sh
 
 # look in "${HOME}/.cache/wal/colors.sh" for the colors
-
-color0='#1d1f21'
-color6='#8abeb7'
-color15='#ffffff'
+color0='#292D3E'
+color6='#89DDFF'
+color15='#FFFFFF'
 
 darkGrey='#222222'
 white='#eeeeee'
