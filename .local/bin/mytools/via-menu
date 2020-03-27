@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dmen -p "via" -i -l 8
