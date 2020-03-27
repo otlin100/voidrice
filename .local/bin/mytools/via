@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$1" in
+	-r)  # rebuild cache first
+		via-feed -r | via-menu | via-open
+		;;
+	-ro) # rebuild cache only
+		via-feed -r >/dev/null
+		;;
+	*)
+		via-feed | via-menu | via-open
+		;;
+esac
