@@ -1,6 +1,7 @@
 #!/bin/bash
 alias mkd="mkdir -pv" \
     mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+    p="sudo pacman" \
     SS="sudo -A systemctl" \
     r="$FILE" \
     g="./gradlew" \
@@ -33,7 +34,7 @@ gitignore() {
 gpt() {
     if ! type "git_prompt_toggle" >/dev/null 2>&1; then
         GIT_PROMPT_THEME=Solarized_Extravagant
-        source $XDG_DATA_HOME/bash-git-prompt/gitprompt.sh
+        source /usr/lib/bash-git-prompt/gitprompt.sh
         GIT_PROMPT_ONLY_IN_REPO=1
         git status
         return
