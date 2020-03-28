@@ -1,0 +1,75 @@
+Pattern
+
+ ~A
+
+ =B STRING
+messages which contain STRING in the whole message. If IMAP is enabled, searches for STRING on the server, rather than downloading each message and searching it locally.
+
+ =b STRING
+messages which contain STRING in the message body. If IMAP is enabled, searches for STRING on the server, rather than downloading each message and searching it locally.
+
+ ~B EXPR 	    messages which contain EXPR in the whole message
+ ~b EXPR 	    messages which contain EXPR in the message body
+ %C GROUP 	    messages either “To:” or “Cc:” to any member of GROUP
+ %c GROUP 	    messages carbon-copied to any member of GROUP
+ ~C EXPR 	    messages either “To:” or “Cc:” EXPR
+ ~c EXPR 	    messages carbon-copied to EXPR
+ ~D          	deleted messages
+ ~d MIN - MAX 	messages with “date-sent” in a date range
+ %e GROUP   	messages which contain a member of GROUP in the “Sender:” field
+ ~E         	expired messages
+ ~e EXPR    	messages which contain EXPR in the “Sender:” field
+ %f GROUP   	messages originating from any member of GROUP
+ ~F          	flagged messages
+ ~f EXPR    	messages originating from EXPR
+ ~G          	cryptographically encrypted messages
+ ~g 	        cryptographically signed messages
+
+ =h STRING
+messages which contain STRING in the message header. If IMAP is enabled, searches for STRING on the server, rather than downloading each message and searching it locally; STRING must be of the form “Header: substring” (see below).
+
+ ~H EXPR    	messages with spam attribute matching EXPR
+ ~h EXPR    	messages which contain EXPR in the message header
+ ~i EXPR 	    messages which match EXPR in the “Message-ID:” field
+ ~k         	messages containing PGP key material
+ %L GROUP   	messages either originated or received by any member of GROUP
+ ~L EXPR    	messages either originated or received by EXPR
+ ~l         	messages addressed to a known mailing list
+ ~m < MAX   	messages with numbers less than MAX * )
+ ~m > MIN   	messages with numbers greater than MIN * )
+ ~m MIN , MAX 	messages with offsets (from selected message) in the range MIN to MAX * )
+ ~m MIN - MAX 	message in the range MIN to MAX * )
+ ~m N       	just message number N * )
+ ~N         	new messages
+ ~n MIN - MAX  	messages with a score in the range MIN to MAX ** )
+ ~O 	        old messages
+ ~P 	        messages from you (consults $from, alternates , and local account/hostname information)
+ ~p 	        messages addressed to you (consults $from, alternates , and local account/hostname information)
+ ~Q 	        messages which have been replied to
+ ~R 	        read messages
+ ~r MIN - MAX 	messages with “date-received” in a date range
+ ~S 	        superseded messages
+ ~s EXPR 	    messages having EXPR in the “Subject:” field
+ ~T 	        tagged messages
+ ~t EXPR 	    messages addressed to EXPR
+ ~U 	        unread messages
+ ~u 	        messages addressed to a subscribed mailing list
+ ~V 	        cryptographically verified messages
+ ~v 	        message is part of a collapsed thread.
+ ~X MIN - MAX 	messages with MIN to MAX attachments ** )
+ ~x EXPR 	    messages which contain EXPR in the “References:” or “In-Reply-To:” field
+ ~y EXPR 	    messages which contain EXPR in their keywords
+ ~z MIN - MAX 	messages with a size in the range MIN to MAX ** ) *** )
+ =/ STRING 	    IMAP custom server-side search for STRING . Currently only defined for Gmail. See section “ Gmail Patterns ” in NeoMutt manual.
+ ~= 	        duplicated messages (see $duplicate_threads)
+ ~# 	        broken threads (see $strict_threads)
+ ~$ 	        unreferenced message (requires threaded view)
+ ~( PATTERN ) 	messages in threads containing messages matching PATTERN , e.g. all threads containing messages from you: ~(~P)
+ ~<( PATTERN ) 	messages whose immediate parent matches PATTERN , e.g. replies to your messages: ~<(~P)
+ ~>( PATTERN ) 	messages having an immediate child matching PATTERN , e.g. messages you replied to: ~>(~P)
+
+ Where EXPR is a regular expression, and GROUP is an address group.
+
+  * ) 	The message number ranges (introduced by “ ~m ”) are even more general and powerful than the other types of ranges. Read on and see section “ Message Ranges ” in manual.
+  ** ) 	The forms “< MAX ”, “> MIN ”, “ MIN -” and “- MAX ” are allowed, too.
+  *** ) 	The suffixes “K” and “M” are allowed to specify kilobyte and megabyte respectively.

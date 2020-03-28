@@ -15,6 +15,7 @@ alias mkd="mkdir -pv" \
     ffmpeg="ffmpeg -hide_banner" \
     ga="git add -u" \
     gst="git status" \
+    gc="gitmyclone" \
     smi="sudo -A make -k clean install" \
     car="source /opt/anaconda3/bin/activate root" \
     q="exit" \
@@ -29,6 +30,12 @@ gitdir() {
 gitignore() {
     echo -e "add following files to gitignore:\n"
     git status 2>/dev/null | grep -P '\t' | grep -v '.*: ' | tr -d '\t' | sed 's/\ /\\\ /g' | tee -a .git/info/exclude
+}
+
+gitmyclone() {
+    repo="$1"
+    shift
+    git clone git@github.com:otlin100/"$repo" "$@"
 }
 
 gpt() {
