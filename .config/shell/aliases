@@ -9,6 +9,7 @@ alias mkd="mkdir -pv" \
     v="$EDITOR" \
     x="sxiv -ft *" \
     ls="ls -hN --color=auto --group-directories-first" \
+    ll="ls -hNal --color=auto --group-directories-first" \
     s="sudo -A" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
@@ -16,12 +17,15 @@ alias mkd="mkdir -pv" \
     ga="git add -u" \
     gst="git status" \
     gc="gitmyclone" \
+    gl="git log --stat --pretty=short --graph" \
+    mach="sudo !!" \
     smi="sudo -A make -k clean install" \
     car="source /opt/anaconda3/bin/activate root" \
     q="exit" \
     vim="nvim" \
     vimdiff="nvim -d" \
-    nvm="unalias nvm && source $NVM_DIR/nvm.sh --no-use && nvm"
+    nvm="unalias nvm && source_nvm && nvm" \
+    npm="unalias npm && nvm use default && npm"
 
 gitdir() {
     svn --config-dir $XDG_CONFIG_HOME/subversion checkout ${1%.git}'/trunk/'$2 $HOME'/Downloads/'$(echo ${2%/} | awk -F '/' '{print $NF}')
@@ -30,6 +34,10 @@ gitdir() {
 gitignore() {
     echo -e "add following files to gitignore:\n"
     git status 2>/dev/null | grep -P '\t' | grep -v '.*: ' | tr -d '\t' | sed 's/\ /\\\ /g' | tee -a .git/info/exclude
+}
+
+source_nvm() {
+    source /usr/share/nvm/nvm.sh --no-use
 }
 
 gitmyclone() {

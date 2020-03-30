@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+remaps
 setbg &
 sleep 2
 pgrep -x dunst >/dev/null && notify-send "switched to '$AUTORANDR_CURRENT_PROFILE'"
