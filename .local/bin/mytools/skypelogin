@@ -15,16 +15,16 @@ focus_skype(){
 }
 
 
-sleep 2
+sleep 1
 focus_skype
 xdotool key --clearmodifiers --window "$id" Return
-sleep 2
+sleep 1
 
 focus_skype
-xdotool type --clearmodifiers "$username"
+xdotool type --clearmodifiers --delay 0 "$username"
 xdotool key --clearmodifiers --window "$id" Return
-sleep 2
+sleep 1
 
 focus_skype
-xdotool type --clearmodifiers "$password"
+xdotool type --clearmodifiers --delay 0 "$password"
 xdotool key --clearmodifiers --window "$id" Return
