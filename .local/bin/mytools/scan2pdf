@@ -9,16 +9,16 @@ cd "$tmpdir" || exit
 
 outname="$1".pdf
 
-echo "################ Scanning ################"
-hp-scan -o "$outname" --adf -c 1500 -b 1600 -m grey -r 300 -d hpaio:/net/OfficeJet_3830_series?zc=HP80CE62B57980 --size=a4 --compression=none
+notify-send "### Scanning ###"
+hp-scan -o "$outname" --adf -c 1500 -b 1600 -m grey -r 300 -d hpaio:/net/OfficeJet_3830_series?zc=HP80CE62B57980 --size=a4 --compression=raw || hp-scan -o "$outname" -c 1500 -b 1600 -m grey -r 300 -d hpaio:/net/OfficeJet_3830_series?zc=HP80CE62B57980 --size=a4 --compression=raw
 wait
 
 [ $? -eq 1 ] && pgrep -x dunst >/dev/null && notify-send -t 15000 -u critical "failed to scan" && exit
 
-echo "################ Compressing ################"
+notify-send "### Compressing ###"
 pdfcompress "$outname"
 mv compressed_"$outname" "$HOME"/Downloads/"$outname"
 
-echo "################ Cleaning Up ################"
+notify-send "### Cleaning Up ###"
 rm -rf "$tmpdir"
 cd "$startdir" || exit
