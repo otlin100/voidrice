@@ -37,15 +37,12 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-fugitive'
 Plug 'otlin100/vim-lf'
 Plug 'otlin100/termopen.vim'
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'lilydjwg/colorizer'
 call plug#end()
 
 let g:vim_textobj_parameter_mapping = 'a'
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim
-
-" set termguicolors
-" lua require'colorizer'.setup()
 
 colorscheme wal
 
