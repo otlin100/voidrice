@@ -21,6 +21,7 @@ Plug 'Julian/vim-textobj-brace'
 Plug 'kana/vim-textobj-line'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'saaguero/vim-textobj-pastedtext'
+Plug 'Julian/vim-textobj-variable-segment'
 Plug 'dylanaraps/wal.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'SirVer/ultisnips'
@@ -72,8 +73,9 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 let g:fzf_tags_command = 'ctags -R -f ./.git/tags .'
 
 " using ag/rg
-nnoremap <leader>a :Ag<cr>
-nnoremap <leader><leader>a :Rg<cr>
+nnoremap <leader>a :Rg<cr>
+" nnoremap <leader>a :Ag<cr>
+" nnoremap <leader><leader>a :Rg<cr>
 
 " dont't clear clipboard on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))

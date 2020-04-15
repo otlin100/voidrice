@@ -2,6 +2,7 @@
 
 tmpdir=scan-$RANDOM
 startdir=$(pwd)
+printer=hpaio:/net/OfficeJet_3830_series?zc=HP80CE62B57980
 
 cd /tmp || exit
 mkdir "$tmpdir"
@@ -10,7 +11,7 @@ cd "$tmpdir" || exit
 outname="$1".pdf
 
 notify-send "### Scanning ###"
-hp-scan -o "$outname" --adf -c 1500 -b 1600 -m grey -r 300 -d hpaio:/net/OfficeJet_3830_series?zc=HP80CE62B57980 --size=a4 --compression=raw || hp-scan -o "$outname" -c 1500 -b 1600 -m grey -r 300 -d hpaio:/net/OfficeJet_3830_series?zc=HP80CE62B57980 --size=a4 --compression=raw
+hp-scan -o "$outname" --adf -c 1500 -b 1600 -m grey -r 300 -d "$printer" --size=a4 --compression=raw || hp-scan -o "$outname" -c 1500 -b 1600 -m grey -r 300 -d "$printer" --size=a4 --compression=raw
 wait
 
 [ $? -eq 1 ] && pgrep -x dunst >/dev/null && notify-send -t 15000 -u critical "failed to scan" && exit

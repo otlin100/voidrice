@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "trying to kill port $1"
+
+kill $(lsof -t -i:$1) || echo "failed to kill port $1"
