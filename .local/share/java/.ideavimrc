@@ -3,6 +3,9 @@ set smartcase
 set scrolloff=3
 set surround
 set commentary
+set ReplaceWithRegister
+set argtextobj
+set textobj-entire
 let mapleader = " "
 nmap <leader>h <c-w>h
 nmap <leader>l <c-w>l
@@ -11,11 +14,15 @@ nmap <leader>j <c-w>j
 set clipboard=unnamedplus,unnamed
 nmap L gt
 nmap H gT
-nmap <leader>s :so ~/.ideavimrc<cr>
+nmap <leader>s :so ~/.local/share/jave/.ideavimrc<cr>
 nmap <leader>q :q!<cr>
 nmap <leader>d :action ToggleDistractionFreeMode<cr>
 nmap <leader>r :action ChooseRunConfiguration<cr>
-nmap <leader>m :action ToggleMainMenuAction<cr>
+nmap <leader>m :action MainMenu<cr>
+nmap <leader>c :action CollapseAllRegions<cr>
+nmap <leader>e :action ExpandAllRegions<cr>
+nmap <leader>l :action LocalHistory.ShowHistory<cr>
+
 nmap ge :action GotoNextError<cr>
 nmap gE :action GotoPreviousError<cr>
 nmap Y y$

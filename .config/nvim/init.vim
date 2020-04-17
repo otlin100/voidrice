@@ -145,6 +145,9 @@ nnoremap <leader>Y :let @t=@+ <bar> let @+=@* <bar> let @*=@" <bar> let @"=@t<cr
 nmap <leader>j <Plug>yankstack_substitute_older_paste
 nmap <leader>k <Plug>yankstack_substitute_newer_paste
 
+nmap <leader>d dd:let @" = trim(@")<cr>
+nmap gs "5yiadiamaw"6yia"5gria`a"6griaw
+
 " fzf lines
 nmap <leader>7 :Lines<cr>
 nmap <leader>/ /\<\><left><left>

@@ -15,9 +15,10 @@ case "$1" in
         pkill -f "mpv .*anoise" >/dev/null 2>&1
         success=$?
         newfile=$(find "$sounds"/* -prune -name '*.*' | shuf -n1)
+        filename=$(basename "$newfile" | cut -d'.' -f1)
         cp "$newfile" "$sounds"/anoise
-        pgrep -x dunst >/dev/null && notify-send "background audio switched to $(basename "$newfile")"
-        basename "$newfile" > "$sounds"/track
+        pgrep -x dunst >/dev/null && notify-send "background audio switched to $filename"
+        echo "$filename" > "$sounds"/track
         if [ "$success" -eq 0 ]; then
             exec mpv --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
         fi ;;

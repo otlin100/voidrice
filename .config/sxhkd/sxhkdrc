@@ -62,6 +62,8 @@ super + minus
     light -U 3
 super + p
     password
+super + t
+    telearbeit
 super + shift + p
     lmc pause
 super + alt + { space, n, p }

@@ -1,3 +1,5 @@
 #!/usr/bin/env sh
 
-pgrep -f "mpv .*anoise" >/dev/null 2>&1 && printf "🐦\n"
+anoise_name=$(cat $XDG_DATA_HOME/sounds/track)
+
+pgrep -f "mpv .*anoise" >/dev/null 2>&1 && printf "🐦 $anoise_name\n"
