@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pgrep -a openvpn | grep telearbeit && sudo killall openvpn && notify-send "VPN disconnected" && pkill -RTMIN+16 i3blocks && exit
+pgrep -a openvpn | grep telearbeit && sudo killall openvpn && notify-send "VPN disconnected" && git-team disable && pkill -RTMIN+16 i3blocks && exit
 
 password_file=$XDG_DATA_HOME/openvpn/password
 touch $password_file
