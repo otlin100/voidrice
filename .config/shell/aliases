@@ -46,6 +46,13 @@ gitmyclone() {
     git clone git@github.com:otlin100/"$repo" "$@"
 }
 
+mywoof() {
+    location="$1"
+    url=http://192.168.178.50:8080
+    shift
+    curl $url/$location
+}
+
 gpt() {
     if ! type "git_prompt_toggle" >/dev/null 2>&1; then
         GIT_PROMPT_THEME=Solarized_Extravagant

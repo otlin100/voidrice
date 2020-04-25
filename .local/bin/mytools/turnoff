@@ -13,4 +13,6 @@ case "$1" in
         slock ;;
     logout)
         i3-msg exit ;;
+    network)
+        sudo systemctl restart NetworkManager && notify-send "restart NetworkManager" ;;
 esac

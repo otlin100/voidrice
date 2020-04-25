@@ -62,8 +62,8 @@ super + minus
     light -U 3
 super + p
     password
-super + t
-    telearbeit
+super + t ; { s, h }
+    telearbeit { sipgate, hhu }
 super + shift + p
     lmc pause
 super + alt + { space, n, p }
@@ -88,8 +88,8 @@ super + Insert
     showclip
 super + Pause
     cabl
-super + x ; {s,h,r,l,w,x}
-    turnoff {suspend,hibernate,reboot,lock,logout,shutdown}
+super + x ; {s,h,r,l,w,x,n}
+    turnoff {suspend,hibernate,reboot,lock,logout,shutdown,network}
 Print
     maim pic-full-"$(date '+%d%m%y-%H%M-%S').png"
 shift + Print

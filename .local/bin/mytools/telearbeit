@@ -1,16 +1,24 @@
-#!/bin/sh
+#!/bin/bash
 
-pgrep -a openvpn | grep telearbeit && sudo killall openvpn && notify-send "VPN disconnected" && git-team disable && pkill -RTMIN+16 i3blocks && exit
+location=$1
 
-password_file=$XDG_DATA_HOME/openvpn/password
-touch $password_file
-echo lin > $password_file
-gopass show ol/general/sipgate/ldap/lin >> $password_file
+set -o pipefail; pgrep -a openvpn | grep -w "$location" | cut -d' ' -f1 | xargs -r sudo kill && notify-send "VPN ""$location"" disconnected" && git-team disable && pkill -RTMIN+16 i3blocks && exit
 
-sudo openvpn --config $XDG_DATA_HOME/openvpn/telearbeit --auth-user-pass $password_file --daemon &&
-    notify-send "successfully connected to VPN" ||
-    notify-send -u critical "connection to VPN failed!"
+password_file="$XDG_DATA_HOME"/openvpn/password
+touch "$password_file"
 
-rm $password_file
+[ "$location" = "hhu" ] && username=otlin100 && password=$(gopass show ol/general/hhu/otlin100_ | grep -vE "^username: ")
+[ "$location" = "sipgate" ] && username=lin && password=$(gopass show ol/general/sipgate/ldap/lin)
+
+[ -v username ] || { notify-send "unknown location ""$location" ; exit ; }
+
+echo "$username" > "$password_file"
+echo "$password" >> "$password_file"
+
+sudo openvpn --config "$XDG_DATA_HOME"/openvpn/"$location" --auth-user-pass "$password_file" --daemon &&
+    notify-send "successfully connected to ""$location"" VPN" ||
+    notify-send -u critical "connection to ""$location"" VPN failed!"
+
+rm "$password_file"
 
 pkill -RTMIN+16 i3blocks
