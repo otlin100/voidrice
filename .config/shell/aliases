@@ -19,7 +19,7 @@ alias mkd="mkdir -pv" \
     gc="gitmyclone" \
     gl="git log --stat --pretty=short --graph" \
     gb="git branch -r --no-merged" \
-    smi="sudo -A make -k clean install" \
+    smi="sudo -A make -k clean install && sudo -A make -k clean" \
     car="source /opt/anaconda3/bin/activate root" \
     q="exit" \
     vim="nvim" \
