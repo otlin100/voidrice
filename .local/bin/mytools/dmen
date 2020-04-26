@@ -9,8 +9,10 @@ darkGrey='#222222'
 white='#eeeeee'
 yellow='#fabd2f'
 
-colored="-nb $color0 -nf $white -sb $color6 -sf $color0"
-pass_color="-nb $darkGrey -nf $white -sb $yellow -sf $darkGrey"
+colored="-nb ""$color0"" -nf ""$white"" -sb ""$color6"" -sf ""$color0"
+pass_color="-nb ""$darkGrey"" -nf ""$white"" -sb ""$yellow"" -sf ""$darkGrey"
+pass_prompt=""
+pass_font="FuraMono Nerd Font:size=9"
 
 first="$1"
 shift
@@ -18,7 +20,7 @@ case "$first" in
     run)
         dmenu_run $colored -fn "$(getfont)" "$@" ;;
     pass)
-        dmenu -P $pass_color -fn "FuraMono Nerd Font:size=9" -p " $1" <&- ;;
+        dmenu -P $pass_color -fn "$pass_font" -p "$pass_prompt $1" <&- ;;
     clip)
         clipmenu $colored -fn "$(getfont)" ;;
     *)
