@@ -14,7 +14,7 @@ nmap <leader>j <c-w>j
 set clipboard=unnamedplus,unnamed
 nmap L gt
 nmap H gT
-nmap <leader>s :so ~/.local/share/jave/.ideavimrc<cr>
+nmap <leader>s :so ~/.local/share/java/.ideavimrc<cr>
 nmap <leader>q :q!<cr>
 nmap <leader>d :action ToggleDistractionFreeMode<cr>
 nmap <leader>r :action ChooseRunConfiguration<cr>
