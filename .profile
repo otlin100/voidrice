@@ -43,6 +43,7 @@ export JAVA_HOME="/usr/lib/jvm/zulu-11"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Duser.home=$XDG_DATA_HOME/java"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export GOPATH="$XDG_DATA_HOME/go"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 # Workstation specific
 export BATTERY="BAT1"

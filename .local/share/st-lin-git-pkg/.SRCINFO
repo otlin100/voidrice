@@ -1,0 +1,19 @@
+pkgbase = st-lin-git
+	pkgdesc = Simple virtual terminal emulator for X
+	pkgver = 0.8.2.r1074.8c11915
+	pkgrel = 1
+	url = https://github.com/otlin100/st.git
+	arch = i686
+	arch = x86_64
+	license = MIT
+	makedepends = ncurses
+	makedepends = libxext
+	makedepends = git
+	depends = libxft
+	provides = st
+	conflicts = st
+	options = zipman
+	source = st-lin::git+https://github.com/otlin100/st.git
+	sha256sums = SKIP
+
+pkgname = st-lin-git
