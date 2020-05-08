@@ -32,8 +32,21 @@ gitdir() {
 }
 
 gitignore() {
+    old_dir=$(pwd)
+    working_dir=$(pwd)
+
+    while [ ! -d $working_dir/.git ]
+    do
+        [ $working_dir == "/" ] && echo "no git repo found!" && return
+        cd ..
+        working_dir=$(pwd)
+    done
+    echo "git repo found in $working_dir"
+
     echo -e "add following files to gitignore:\n"
-    git status 2>/dev/null | grep -P '\t' | grep -v '.*: ' | tr -d '\t' | sed 's/\ /\\\ /g' | tee -a .git/info/exclude
+    git status 2>/dev/null | grep -P '\t' | grep -v '.*: ' | tr -d '\t' | sed 's/\ /\\\ /g' | tee -a "$working_dir"/.git/info/exclude
+
+    cd "$old_dir"
 }
 
 source_nvm() {
@@ -50,7 +63,7 @@ mywoof() {
     location="$1"
     url=http://192.168.178.50:8080
     shift
-    curl $url/$location
+    curl $url/"$location"
 }
 
 gpt() {

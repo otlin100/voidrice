@@ -1,27 +1,25 @@
 #!/usr/bin/env sh
 
 sounds="$XDG_DATA_HOME/sounds"
+icon="🐦"
 
-toggle() {
-    pkill -f "mpv .*anoise" >/dev/null 2>&1
-    [ "$?" -eq 1 ] && notify-send "$(cat "$sounds"/track)" && exec mpv --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
+play() {
+    exec mpv --volume=50 --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
 }
 
 case "$1" in
     toggle)
-        toggle ;;
+        pkill -f "mpv .*anoise" >/dev/null 2>&1 || { notify-send "$icon $(cat "$sounds"/track)" && play; } ;;
     shuffle)
         [ "$(pgrep -c -f "anoise shuffle")" -gt 1 ] && exit
-        pkill -f "mpv .*anoise" >/dev/null 2>&1
-        success=$?
+
         newfile=$(find "$sounds"/* -prune -name '*.*' | shuf -n1)
-        filename=$(basename "$newfile" | cut -d'.' -f1)
         cp "$newfile" "$sounds"/anoise
-        pgrep -x dunst >/dev/null && notify-send "background audio switched to $filename"
-        echo "$filename" > "$sounds"/track
-        if [ "$success" -eq 0 ]; then
-            exec mpv --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
-        fi ;;
+
+        filename=$(basename "$newfile" | cut -d'.' -f1 | tee "$sounds"/track )
+        notify-send "$icon $filename"
+
+        pkill -f "mpv .*anoise" >/dev/null 2>&1 && play
 esac
 
 pkill -RTMIN+13 i3blocks
