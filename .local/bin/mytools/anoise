@@ -3,8 +3,10 @@
 sounds="$XDG_DATA_HOME/sounds"
 icon="🐦"
 
+[ -f "$sounds/less_volume" ] && volume=50 || volume=100
+
 play() {
-    exec mpv --volume=50 --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
+    exec mpv --volume="$volume" --loop-file=inf "$sounds"/anoise >/dev/null 2>&1 &
 }
 
 case "$1" in
@@ -19,7 +21,9 @@ case "$1" in
         filename=$(basename "$newfile" | cut -d'.' -f1 | tee "$sounds"/track )
         notify-send "$icon $filename"
 
-        pkill -f "mpv .*anoise" >/dev/null 2>&1 && play
+        pkill -f "mpv .*anoise" >/dev/null 2>&1 && play ;;
+    volume)
+        [ -f "$sounds/less_volume" ] && rm "$sounds/less_volume" || touch "$sounds/less_volume" ;;
 esac
 
 pkill -RTMIN+13 i3blocks

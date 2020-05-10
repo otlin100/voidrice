@@ -2,8 +2,8 @@ super + Return
     $TERMINAL
 super + shift + Return
     samedir
-super {_,+ shift} + period
-    anoise {toggle,shuffle}
+super {_,+ shift, + alt} + period
+    anoise {toggle,shuffle,volume}
 super + d
     via
 super + v

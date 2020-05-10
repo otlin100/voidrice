@@ -3,3 +3,11 @@
 anoise_name=$(cat $XDG_DATA_HOME/sounds/track)
 
 pgrep -f "mpv .*anoise" >/dev/null 2>&1 && printf "🐦 $anoise_name\n"
+
+case $BLOCK_BUTTON in
+    1) anoise shuffle ;;
+    3) anoise toggle ;;
+esac
+
+wait
+pkill -RTMIN+13 i3blocks &
