@@ -23,7 +23,10 @@ case "$1" in
 
         pkill -f "mpv .*anoise" >/dev/null 2>&1 && play ;;
     volume)
-        [ -f "$sounds/less_volume" ] && rm "$sounds/less_volume" || touch "$sounds/less_volume" ;;
+        [ -f "$sounds/less_volume" ] && rm "$sounds/less_volume" || touch "$sounds/less_volume"
+        anoise restart ;;
+    restart)
+        pkill -f "mpv .*anoise" >/dev/null 2>&1 && play ;;
 esac
 
 pkill -RTMIN+13 i3blocks

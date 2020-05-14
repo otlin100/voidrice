@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
 anoise_name=$(cat $XDG_DATA_HOME/sounds/track)
+[ -f "$XDG_DATA_HOME/sounds/less_volume" ] && icon="🐦" || icon="🐦🐦"
 
-pgrep -f "mpv .*anoise" >/dev/null 2>&1 && printf "🐦 $anoise_name\n"
+pgrep -f "mpv .*anoise" >/dev/null 2>&1 && printf "%s %s\n" "$icon" "$anoise_name"
 
 case $BLOCK_BUTTON in
     1) anoise shuffle ;;
