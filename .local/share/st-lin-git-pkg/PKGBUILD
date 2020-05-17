@@ -5,7 +5,7 @@
 
 pkgname=st-lin-git
 _pkgname=st-lin
-pkgver=0.8.2.r1125.6a6970b
+pkgver=0.8.2.r1165.c203748
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='https://github.com/otlin100/st.git'

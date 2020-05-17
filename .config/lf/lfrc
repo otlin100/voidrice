@@ -1,8 +1,10 @@
-﻿set shell sh
+﻿set shell bash
 set previewer ~/.config/lf/scope
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
+set color256
+set period 1
 
 # cmds/functions
 cmd open ${{
@@ -18,8 +20,6 @@ cmd open ${{
              *) for f in $fx; do setsid $OPENER $f >/dev/null 2>&1 & done ;;
     esac
 }}
-
-cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
 cmd bulk-rename ${{
     vidir
@@ -46,6 +46,13 @@ map J $lf -remote "send $id cd $(cut -d'	' -f2 ~/.config/shortcuts/bmdirs | fzf)
 map D trash
 map C copyto
 map M moveto
+
+map A rename # at the very end
+map c push A<c-u> # new rename
+map I push A<c-a> # at the very beginning
+map i push A<a-b><a-b><a-f> # before extention
+# map a push A<a-b> # after extention
+
 map a push %mkdir<space>
 map r push :rename<space>
 map br bulk-rename
