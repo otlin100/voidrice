@@ -27,10 +27,10 @@ command=cat /tmp/recordingicon
 interval=once
 signal=9
 
-[music]
-label=🎼
-interval=once
-signal=11
+#[music]
+#label=🎼
+#interval=once
+#signal=11
 
 #[news]
 #label=📰
@@ -53,10 +53,10 @@ signal=7
 interval=18000
 signal=5
 
-[mailbox]
-label=📬
-interval=180
-signal=12
+# [mailbox]
+# label=📬
+# interval=180
+# signal=12
 
 #[memory]
 #interval=30
