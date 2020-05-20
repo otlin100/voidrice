@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-pgrep cupsd || sudo cupsd
+pgrep cupsd >/dev/null || sudo cupsd
 tmpdir=scan-$RANDOM
 startdir=$(pwd)
 printer=hpaio:/net/OfficeJet_3830_series?zc=HP80CE62B57980
@@ -16,10 +16,8 @@ resolution=300
 
 notify-send "### Scanning ###"
 hp-scan -o "$outname" -c $contrast -b $brightness -m grey -r $resolution -d "$printer" --size=a4 --compression=raw --adf ||
-hp-scan -o "$outname" -c $contrast -b $brightness -r $resolution -d "$printer" --size=a4 --compression=raw
-wait
-
-[ $? -eq 1 ] && pgrep -x dunst >/dev/null && notify-send -t 15000 -u critical "failed to scan" && exit
+hp-scan -o "$outname" -c $contrast -b $brightness -r $resolution -d "$printer" --size=a4 --compression=raw ||
+{ notify-send -t 15000 -u critical "failed to scan"; exit; }
 
 notify-send "### Compressing ###"
 pdfcompress "$outname"

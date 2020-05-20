@@ -1,0 +1,23 @@
+#!/bin/sh
+
+vl_name="Funktionentheorie"
+vl_short="ft"
+
+base_url='https://mediathek.hhu.de'
+vl_url="$base_url"/category/vorlesungen/
+
+vl_dir=~/workspace/ft/vl
+vl_list="$vl_dir"/id_list
+
+ext="mp4"
+
+new_vls="$(curl -s "$vl_url" | grep "$vl_name" | grep href | cut -d'"' -f4 | cut -d'/' -f3 | tac | diff -u "$vl_list" - | grep -v ".++" | grep "^+" | cut -d'+' -f2)"
+
+[ -z "$new_vls" ] && exit
+
+for x in $new_vls; do
+    echo "$x" >> "$vl_list"
+    filename="$(curl -s "$vl_url" | grep "$vl_name" | grep href | grep "$x" | cut -d'"' -f2 | sed "s/$vl_name/$vl_short/" | sed 's/Vorlesung /vl/' | sed 's/ /_/g')"."$ext"
+
+    curl "$base_url"/download/"$x"/"$ext"/v_1_100 --output "$vl_dir"/"$filename" && /usr/bin/notify-send -t 0 " $filename downloaded"
+done

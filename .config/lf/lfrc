@@ -47,14 +47,17 @@ map D trash
 map C copyto
 map M moveto
 
+cmd fullrename %[ -e $1 ] && printf "file exists" || mv $f $1
 map A rename # at the very end
-map c push A<c-u> # new rename
+map r push :fullrename<space>
 map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extention
+map cw push A<a-b><a-b><a-f><c-u> # change before extention
+map ce push A<a-b><a-d> # change before extention
+
 # map a push A<a-b> # after extention
 
 map a push %mkdir<space>
-map r push :rename<space>
 map br bulk-rename
 map <enter> shell
 map R reload
