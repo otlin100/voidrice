@@ -57,32 +57,17 @@ bar {
         tray_output primary
 }
 
-# #---Basic Bindings---# #
-
-bindsym $mod+Shift+space 	floating toggle
-bindsym $mod+space		focus mode_toggle
-
 # #---Letter Key Bindings---# #
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-# bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 bindsym $mod+Shift+q		exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
-
-bindsym $mod+Shift+w		move workspace to output right
-
-# bindsym $mod+t			split toggle
 
 bindsym $mod+o			sticky toggle
 
-# bindsym $mod+Shift+t		gaps inner current set 8; gaps outer current set 0
+bindsym $mod+Shift+t		gaps inner current set 8; gaps outer current set 0
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
-
-set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
-    mode "$freeze" { bindsym $mod+Shift+f mode "default"
-    }
 
 bindsym $mod+f			fullscreen toggle
 bindsym $mod+Mod1+f			fullscreen toggle global
-bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
 
 bindsym $mod+h			focus left
 bindsym $mod+Shift+h		move left 30
@@ -99,12 +84,6 @@ bindsym $mod+Shift+l		move right 30
 bindsym $mod+Mod1+l			workspace next_on_output
 
 bindsym $mod+b			bar mode toggle
-bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
-
-bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
-
-# #---Workspace Bindings---# #
-bindsym $mod+Tab		workspace back_and_forth
 
 set $ws1 "1"
 set $ws2 "2"
@@ -149,7 +128,6 @@ for_window [title="GIMP Startup"] move workspace $ws5
 for_window [class="Gimp"] move workspace $ws5
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
 for_window [window_role="GtkFileChooserDialog"] move position center
-for_window [title="Default - Wine desktop"] floating enable
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable, sticky enable, border pixel 0

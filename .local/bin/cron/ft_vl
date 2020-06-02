@@ -16,8 +16,8 @@ new_vls="$(curl -s "$vl_url" | grep "$vl_name" | grep href | cut -d'"' -f4 | cut
 [ -z "$new_vls" ] && exit
 
 for x in $new_vls; do
-    echo "$x" >> "$vl_list"
     filename="$(curl -s "$vl_url" | grep "$vl_name" | grep href | grep "$x" | cut -d'"' -f2 | sed "s/$vl_name/$vl_short/" | sed 's/Vorlesung /vl/' | sed 's/ /_/g')"."$ext"
 
-    curl "$base_url"/download/"$x"/"$ext"/v_1_100 --output "$vl_dir"/"$filename" && /usr/bin/notify-send -t 0 " $filename downloaded"
+    curl "$base_url"/download/"$x"/"$ext"/v_1_100 --output "$vl_dir"/"$filename"
+    [ "$(stat -c "%s" "$vl_dir"/"$filename")" -gt 5000000 ] && echo "$x" >> "$vl_list" && /usr/bin/notify-send -t 0 " $filename downloaded"
 done

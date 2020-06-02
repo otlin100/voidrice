@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 xdotool keyup shift
 xdotool keyup s

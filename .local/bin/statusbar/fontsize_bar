@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf " %s \\n" "$(grep '^*.font: ' $XDG_CONFIG_HOME/X11/Xresources | sed 's/.*-//' | tr ';' '\n')"

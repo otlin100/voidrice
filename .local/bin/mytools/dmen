@@ -2,7 +2,7 @@
 
 # look in "${HOME}/.cache/wal/colors.sh" for the colors
 color0='#292D3E'
-color6='#89DDFF'
+color6='#82AAFF'
 color15='#FFFFFF'
 
 darkGrey='#222222'
@@ -15,6 +15,8 @@ pass_prompt=""
 pass_font="FuraMono Nerd Font:size=9"
 
 first="$1"
+[ -z "$first" ] && dmenu $colored -fn "$(getfont)" && exit
+
 shift
 case "$first" in
     run)

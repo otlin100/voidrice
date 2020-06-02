@@ -5,4 +5,4 @@ xresource=$XDG_CONFIG_HOME/X11/Xresources
 
 sed -i -r '/^\*\.font:/s/(.*)([0-9]\.[0|5])(.*$)/echo "\1$(bc <<< "\2 '"$1"'")\3"/e' "$xresource" &&
     xrdb "$xresource" &&
-    pkill -RTMIN+14 i3blocks
+    pkill -RTMIN+14 dwmblocks

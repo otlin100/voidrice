@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 devices="$XDG_CONFIG_HOME/bluetooth/devices"
 

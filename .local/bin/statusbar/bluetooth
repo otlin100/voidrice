@@ -1,9 +1,9 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 bt_string=$(systemctl is-active bluetooth)
 
 if [ "$bt_string" = "active" ]; then
-    printf "%s\\n" ""
+    printf " %s \\n" " on"
 else
-    printf ""
+    printf " %s \\n" " off"
 fi

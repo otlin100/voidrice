@@ -353,3 +353,4 @@ autocmd BufWritePost *Xresources,*Xdefaults :exe 'silent! !xrdb % ;wal -R ;$TERM
 autocmd BufWritePost */via/websites !via -ro
 
 autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+autocmd BufWritePost ~/.local/share/dwmblocks/config.h !cd ~/.local/share/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }

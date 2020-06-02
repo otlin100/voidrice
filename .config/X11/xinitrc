@@ -19,4 +19,4 @@ gpgconf --homedir $GNUPGHOME --launch gpg-agent
 autorandr -c --force
 wal -n -R
 
-exec i3
+ssh-agent dwm

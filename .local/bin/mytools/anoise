@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 sounds="$XDG_DATA_HOME/sounds"
 icon="🐦"
@@ -29,4 +29,4 @@ case "$1" in
         pkill -f "mpv .*anoise" >/dev/null 2>&1 && play ;;
 esac
 
-pkill -RTMIN+13 i3blocks
+pkill -RTMIN+13 dwmblocks

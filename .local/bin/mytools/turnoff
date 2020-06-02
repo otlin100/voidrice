@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 case "$1" in
     reboot)
@@ -12,7 +12,7 @@ case "$1" in
     lock)
         slock ;;
     logout)
-        i3-msg exit ;;
+        kill -TERM $(pidof -s dwm) ;;
     network)
         sudo systemctl restart NetworkManager && notify-send "restart NetworkManager" ;;
 esac

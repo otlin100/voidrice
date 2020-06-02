@@ -6,6 +6,8 @@ super {_,+ shift, + alt} + period
     anoise {toggle,shuffle,volume}
 super + d
     via
+super + m
+    spotify
 super + v
     $TERMINAL -e nvim_mru
 super + alt + b
@@ -21,15 +23,13 @@ super + z
 super + acute
     dmenuunicode
 super + e
-    $TERMINAL -e neomutt && pkill -RTMIN+12 i3blocks
+    $TERMINAL -e neomutt
 super + shift + r
     winresize
 super + shift + { z, o, i, u }
     i3resize { left, right, up, down }
-super + m
-    ddspawn_program spotify
 super + n
-    $TERMINAL -e newsboat && pkill -RTMIN+6 i3blocks
+    $TERMINAL -e newsboat
 super + s
     skypeforlinux
 super + shift + s
@@ -74,8 +74,6 @@ super + i
     $TERMINAL -e htop
 super + a
     $TERMINAL -e pulsemixer
-super + shift + a
-    ddspawn dropdowncalc -f mono:pixelsize=24
 super + r
     $TERMINAL -e $FILE
 super + shift + r

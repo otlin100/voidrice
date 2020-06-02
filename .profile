@@ -44,6 +44,9 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Duser.ho
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export GOPATH="$XDG_DATA_HOME/go"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit 
+wmname LG3D
 
 # Workstation specific
 export BATTERY="BAT1"
@@ -57,6 +60,68 @@ export LESS_TERMCAP_so="$(printf '%b' '')"; a="${a%_}"
 export LESS_TERMCAP_se="$(printf '%b' '')"; a="${a%_}"
 export LESS_TERMCAP_us="$(printf '%b' '')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '')"; a="${a%_}"
+
+export LF_ICONS="di=📁:\
+fi=📃:\
+tw=🤝:\
+ow=📂:\
+ln=⛓:\
+or=❌:\
+ex=🎯:\
+*.txt=✍:\
+*.mom=✍:\
+*.me=✍:\
+*.ms=✍:\
+*.png=🖼:\
+*.ico=🖼:\
+*.jpg=📸:\
+*.jpeg=📸:\
+*.gif=🖼:\
+*.svg=🗺:\
+*.xcf=🖌:\
+*.html=🌎:\
+*.xml=📰:\
+*.gpg=🔒:\
+*.css=🎨:\
+*.pdf=📕:\
+*.djvu=📕:\
+*.epub=📕:\
+*.csv=📓:\
+*.xlsx=📓:\
+*.tex=📜:\
+*.md=📘:\
+*.r=📊:\
+*.R=📊:\
+*.rmd=📊:\
+*.Rmd=📊:\
+*.mp3=🎵:\
+*.opus=🎵:\
+*.ogg=🎵:\
+*.m4a=🎵:\
+*.flac=🎼:\
+*.mkv=🎥:\
+*.mp4=🎥:\
+*.webm=🎥:\
+*.mpeg=🎥:\
+*.avi=🎥:\
+*.zip=📦:\
+*.rar=📦:\
+*.7z=📦:\
+*.tar.gz=📦:\
+*.z64=🎮:\
+*.v64=🎮:\
+*.n64=🎮:\
+*.1=ℹ:\
+*.nfo=ℹ:\
+*.info=ℹ:\
+*.log=📙:\
+*.iso=📀:\
+*.img=📀:\
+*.bib=🎓:\
+*.ged=👪:\
+*.part=💔:\
+*.torrent=🔽:\
+"
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 

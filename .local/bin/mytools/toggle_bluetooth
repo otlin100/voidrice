@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 bt_string=$(systemctl is-active bluetooth)
 
@@ -9,4 +9,4 @@ else
     sudo -A systemctl stop bluetooth
 fi
 
-pkill -RTMIN+15 i3blocks
+pkill -RTMIN+15 dwmblocks

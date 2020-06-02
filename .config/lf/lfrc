@@ -5,6 +5,7 @@ set ifs "\n"
 set scrolloff 10
 set color256
 set period 1
+set icons
 
 # cmds/functions
 cmd open ${{
@@ -121,8 +122,8 @@ map bf $$EDITOR ~/.config/shortcuts/bmfiles
 map cfa $$EDITOR ~/.config/shell/aliases
 map cfb $$EDITOR ~/.bashrc
 map cfd $$EDITOR ~/.config/dunst/dunstrc
-map cfB $$EDITOR ~/.config/i3blocks/config
-map cfi $$EDITOR ~/.config/i3/config
+map cfB $$EDITOR ~/.local/share/dwmblocks/config.h
+map cfi $$EDITOR ~/.local/share/dwm/config.h
 map cfk $$EDITOR ~/.config/sxiv/exec/key-handler
 map cfl $$EDITOR ~/.config/lf/lfrc
 map cfM $$EDITOR ~/.config/mpd/mpd.conf
@@ -135,5 +136,4 @@ map cfv $$EDITOR ~/.config/nvim/init.vim
 map cfw $$EDITOR ~/.config/via/websites
 map cfX $$EDITOR ~/.config/X11/xinitrc
 map cfx $$EDITOR ~/.config/X11/Xresources
-map cfz $$EDITOR ~/.config/zsh/.zshrc
 # -------- SHORTCUTS --------
