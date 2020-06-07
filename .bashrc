@@ -11,5 +11,4 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 [ -f "$XDG_CONFIG_HOME/shell/aliases" ] && source "$XDG_CONFIG_HOME/shell/aliases"
 
 export GPG_TTY=$(tty)
-export PRINTER="hp_zuhause"
 source /usr/share/autojump/autojump.bash

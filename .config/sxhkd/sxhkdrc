@@ -75,7 +75,7 @@ super + i
 super + a
     $TERMINAL -e pulsemixer
 super + r
-    $TERMINAL -e $FILE
+    launch_lf
 super + shift + r
     remaps
 super + shift + e
