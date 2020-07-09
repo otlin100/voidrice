@@ -70,8 +70,8 @@ super + alt + { space, n, p }
     playerctl { play-pause, next, previous }
 super + alt + c
     showTrackInfo
-super + i
-    $TERMINAL -e htop
+super + {_, alt } + i
+    $TERMINAL -e { htop, ytop }
 super + a
     $TERMINAL -e pulsemixer
 super + r

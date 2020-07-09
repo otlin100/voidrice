@@ -10,6 +10,7 @@ set icons
 # cmds/functions
 cmd open ${{
     case $(file --mime-type $f -b) in
+        image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
     	text/troff) man ./ $f ;;
         text/html) $BROWSER $fx ;;
         text/*) $EDITOR $fx ;;
@@ -17,7 +18,6 @@ cmd open ${{
 	    image/*) rotdir $f | setsid sxiv -ai >/dev/null 2>&1 & ;;
 	    audio/*) mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f ;;
 	    video/*) setsid mpv --volume=130 --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 & ;;
-	    application/pdf) setsid zathura $fx >/dev/null 2>&1 & ;;
              *) for f in $fx; do setsid $OPENER $f >/dev/null 2>&1 & done ;;
     esac
 }}

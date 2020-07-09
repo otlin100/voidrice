@@ -3,7 +3,7 @@ alias mkd="mkdir -pv" \
     mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
     p="sudo pacman" \
     SS="sudo -A systemctl" \
-    r="$FILE" \
+    r="launch_lf" \
     g="./gradlew" \
     e="nvim_mru" \
     v="$EDITOR" \
