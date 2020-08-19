@@ -6,6 +6,8 @@ super {_,+ shift, + alt} + period
     anoise {toggle,shuffle,volume}
 super + d
     via
+super + shift + d
+    restartDiscord
 super + m
     spotify
 super + v

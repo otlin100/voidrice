@@ -24,12 +24,12 @@ else
     [ "$(echo "$selected" | wc -l)" -eq 1 ] && [ ! "$selected" == "cancel" ] || exit
     if [ "$bt_string" == "inactive" ]; then
         toggle_bluetooth || exit
-        wait
+        sleep 2
     fi
     echo -e "power on\n" | bluetoothctl
-    sleep 0.15
+    sleep 1
     echo -e "connect $selected\n" | bluetoothctl
-    sleep 2
+    sleep 4
     IFS=$'\n'
     info=$(echo -e "info $selected\n" | bluetoothctl | awk -F ':' '/(Connected:|Name:)/ {print $2}')
     unset IFS

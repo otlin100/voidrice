@@ -39,6 +39,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'otlin100/vim-lf'
 Plug 'otlin100/termopen.vim'
 Plug 'lilydjwg/colorizer'
+Plug 'tommcdo/vim-exchange'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
 
 let g:vim_textobj_parameter_mapping = 'a'
@@ -282,7 +286,8 @@ map <leader>h :bprevious<cr>
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Goyo plugin makes text more readable when writing prose:
-map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+" map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+map <leader>f :Goyo \| set linebreak<CR>
 
 " MRU Plugin
 let MRU_File = $XDG_DATA_HOME . '/nvim/mru/vim_mru_files'
@@ -323,10 +328,14 @@ autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markd
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
+function! EnterMuttBufferWithGoyo()
+    call timer_start(0, { tid -> execute('Goyo')})
+    call feedkeys("O")
+endfunction
+
 " Enable Goyo by default for mutt writting
 " Goyo's width will be the line limit in mutt.
-autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
+autocmd BufRead,BufNewFile /tmp/neomutt* call EnterMuttBufferWithGoyo()
 autocmd QuitPre /tmp/neomutt* :wqa!
 
 augroup AutoSaveFolds

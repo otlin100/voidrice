@@ -6,6 +6,7 @@ set commentary
 set ReplaceWithRegister
 set argtextobj
 set textobj-entire
+set exchange
 let mapleader = " "
 nmap <leader>h <c-w>h
 nmap <leader>l <c-w>l
@@ -14,6 +15,8 @@ nmap <leader>j <c-w>j
 set clipboard=unnamedplus,unnamed
 nmap L gt
 nmap H gT
+nmap zo :action EditorDecreaseFontSize<cr>
+nmap zi :action EditorIncreaseFontSize<cr>
 nmap <leader>s :so ~/.local/share/java/.ideavimrc<cr>
 nmap <leader>q :q!<cr>
 nmap <leader>d :action ToggleDistractionFreeMode<cr>
