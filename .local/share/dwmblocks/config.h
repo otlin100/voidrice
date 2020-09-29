@@ -1,6 +1,7 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
+    {"",	"discord_icon",	10,	17},
     {"",	"openvpn_status",	10,	16},
 	{"",	"anoise_icon",	0,	13},
 	{"",	"bluetooth",	0,	15},

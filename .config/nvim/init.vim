@@ -45,6 +45,32 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
 
+call textobj#user#plugin('latex', {
+\   'environment': {
+\     '*pattern*': ['\\begin{[^}]\+}.*\n\s*', '\n^\s*\\end{[^}]\+}.*$'],
+\     'select-a': 'aE',
+\     'select-i': 'iE',
+\   },
+\  'bracket-math': {
+\     '*pattern*': ['\\\[', '\\\]'],
+\     'select-a': 'ab',
+\     'select-i': 'ib',
+\   },
+\  'paren-math': {
+\     '*pattern*': ['\\(', '\\)'],
+\     'select-a': 'a\',
+\     'select-i': 'i\',
+\   },
+\  'dollar-math-a': {
+\     '*pattern*': '[$][^$]*[$]',
+\     'select': 'am',
+\   },
+\  'dollar-math-i': {
+\     '*pattern*': '[$]\zs[^$]*\ze[$]',
+\     'select': 'im',
+\   },
+\ })
+
 let g:vim_textobj_parameter_mapping = 'a'
 
 source $XDG_CONFIG_HOME/nvim/vim_shortcuts.vim

@@ -17,3 +17,4 @@ cfv	~/.config/nvim/init.vim
 cfw	~/.config/via/websites
 cfX	~/.config/X11/xinitrc
 cfx	~/.config/X11/Xresources
+cfz ~/.config/zathura/zathurarc

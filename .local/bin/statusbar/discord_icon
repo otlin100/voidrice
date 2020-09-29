@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pgrep "DiscordCanary|Discord" >/dev/null && printf " %s \n" ""

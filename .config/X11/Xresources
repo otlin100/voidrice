@@ -16,7 +16,7 @@
 *.color15:#FFFFFF
 st.alpha: 0.95
 
-*.font: FuraMono Nerd Font-16.0;
+*.font: FuraMono Nerd Font-15.0;
 
 *.background:#292D3E
 *.foreground:#959DCB

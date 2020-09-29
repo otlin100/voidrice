@@ -136,4 +136,5 @@ map cfv $$EDITOR ~/.config/nvim/init.vim
 map cfw $$EDITOR ~/.config/via/websites
 map cfX $$EDITOR ~/.config/X11/xinitrc
 map cfx $$EDITOR ~/.config/X11/Xresources
+map cfz $$EDITOR ~/.config/zathura/zathurarc
 # -------- SHORTCUTS --------

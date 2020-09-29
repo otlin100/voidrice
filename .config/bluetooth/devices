@@ -1,11 +1,10 @@
-toggle                  sw
------------------------------------------   cancel
-redmi                   38:E6:0A:35:3A:A6
-taotronics              FC:58:FA:04:0C:DB
-sb_roar_pro             00:02:3C:5F:8F:1C
-edifier_bric_connect    40:EF:4C:73:84:47
------------------------------------------   cancel
-blueman                 bm
-new_device              new
-disconnect              dc
------------------------------------------   cancel
+|toggle
+|-----------------------------------------
+00:02:3C:5F:8F:1C|sb_roar_pro
+40:EF:4C:73:84:47|edifier_bric_connect
+38:E6:0A:35:3A:A6|redmi
+FC:58:FA:04:0C:DB|taotronics
+|-----------------------------------------
+|blueman
+|new_device
+|disconnect

@@ -1,12 +1,7 @@
 #!/bin/sh
 
-bt_string=$(systemctl is-active bluetooth)
-
-if [ "$bt_string" = 'inactive' ]; then
-    sudo -A systemctl start bluetooth
-else
-    pkill -f blueman
-    sudo -A systemctl stop bluetooth
-fi
+[ "$(systemctl is-active bluetooth)" = 'inactive' ] &&
+    sudo systemctl start bluetooth ||
+    { pkill -f blueman; sudo systemctl stop bluetooth; }
 
 pkill -RTMIN+15 dwmblocks

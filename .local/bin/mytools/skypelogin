@@ -6,7 +6,7 @@ xdotool keyup super
 
 id=$(xwininfo -tree -root | grep '"Skype"' | awk '{print $1}')
 username="ottolin@outlook.de"
-password="$(gopass ol/general/microsoft/"$username")"
+password="$(gopass show ol/general/microsoft/"$username")"
 
 focus_skype(){
     i3-msg fullscreen disable

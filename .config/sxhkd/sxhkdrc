@@ -6,8 +6,8 @@ super {_,+ shift, + alt} + period
     anoise {toggle,shuffle,volume}
 super + d
     via
-super + shift + d
-    restartDiscord
+super + shift + d ; {r,k}
+    discordctl { restart, kill}
 super + m
     spotify
 super + v
@@ -26,18 +26,12 @@ super + acute
     dmenuunicode
 super + e
     $TERMINAL -e neomutt
-super + shift + r
-    winresize
-super + shift + { z, o, i, u }
-    i3resize { left, right, up, down }
 super + n
     $TERMINAL -e newsboat
 super + s
     skypeforlinux
 super + shift + s
     skypelogin
-super + F1
-    groff -mom $XDG_DATA_HOME/larbs/readme.mom -Tpdf | zathura -
 super + F3
     displayselect
 super + shift + F3

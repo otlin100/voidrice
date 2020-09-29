@@ -1,0 +1,20 @@
+#!/bin/sh
+
+secs=1
+endTime=$(( $(date +%s) + secs ))
+
+while [ $(date +%s) -lt $endTime ]; do
+    killall DiscordCanary Discord
+done
+
+pkill -RTMIN+17 dwmblocks
+
+case $1 in
+    restart)
+        discord-canary ;;
+    kill)
+        return ;;
+esac
+
+sleep 3
+pkill -RTMIN+17 dwmblocks

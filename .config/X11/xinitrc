@@ -12,6 +12,7 @@ dunst &			# dunst for notifications
 mpdupdate &
 clipmenud &
 setbg &
+sudo cupsd &
 
 xrdb -merge "$XDG_CONFIG_HOME/X11/Xresources"
 

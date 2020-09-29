@@ -1,4 +1,0 @@
-#!/bin/sh
-
-killall DiscordCanary && killall DiscordCanary && killall DiscordCanary
-discord-canary

@@ -1,9 +1,4 @@
 #!/bin/sh
 
 bt_string=$(systemctl is-active bluetooth)
-
-if [ "$bt_string" = "active" ]; then
-    printf " %s \\n" " on"
-else
-    printf " %s \\n" " off"
-fi
+[ "$bt_string" = "active" ] && printf " %s \\n" "$(echo "info" | bluetoothctl | grep -i name | cut -d':' -f2)"

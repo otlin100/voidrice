@@ -4,6 +4,7 @@ pgrep cupsd >/dev/null || sudo cupsd
 tmpdir=scan-$RANDOM
 startdir=$(pwd)
 printer=hpaio:/net/OfficeJet_3830_series?zc=HP80CE62B57980
+# printer=hpaio:/usb/Deskjet_F2400_series?serial=CN9AE171XZ05BS
 
 cd /tmp || exit
 mkdir "$tmpdir"
