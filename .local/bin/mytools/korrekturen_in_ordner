@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for x in *.pdf; do
+    dir=$(echo "$x" | cut -d'_' -f 1 | sed 's/[[:digit:]]\+.*//'| xargs -I _ find . -type d -iname '_*')
+    [ "$(echo "$dir" | wc -l)" = 1 ] &&
+        mv -v "$x" "$dir"
+done
+
+[ "$(find . -maxdepth 0 -name '*.pdf' | wc -l)" = 0 ] && find . -type d -empty -delete

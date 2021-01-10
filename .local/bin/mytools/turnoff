@@ -12,7 +12,13 @@ case "$1" in
     lock)
         slock ;;
     logout)
-        kill -TERM $(pidof -s dwm) ;;
+        kill -TERM $(pgrep -u $USER "\bdwm$") ;;
+    refresh)
+        kill -HUP $(pgrep -u $USER "\bdwm$") ;;
     network)
         sudo systemctl restart NetworkManager && notify-send "restart NetworkManager" ;;
+    bar)
+        update_bar ;;
+    monitor)
+        autorandr -c ;;
 esac

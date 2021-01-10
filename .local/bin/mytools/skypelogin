@@ -9,9 +9,8 @@ username="ottolin@outlook.de"
 password="$(gopass show ol/general/microsoft/"$username")"
 
 focus_skype(){
-    i3-msg fullscreen disable
-    xdotool set_desktop "$(xdotool get_desktop_for_window "$id")"
-    xdotool windowfocus "$id"
+    # xdotool set_desktop "$(xdotool get_desktop_for_window "$id")"
+    xdotool windowactivate "$id"
 }
 
 

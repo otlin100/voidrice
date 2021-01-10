@@ -1,0 +1,10 @@
+#!/bin/sh
+
+skript=~/reading/skript_pde1.pdf
+skript_new=/tmp/skript_pde1.pdf
+
+curl --user Student:Kato http://reh.math.uni-duesseldorf.de/~internet/PDE1_WS2021/pd-skript_pde2020.pdf --output "$skript_new"
+
+diff -q "$skript_new" "$skript" && exit
+
+mv "$skript_new" "$skript" && notify-send -t 0 "$(basename $skript) updated"

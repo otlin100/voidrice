@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 # look in "${HOME}/.cache/wal/colors.sh" for the colors
 color0='#292D3E'

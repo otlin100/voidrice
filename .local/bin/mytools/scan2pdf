@@ -22,7 +22,8 @@ hp-scan -o "$outname" -c $contrast -b $brightness -r $resolution -d "$printer" -
 
 notify-send "### Compressing ###"
 pdfcompress "$outname"
-mv compressed_"$outname" "$HOME"/Downloads/"$outname"
+mv compressed_"$outname" /home/lin/Downloads/"$outname"
+chown lin /home/lin/Downloads/"$outname"
 
 notify-send "### Cleaning Up ###"
 rm -rf "$tmpdir"

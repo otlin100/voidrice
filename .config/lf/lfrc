@@ -48,6 +48,9 @@ map D trash
 map C copyto
 map M moveto
 
+map V push :glob-select<space>
+map t push $$EDITOR<space>
+
 cmd fullrename %[ -e $1 ] && printf "file exists" || mv $f $1
 map A rename # at the very end
 map r push :fullrename<space>

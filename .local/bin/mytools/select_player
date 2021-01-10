@@ -1,0 +1,5 @@
+#!/bin/sh
+
+newplayer=$(playerctl -l | dmen -l 10 -p "control which player?")
+
+echo "export PLAYER=$newplayer" > "$XDG_DATA_HOME/player/.env"
